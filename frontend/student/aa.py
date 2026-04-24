@@ -1,3 +1,52 @@
+'''Overview
+This module defines the student dashboard for attendance management in the Campus ERP system. Built with Streamlit, it provides students with a simple interface to view their attendance records, track subject-wise percentages, and ensure compliance with academic requirements. It acts as the frontend layer that communicates with backend APIs for attendance workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (forms, tables, charts).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular attendance data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Attendance → Displays attendance records for each subject.
+
+Attendance Summary → Shows overall attendance percentage and subject-wise breakdown.
+
+Download Report → Allows students to export attendance records.
+
+Forms  
+Students can input their roll number or ID to fetch attendance data.
+
+Tables & Charts  
+Attendance records are displayed in tabular format using Pandas DataFrames, with optional charts for visualization.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/attendance/ → Fetch subject-wise attendance records
+
+/attendance-summary/ → Retrieve overall attendance percentage
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves attendance data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits attendance queries or requests.
+
+download_report()  
+Exports attendance records into a downloadable format (CSV/PDF).'''
 import streamlit as st
 import requests
 import pandas as pd
