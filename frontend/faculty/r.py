@@ -1,3 +1,59 @@
+'''Overview
+This module defines the faculty role management interface for the Campus ERP system. Built with Streamlit, it provides a dashboard where faculty members can view, assign, and update roles (e.g., Admin, Faculty, Student) within the ERP. It acts as the frontend layer that communicates with backend APIs for role-based access control.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (forms, tables, tabs).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular role data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Roles → Displays all roles defined in the system.
+
+Assign Role → Allows faculty/admin to assign roles to users.
+
+Update Role → Provides interface to modify existing role assignments.
+
+Delete Role → Enables removal of roles from users.
+
+Forms  
+Each tab contains forms for data entry (username, role type, faculty ID).
+
+Tables  
+Role records are displayed in tabular format using Pandas DataFrames for easy review.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/roles/ → Fetch and manage role definitions
+
+/users/ → Link users to roles
+
+/faculty/roles/ → Manage faculty-specific role assignments
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves role data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new role assignments to backend.
+
+update_data(endpoint, payload)  
+Updates existing role records.
+
+delete_data(endpoint, id)  
+Removes role records when required.'''
 import streamlit as st
 import requests
 
