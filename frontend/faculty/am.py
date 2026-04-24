@@ -1,3 +1,63 @@
+'''Overview
+This module defines a Streamlit-based faculty dashboard for managing academic workflows in the Campus ERP system. It provides an interactive interface for faculty members to view students, record attendance, upload assignments, and enter MST exam marks. It acts as the frontend layer that communicates with backend APIs.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Used for tabular data display and manipulation.
+
+json → For parsing API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Students → Displays student records fetched from backend.
+
+Attendance → Allows faculty to mark and view attendance.
+
+Assignments → Enables assignment creation and marks entry.
+
+MST Exams → Provides exam scheduling and marks entry interface.
+
+Forms  
+Each tab contains forms for data entry (e.g., roll number, subject, marks).
+
+Tables  
+Student lists, attendance records, and marks are displayed in tabular format using Pandas DataFrames.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/students/ → Fetch student records
+
+/attendance/ → Record and view attendance
+
+/assignment/ → Create assignments
+
+/mst-exams/ → Manage MST exams
+
+/mst-exam-marks/ → Record MST exam marks
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Generic function to retrieve data from backend APIs.
+
+post_data(endpoint, payload)  
+Sends new records (attendance, assignments, marks) to backend.
+
+update_data(endpoint, payload)  
+Updates existing records.
+
+delete_data(endpoint, id)  
+Removes records when required.'''
 import streamlit as st
 import requests
 import pandas as pd
