@@ -1,4 +1,4 @@
-'''
+/*
        Overview
 This SQL script defines the initial database schema for the Campus ERP system. It creates all core tables, primary keys, and foreign key relationships required to manage students, faculty, departments, courses, subjects, exams, assignments, attendance, and administrative roles.
 
@@ -91,7 +91,7 @@ Primary Keys ensure unique identification of records.
 
 Foreign Keys enforce relationships between students, faculties, subjects, courses, and departments.
 
-Referential Integrity ensures consistent data across tables.'''
+Referential Integrity ensures consistent data across tables.*/
 SELECT name AS schema_name
 FROM sys.schemas
 ORDER BY name;
