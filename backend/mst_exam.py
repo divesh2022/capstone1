@@ -1,3 +1,53 @@
+'''
+Overview
+This module defines API endpoints for managing Mid-Semester Test (MST) exams in the college management system. It provides CRUD operations to create, update, delete, and list MST exams, ensuring proper linkage between courses, subjects, and faculty.
+
+Key Components
+🔹 Data Models
+MSTExamCreate (Pydantic Model)  
+Represents the structure for creating a new MST exam record.
+Attributes:
+
+course_pk: Primary key of the course
+
+subject_pk: Primary key of the subject
+
+faculty_pk: Faculty member conducting the exam
+
+exam_date: Date of the exam
+
+exam_type: Type of MST (e.g., MST-1, MST-2)
+
+MSTExamUpdate (Pydantic Model)  
+Used for updating existing MST exam records.
+Attributes:
+
+exam_id: Identifier of the MST exam record
+
+exam_date: Updated exam date
+
+exam_type: Updated exam type
+
+🔹 Endpoints
+GET /mst-exams/ → list_mst_exams  
+Retrieves all MST exam records.
+
+POST /mst-exams/ → create_mst_exam  
+Adds a new MST exam record.
+
+PUT /mst-exams/{id} → update_mst_exam  
+Updates an existing MST exam record by ID.
+
+DELETE /mst-exams/{id} → delete_mst_exam  
+Removes an MST exam record.
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections.
+
+Error Handling  
+Wraps queries in try/except blocks to ensure exceptions are caught and returned as HTTP errors.
+'''
 import uvicorn
 from fastapi import FastAPI, HTTPException,APIRouter
 from pydantic import BaseModel
