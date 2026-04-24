@@ -1,3 +1,49 @@
+'''Overview
+This module defines the student dashboard for MST (Mid-Semester Test) exam management in the Campus ERP system. Built with Streamlit, it provides students with a simple interface to view MST exam schedules, check marks, and track academic performance. It acts as the frontend layer that communicates with backend APIs for MST exam workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular exam and marks data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View MST Exams → Displays scheduled MST exams with subject and faculty details.
+
+View MST Marks → Shows marks awarded to students in MST exams.
+
+Performance Summary → Provides subject-wise and overall performance analysis.
+
+Forms  
+Students can input their roll number or ID to fetch exam and marks data.
+
+Tables & Charts  
+Exam schedules and marks are displayed in tabular format using Pandas DataFrames, with optional charts for performance visualization.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/mst-exams/ → Fetch MST exam schedules
+
+/mst-exam-marks/ → Retrieve MST exam marks
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves exam or marks data from backend APIs.
+
+download_report()  
+Exports MST exam marks into a downloadable format (CSV/PDF).'''
 import streamlit as st
 import requests
 import pandas as pd
