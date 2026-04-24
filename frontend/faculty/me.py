@@ -1,3 +1,57 @@
+'''Overview
+This module defines the faculty interface for MST (Mid-Semester Test) exam management in the Campus ERP system. Built with Streamlit, it allows faculty members to schedule MST exams, record marks, and view exam-related data. It acts as the frontend layer that communicates with backend APIs for exam workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular exam and marks data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs:
+
+Schedule MST Exam → Faculty can create new MST exam records.
+
+Enter Marks → Allows entry of student marks for MST exams.
+
+View Exams → Displays scheduled MST exams with subject and faculty details.
+
+View Marks → Shows marks awarded to students in MST exams.
+
+Forms  
+Each tab contains forms for data entry (exam type, subject, date, student roll number, marks).
+
+Tables  
+Exam schedules and marks are displayed in tabular format using Pandas DataFrames.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/mst-exams/ → Create and view MST exam records
+
+/mst-exam-marks/ → Record and view MST exam marks
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves exam or marks data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new exam schedules or marks to backend.
+
+update_data(endpoint, payload)  
+Updates existing exam or marks records.
+
+delete_data(endpoint, id)  
+Removes exam or marks records when required.'''
 import streamlit as st
 import requests
 import datetime
