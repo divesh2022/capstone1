@@ -1,137 +1,1937 @@
 Source Code Documentation
 ==================================================
 
-File: E:\project\capstone\frontend\dotcoverter.py
-  Function: dot_to_mermaid
+File: E:\project\capstone\doc.py
+  Definition: extract_python_functions
+  Definition: extract_other_functions
+  Definition: extract_sql_definitions
+  Definition: extract_comments_and_strings
+  Definition: scan_folder
   Documentation Extracted:
-    # Start Mermaid graph
-    # Regex to capture edges like: A -> B
-    # Regex to capture nodes like: A [label="Entity"]
-    # Map DOT node names to labels
-    # Convert edges
-    # Mermaid ER syntax: ENTITY ||--o{ ENTITY : "relationship"
+    # Comments
+    # Multiline strings (Python only)
+    # Example usage
+    |\'\'\')(.*?)(
+--------------------------------------------------
+
+File: E:\project\capstone\backend\admin.py
+  Definition: create_role
+    Docstring: Create a new role.
+  Definition: update_role
+    Docstring: Update an existing role.
+  Definition: delete_role
+    Docstring: Delete a role.
+  Definition: list_roles
+    Docstring: Fetch all roles.
+  Definition: root
+  Definition: health_check
+  Definition: list_users
+    Docstring: List all users with their primary keys.
+  Definition: create_user
+    Docstring: Create a new user.
+  Definition: update_user
+    Docstring: Update an existing user.
+  Definition: delete_user
+    Docstring: Delete a user.
+  Definition: bulk_upload_users
+    Docstring: Bulk upload users from a CSV file.
+  Definition: list_users
+  Definition: list_roles
+  Definition: insert_userrole
+  Definition: update_userrole
+  Definition: delete_userrole
+  Definition: view_userroles
+  Definition: run_query
+    Docstring: Run arbitrary SQL query with safety checks (no API key).
+  Definition: list_colleges
+    Docstring: List all colleges with their primary keys.
+  Definition: create_college
+    Docstring: Create a new college.
+  Definition: update_college
+    Docstring: Update an existing college.
+  Definition: delete_college
+    Docstring: Delete a college.
+  Definition: fetch_query
+  Definition: get_departments
+  Definition: create_department
+  Definition: update_department
+  Definition: delete_department
+  Definition: get_colleges
+  Definition: list_branches
+    Docstring: List all branches with their primary keys.
+  Definition: create_branch
+    Docstring: Create a new branch by selecting department name.
+Backend resolves dept_pk and dept_id internally.
+  Definition: update_branch
+    Docstring: Update an existing branch by branch_name.
+If new_dept_name is provided, resolve dept_pk and dept_id internally.
+  Definition: delete_branch
+    Docstring: Delete a branch by branch_name (no PK typing required).
+  Definition: list_courses
+    Docstring: List all courses with their primary keys.
+  Definition: create_course
+    Docstring: Create a new course by selecting branch name.
+Backend resolves branch_pk internally.
+  Definition: update_course
+    Docstring: Update an existing course by course_code.
+If new_branch_name is provided, resolve branch_pk internally.
+  Definition: delete_course
+    Docstring: Delete a course by course_code (no PK typing required).
+  Definition: list_subjects
+    Docstring: List all subjects with their primary keys.
+  Definition: create_subject
+    Docstring: Create a new subject by selecting course name.
+Backend resolves course_pk internally.
+  Definition: update_subject
+    Docstring: Update an existing subject by subject_code.
+If new_course_name is provided, resolve course_pk internally.
+  Definition: delete_subject
+    Docstring: Delete a subject by subject_code (no PK typing required).
+  Definition: list_faculties
+    Docstring: List all faculty members.
+  Definition: create_faculty
+    Docstring: Create a new faculty by selecting department name.
+  Definition: update_faculty
+    Docstring: Update faculty by email. Resolve dept_pk internally if department changes.
+  Definition: delete_faculty
+    Docstring: Delete faculty by email.
+  Definition: list_students
+    Docstring: List all students.
+  Definition: create_student
+    Docstring: Create a new student by selecting department name.
+  Definition: update_student
+    Docstring: Update student by roll number. Resolve dept_pk internally if department changes.
+  Definition: delete_student
+    Docstring: Delete student by roll number.
+  Definition: list_hods
+    Docstring: List all HODs.
+  Definition: create_hod
+    Docstring: Assign a faculty as HOD by selecting department name and faculty email.
+  Definition: update_hod
+    Docstring: Update HOD assignment by department name. Resolve faculty_pk internally.
+  Definition: delete_hod
+    Docstring: Delete HOD assignment by department name.
+  Documentation Extracted:
+    ## endpoints to insert / update / delete data in the database, only accessible by admin users
+    ## custom query editor for admin users to run any query on the database and see the results execpt drop database or delete from table without where clause
+    #app = FastAPI()
+    # role table
+    ## user table
+    # bulk upload of users from csv file, only accessible by admin users
+    ## UserRoles table
+    # Insert a new UserRole with default password
+    # Get username to build default password
+    # Update password for a UserRole
+    # Delete a UserRole
+    # Query endpoint: join Users, UserRoles, Roles
+    ## query editor endpoint for admin users to run any query on the database and see the results execpt drop database or delete from table without where clause
+    ## college
+    ## college
+    ## department
+    # ---------------------------
+    # Models
+    # ---------------------------
+    # Helpers
+    # ---------------------------
+    # Endpoints
+    ### branch
+    # Resolve dept_pk and dept_id from department name
+    ## course
+    ## course
+    # Resolve branch_pk from branch name
+    ## subject
+    # Resolve course_pk from course name
+    ##
+    ## faculty
+    ## faculty
+    ## student
+    ## hod
+    # Resolve dept_pk
+    # Resolve faculty_pk
+    ## student
+    ## hod
+    # Resolve dept_pk
+    # Resolve faculty_pk
+    This module provides administrative APIs for managing roles, users, departments, colleges, branches, courses, subjects, faculties, students, and heads of departments (HODs). It defines routes and functions to perform CRUD operations, bulk uploads, and health checks for the backend of the capstone project.
+
+Key Components
+🔹 Role Management
+create_role – Add a new role to the system.
+
+update_role – Modify details of an existing role.
+
+delete_role – Remove a role.
+
+list_roles – Retrieve all roles.
+
+🔹 User Management
+list_users – Fetch all users.
+
+create_user – Register a new user.
+
+update_user – Update user details.
+
+delete_user – Delete a user.
+
+bulk_upload_users – Upload multiple users at once.
+
+insert_userrole – Assign a role to a user.
+
+update_userrole – Modify a user’s role.
+
+delete_userrole – Remove a user’s role.
+
+view_userroles – View roles assigned to users.
+
+🔹 College & Department Management
+list_colleges, create_college, update_college, delete_college
+
+get_departments, create_department, update_department, delete_department
+
+Classes:
+
+Department – Represents a department entity with dept_id, dept_name, and college_pk.
+
+DepartmentUpdate – Used for updating department details.
+
+🔹 Branch, Course, and Subject Management
+Branches: list_branches, create_branch, update_branch, delete_branch
+
+Courses: list_courses, create_course, update_course, delete_course
+
+Subjects: list_subjects, create_subject, update_subject, delete_subject
+
+🔹 Faculty, Student, and HOD Management
+Faculties: list_faculties, create_faculty, update_faculty, delete_faculty
+
+Students: list_students, create_student, update_student, delete_student
+
+HODs: list_hods, create_hod, update_hod, delete_hod
+
+🔹 Utility Functions
+health_check – Endpoint to verify system health.
+
+run_query – Execute custom queries.
+
+fetch_query – Retrieve data using query execution.
+    Create a new role.
+    Update an existing role.
+    Delete a role.
+    Fetch all roles.
+    List all users with their primary keys.
+    Create a new user.
+    Update an existing user.
+    Delete a user.
+    Bulk upload users from a CSV file.
+    SELECT u.user_pk, u.username, r.role_name
+            FROM Users u
+            JOIN UserRoles ur ON u.user_pk = ur.user_pk
+            JOIN Roles r ON ur.role_pk = r.role_pk
+    Run arbitrary SQL query with safety checks (no API key).
+    List all colleges with their primary keys.
+    Create a new college.
+    Update an existing college.
+    Delete a college.
+    List all branches with their primary keys.
+    Create a new branch by selecting department name.
+    Backend resolves dept_pk and dept_id internally.
+    Update an existing branch by branch_name.
+    If new_dept_name is provided, resolve dept_pk and dept_id internally.
+    Delete a branch by branch_name (no PK typing required).
+    List all courses with their primary keys.
+    Create a new course by selecting branch name.
+    Backend resolves branch_pk internally.
+    Update an existing course by course_code.
+    If new_branch_name is provided, resolve branch_pk internally.
+    Delete a course by course_code (no PK typing required).
+    List all subjects with their primary keys.
+    Create a new subject by selecting course name.
+    Backend resolves course_pk internally.
+    Update an existing subject by subject_code.
+    If new_course_name is provided, resolve course_pk internally.
+    Delete a subject by subject_code (no PK typing required).
+    List all faculty members.
+    Create a new faculty by selecting department name.
+    Update faculty by email. Resolve dept_pk internally if department changes.
+    Delete faculty by email.
+    List all students.
+    Create a new student by selecting department name.
+    Update student by roll number. Resolve dept_pk internally if department changes.
+    Delete student by roll number.
+    List all HODs.
+    Assign a faculty as HOD by selecting department name and faculty email.
+    Update HOD assignment by department name. Resolve faculty_pk internally.
+    Delete HOD assignment by department name.
+--------------------------------------------------
+
+File: E:\project\capstone\backend\assignment.py
+  Definition: list_departments
+  Definition: list_subjects
+  Definition: list_faculties
+  Definition: create_assignment
+  Documentation Extracted:
+    # Ensure connect.py is in the same directory
+    # Pydantic model for request validation
+    # FIX: Added dept_pk to the SELECT statement (Index 2)
+    # FIX: Added subject_pk to the SELECT statement (Index 2)
+    # FIX: Added faculty_pk to the SELECT statement (Index 2)
+    # Get the ID of the row just inserted
+    Overview
+This module defines the backend API endpoints for managing assignments within the college management system. It provides CRUD operations (Create, Read, Update, Delete) and supports bulk uploads, ensuring assignments can be efficiently handled by faculty and administrators.
+
+Key Components
+🔹 Assignment Management
+list_assignments  
+Retrieves all assignments stored in the system. Useful for faculty or students to view available assignments.
+
+create_assignment  
+Adds a new assignment record. Typically requires details such as title, description, course/subject linkage, and due date.
+
+update_assignment  
+Modifies an existing assignment’s details (e.g., updating deadlines or instructions).
+
+delete_assignment  
+Removes an assignment from the system.
+
+bulk_upload_assignments  
+Allows uploading multiple assignments at once, often via CSV/Excel files.
+
+Data Models
+Assignment  
+Represents an assignment entity with attributes like:
+
+assignment_id (primary key)
+
+title
+
+description
+
+course_id / subject_id
+
+due_date
+
+AssignmentUpdate  
+Used for partial updates to assignment details.
+
+Utility Functions
+health_check  
+Confirms the assignment service is running properly.
+
+run_query / fetch_query  
+Internal helpers for executing and retrieving database queries.
+    INSERT INTO Assignment (dept_pk, subject_pk, semester, assignment_pdf, total_marks, faculty_pk)
+        VALUES (?, ?, ?, ?, ?, ?)
+--------------------------------------------------
+
+File: E:\project\capstone\backend\assignment_marks.py
+  Definition: get_students
+    Docstring: Fetch students by department primary key.
+  Definition: get_assignments_list
+    Docstring: Fetch assignments joined with subject names for dropdowns (only unmarked).
+  Definition: list_faculties
+    Docstring: List all faculties with their primary keys.
+  Definition: create_assignment_mark
+    Docstring: Insert a single assignment mark record and mark assignment as completed.
+  Definition: bulk_insert_marks
+    Docstring: Bulk insert marks and update assignment status.
+  Documentation Extracted:
+    # --- Pydantic Models ---
+    # --- GET Endpoints ---
+    # --- POST Endpoints ---
+    # Update assignment status to marked
+    # Update all related assignments to marked
+    # --- Uvicorn Entry Point ---
+    Overview
+This module defines API endpoints for managing assignment marks within the college management system. It allows faculty to record, update, and retrieve marks for students, ensuring proper linkage between assignments, students, and faculty.
+
+Key Components
+🔹 Data Models
+AssignmentMarkCreate (Pydantic Model)  
+Represents the structure for creating assignment marks.
+Attributes:
+
+assignment_pk: Primary key of the assignment
+
+student_pk: Primary key of the student
+
+marks: Marks awarded
+
+faculty_pk: Faculty member who entered the marks
+
+🔹 Endpoints
+GET /students/ → get_students  
+Fetches students by department primary key.
+
+Parameters: dept_pk (department primary key)
+
+Returns: List of students with student_pk and roll_no.
+
+Error Handling: Raises HTTPException with status 500 if query fails.
+
+GET /assignments-list/ → get_assignments_list  
+Retrieves a list of assignments available in the system.
+(Implementation details continue in the file beyond the snippet.)
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections safely.
+
+Error Handling  
+Wraps queries in try/except blocks to ensure exceptions are caught and returned as HTTP errors.
+    Fetch students by department primary key.
+    Fetch assignments joined with subject names for dropdowns (only unmarked).
+    SELECT a.assignment_pk, s.subject_name, a.dept_pk, a.semester, a.total_marks
+        FROM Assignment a
+        JOIN Subject s ON a.subject_pk = s.subject_pk
+        WHERE a.status = 0
+    List all faculties with their primary keys.
+    Insert a single assignment mark record and mark assignment as completed.
+    INSERT INTO AssignmentMarks (assignment_pk, student_pk, marks, faculty_pk, status)
+        VALUES (?, ?, ?, ?, 1)
+    Bulk insert marks and update assignment status.
+    INSERT INTO AssignmentMarks (assignment_pk, student_pk, marks, faculty_pk, status)
+        VALUES (?, ?, ?, ?, ?)
+--------------------------------------------------
+
+File: E:\project\capstone\backend\attendance_aggregate.py
+  Definition: fetch_query
+  Definition: get_departments
+  Definition: get_subjects
+  Definition: get_semesters
+  Definition: get_records
+  Definition: set_total_lectures
+  Definition: update_attendance
+  Documentation Extracted:
+    # ---------------------------
+    # Models
+    # ---------------------------
+    # ---------------------------
+    # Helpers
+    # ---------------------------
+    # ---------------------------
+    # Endpoints
+    # ---------------------------
+    # simple static list for demo
+    # ---------------------------
+    # Entry point
+    # ---------------------------
+    Overview
+This module defines API endpoints and data models for managing aggregated attendance records in the college management system. It allows faculty and administrators to track student attendance across subjects and semesters, ensuring accurate reporting and monitoring.
+
+Key Components
+🔹 Data Models
+AttendanceAggregateRecord (Pydantic Model)  
+Represents a complete attendance record for a student in a subject.
+Attributes:
+
+student_pk: Primary key of the student
+
+subject_pk: Primary key of the subject
+
+semester: Semester number
+
+faculty_pk: Faculty member responsible
+
+lectures_attended: Number of lectures attended
+
+total_lectures: Total lectures conducted
+
+UpdateRecord (Pydantic Model)  
+Used for updating attendance records.
+Attributes:
+
+roll_no: Student roll number
+
+lectures_attended: Updated number of lectures attended
+
+🔹 Helper Functions
+fetch_query(sql: str, params: tuple = ())  
+Executes a SQL query and returns results as a list of dictionaries.
+Process:
+
+Establishes a database connection via get_connection()
+
+Executes the query with parameters
+
+Fetches all rows and maps them to column names
+
+Closes cursor and connection safely
+
+Returns structured results
+    SELECT s.roll_no, agg.lectures_attended, agg.total_lectures
+        FROM AttendanceAggregate agg
+        JOIN Student s ON agg.student_pk = s.student_pk
+        JOIN Subject subj ON agg.subject_pk = subj.subject_pk
+        JOIN Department d ON s.dept_pk = d.dept_pk
+        WHERE subj.subject_code = ? AND agg.semester = ? AND d.dept_id = ?
+    UPDATE AttendanceAggregate
+            SET total_lectures = ?
+            WHERE subject_pk = (SELECT subject_pk FROM Subject WHERE subject_code = ?)
+              AND semester = ?
+              AND student_pk IN (SELECT student_pk FROM Student WHERE dept_pk = (SELECT dept_pk FROM Department WHERE dept_id = ?))
+    UPDATE AttendanceAggregate
+                SET lectures_attended = ?
+                WHERE student_pk = (SELECT student_pk FROM Student WHERE roll_no = ?)
+--------------------------------------------------
+
+File: E:\project\capstone\backend\attendence.py
+  Definition: fetch_query
+  Definition: get_classes
+  Definition: get_subjects
+  Definition: get_faculty
+  Definition: get_students
+  Definition: insert_attendance
+  Documentation Extracted:
+    # ---------------------------
+    # Models
+    # ---------------------------
+    # ---------------------------
+    # Helpers
+    # ---------------------------
+    # ---------------------------
+    # Endpoints
+    # ---------------------------
+    # ---------------------------
+    # Entry point
+    # ---------------------------
+    Overview
+This module defines API endpoints for managing student attendance records in the college management system. It provides CRUD operations, supports bulk uploads, and ensures faculty can track and update attendance efficiently.
+
+Key Components
+🔹 Data Models
+AttendanceRecord (Pydantic Model)  
+Represents a student’s attendance entry.
+Attributes:
+
+student_pk: Primary key of the student
+
+subject_pk: Primary key of the subject
+
+faculty_pk: Faculty member recording attendance
+
+date: Date of the lecture
+
+status: Attendance status (e.g., Present/Absent)
+
+AttendanceUpdate (Pydantic Model)  
+Used for updating attendance records.
+Attributes:
+
+roll_no: Student roll number
+
+date: Date of lecture
+
+status: Updated attendance status
+
+🔹 Endpoints
+GET /students/ → get_students  
+Fetches students by department primary key.
+
+Parameters: dept_pk
+
+Returns: List of students with student_pk and roll_no.
+
+GET /subjects/ → get_subjects  
+Retrieves subjects by department primary key.
+
+POST /attendance/ → create_attendance  
+Records attendance for a student in a subject.
+
+PUT /attendance/ → update_attendance  
+Updates an existing attendance record.
+
+DELETE /attendance/ → delete_attendance  
+Removes an attendance record.
+
+POST /attendance/bulk-upload → bulk_upload_attendance  
+Allows uploading multiple attendance records at once (e.g., via CSV/Excel).
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections.
+
+Error Handling  
+Wraps queries in try/except blocks to ensure exceptions are caught and returned as HTTP errors.
+    INSERT INTO Attendance (class_pk, subject_pk, faculty_pk, student_pk, date, status)
+            VALUES (?, ?, ?, ?, ?, ?)
+--------------------------------------------------
+
+File: E:\project\capstone\backend\connect.py
+  Definition: get_connection
+  Documentation Extracted:
+    Overview
+This module provides the database connection utility for the capstone project. It centralizes the logic for connecting to the SQL Server database using pyodbc, ensuring consistent and reusable access across all backend modules.
+
+Key Components
+🔹 Function: get_connection()
+Purpose:  
+Establishes and returns a connection object to the SQL Server database.
+
+Implementation Details:
+
+Uses the pyodbc library for ODBC-based connectivity.
+
+Connection string typically includes:
+
+Driver → SQL Server ODBC driver (e.g., {ODBC Driver 17 for SQL Server})
+
+Server → Database server name or IP
+
+Database → Target database name
+
+UID / PWD → Username and password for authentication
+
+Error Handling:
+
+Wraps connection attempts in try/except.
+
+Raises exceptions if connection fails, ensuring calling functions can handle errors gracefully.
+
+Return Value:
+
+A live pyodbc.Connection object ready for executing queries.
+
+Usage
+Other backend modules (e.g., attendance.py, assignment.py, admin.py) import and call get_connection() whenever they need to:
+
+Execute queries (cursor.execute)
+
+Fetch results (cursor.fetchall)
+
+Commit transactions (conn.commit)
+--------------------------------------------------
+
+File: E:\project\capstone\backend\correction.py
+  Definition: resolve_target_pk
+  Definition: create_request
+  Definition: list_pending_requests
+  Definition: review_request
+  Definition: get_service_types
+  Definition: get_fields
+  Definition: get_rollnos
+  Definition: get_subjects
+  Definition: get_target_pk
+  Definition: get_old_value
+  Definition: get_email
+  Documentation Extracted:
+    # -------------------------------
+    # Models
+    # -------------------------------
+    # Helpers
+    # -------------------------------
+    # Endpoints
+    # Resolve user_pk from email
+    # Validate field_name
+    # Resolve target_pk
+    # Insert into Request
+    # Apply change
+    # -------------------------------
+    # Dropdown Endpoints for Frontend
+    # This is a placeholder. In a real app, you'd get the email from the session or auth token.
+    # -------------------------------
+    # Main app
+    Overview
+This module defines API endpoints for managing correction records in the college management system. It allows administrators and faculty to record, update, and retrieve corrections related to student data, assignments, or attendance.
+
+Key Components
+🔹 Data Models
+CorrectionCreate (Pydantic Model)  
+Represents the structure for creating a correction entry.
+Attributes:
+
+student_pk: Primary key of the student
+
+faculty_pk: Faculty member making the correction
+
+description: Details of the correction
+
+date: Date of correction
+
+CorrectionUpdate (Pydantic Model)  
+Used for updating existing correction records.
+Attributes:
+
+correction_id: Identifier of the correction record
+
+description: Updated correction details
+
+🔹 Endpoints
+GET /corrections/ → list_corrections  
+Retrieves all correction records.
+
+POST /corrections/ → create_correction  
+Adds a new correction record.
+
+PUT /corrections/{id} → update_correction  
+Updates an existing correction record by ID.
+
+DELETE /corrections/{id} → delete_correction  
+Removes a correction record.
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections.
+
+Error Handling  
+Wraps queries in try/except blocks to ensure exceptions are caught and returned as HTTP errors.
+    SELECT aa.agg_pk
+            FROM AttendanceAggregate aa
+            JOIN Student s ON aa.student_pk = s.student_pk
+            JOIN Subject subj ON aa.subject_pk = subj.subject_pk
+            WHERE s.roll_no = ? AND subj.subject_code = ? AND subj.subject_name = ? AND aa.semester = ?
+    SELECT m.exam_marks_pk
+            FROM MSTExamMarks m
+            JOIN Student s ON m.student_pk = s.student_pk
+            JOIN MSTExam e ON m.exam_pk = e.exam_pk
+            JOIN Subject subj ON e.subject_pk = subj.subject_pk
+            WHERE s.roll_no = ? AND subj.subject_code = ? AND subj.subject_name = ? AND e.semester = ?
+    SELECT am.assignment_marks_pk
+            FROM AssignmentMarks am
+            JOIN Student s ON am.student_pk = s.student_pk
+            JOIN Assignment a ON am.assignment_pk = a.assignment_pk
+            JOIN Subject subj ON a.subject_pk = subj.subject_pk
+            WHERE s.roll_no = ? AND subj.subject_code = ? AND subj.subject_name = ? AND a.semester = ?
+    INSERT INTO Request (user_pk, service_type, target_pk, field_name, old_value, new_value, status)
+            VALUES (?, ?, ?, ?, ?, ?, 'pending')
+    SELECT subj.subject_code, subj.subject_name
+            FROM Subject subj
+            JOIN AttendanceAggregate aa ON subj.subject_pk = aa.subject_pk
+            JOIN Student s ON aa.student_pk = s.student_pk
+            WHERE s.roll_no = ? AND aa.semester = ?
+    SELECT aa.agg_pk
+                FROM AttendanceAggregate aa
+                JOIN Student s ON aa.student_pk = s.student_pk
+                JOIN Subject subj ON aa.subject_pk = subj.subject_pk
+                WHERE s.roll_no = ? AND subj.subject_code = ? AND aa.semester = ?
+    SELECT m.exam_marks_pk
+                FROM MSTExamMarks m
+                JOIN Student s ON m.student_pk = s.student_pk
+                JOIN MSTExam e ON m.exam_pk = e.exam_pk
+                JOIN Subject subj ON e.subject_pk = subj.subject_pk
+                WHERE s.roll_no = ? AND subj.subject_code = ? AND e.semester = ?
+    SELECT am.assignment_marks_pk
+                FROM AssignmentMarks am
+                JOIN Student s ON am.student_pk = s.student_pk
+                JOIN Assignment a ON am.assignment_pk = a.assignment_pk
+                JOIN Subject subj ON a.subject_pk = subj.subject_pk
+                WHERE s.roll_no = ? AND subj.subject_code = ? AND a.semester = ?
+--------------------------------------------------
+
+File: E:\project\capstone\backend\hod.py
+  Definition: list_faculties
+    Docstring: List all faculty with dept, name, email, designation.
+  Definition: list_class_incharge
+    Docstring: List all class–faculty allocations.
+  Definition: create_class_incharge
+    Docstring: Assign a faculty as class incharge by selecting batch, department name, and faculty email.
+  Definition: update_class_incharge
+    Docstring: Update an existing class–faculty allocation by natural keys.
+  Definition: delete_class_incharge
+    Docstring: Delete a class–faculty allocation.
+  Definition: list_classes
+    Docstring: List all classes with batch and department name.
+  Definition: list_departments
+    Docstring: List all departments.
+  Definition: create_class
+    Docstring: Create a new class by batch and department name.
+  Definition: list_classes
+    Docstring: List all classes with batch and department name.
+  Definition: create_class
+    Docstring: Create a new class by batch and department name.
+  Definition: update_class
+    Docstring: Update class batch or department by natural keys.
+  Definition: delete_class
+    Docstring: Delete a class by its PK.
+  Definition: execute_query
+  Definition: allocate_subject
+    Docstring: Single insert for faculty subject allocation.
+  Definition: update_allocation
+    Docstring: Update allocation by finding current record via email/code/semester.
+  Definition: delete_allocation
+    Docstring: Delete specific allocation.
+  Definition: get_subjects
+    Docstring: List all subjects with code and name.
+  Definition: allocate_student_to_class
+    Docstring: Assign a student to a class based on natural keys.
+  Definition: delete_student_allocation
+    Docstring: Remove a student from a class allocation.
+  Definition: insert_class_semester
+    Docstring: Update the semester column for a specific class.
+  Definition: update_class_semester
+    Docstring: Change an existing semester record to a new value.
+  Definition: get_classes
+    Docstring: List all classes with batch and department name.
+  Definition: get_subjects
+    Docstring: List all subjects with code and name.
+  Definition: allocate_subject_to_class
+    Docstring: Assign a subject to a class based on natural keys.
+  Definition: get_class_subject_allocations
+    Docstring: List all subject allocations grouped by class (batch + department).
+  Definition: get_class_incharge_allocations
+    Docstring: List all class incharge allocations with class and faculty details.
+  Definition: get_faculties
+    Docstring: List all faculty with dept, name, email, designation.
+  Definition: get_classes
+    Docstring: List all classes with batch and department.
+  Definition: allocate_class_incharge
+    Docstring: Assign a faculty as class incharge by selecting batch, department name, and faculty email.
+  Definition: total_internal_marks
+  Definition: get_subjects
+    Docstring: List all subjects with code and name.
+  Definition: get_faculties
+    Docstring: List all faculty with dept, name, email, designation.
+  Definition: root
+  Documentation Extracted:
+    #app = APIapp()
+    ## class - faculty allocation handelling
+    # Resolve class_pk
+    # Resolve faculty_pk
+    # Insert allocation
+    ## Class–Faculty Allocation
+    # List all classes
+    # Create a new class
+    # Update an existing class
+    # Delete a class
+    ## faculty subject allocation
+    # --- Pydantic Schemas for Validation ---
+    # --- Helper Function for DB Operations ---
+    # --- CSV Import Logic ---
+    # Expected CSV columns: email, subject_code, semester
+    # --- CRUD Operations ---
+    ## class student allocation
+    # --- Pydantic Schemas ---
+    # --- API Endpoints ---
+    ## class semester handling
+    ## class subject handling
+    # Group allocations by class
+    ## class incharge handling
+    ## MST handelling
+    ## refference : mst.py in facultyfile change the route
+    ## internal marks handelling
+    # Convert each row into a dictionary
+    Overview
+This module defines API endpoints for managing Heads of Departments (HODs) in the college management system. It provides CRUD operations to add, update, delete, and list HODs, ensuring proper linkage between departments and faculty members.
+
+Key Components
+🔹 Data Models
+HODCreate (Pydantic Model)  
+Represents the structure for creating a new HOD record.
+Attributes:
+
+faculty_pk: Primary key of the faculty member
+
+dept_pk: Primary key of the department
+
+HODUpdate (Pydantic Model)  
+Used for updating existing HOD records.
+Attributes:
+
+hod_id: Identifier of the HOD record
+
+faculty_pk: Updated faculty assignment
+
+dept_pk: Updated department assignment
+
+🔹 Endpoints
+GET /hods/ → list_hods  
+Retrieves all HOD records.
+
+POST /hods/ → create_hod  
+Adds a new HOD record.
+
+PUT /hods/{id} → update_hod  
+Updates an existing HOD record by ID.
+
+DELETE /hods/{id} → delete_hod  
+Removes a HOD record.
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections.
+
+Error Handling  
+Wraps queries in try/except blocks to ensure exceptions are caught and returned as HTTP errors.
+    List all faculty with dept, name, email, designation.
+    SELECT f.faculty_pk, d.dept_name, f.name, f.email, f.designation
+            FROM Faculty f
+            JOIN Department d ON f.dept_pk = d.dept_pk
+    List all class–faculty allocations.
+    SELECT ci.class_incharge_pk, c.batch, d.dept_name, f.email, f.name, ci.semester
+            FROM ClassIncharge ci
+            JOIN Class c ON ci.class_pk = c.class_pk
+            JOIN Department d ON c.dept_pk = d.dept_pk
+            JOIN Faculty f ON ci.faculty_pk = f.faculty_pk
+    Assign a faculty as class incharge by selecting batch, department name, and faculty email.
+    SELECT c.class_pk
+            FROM Class c
+            JOIN Department d ON c.dept_pk = d.dept_pk
+            WHERE c.batch = ? AND d.dept_name = ?
+    Update an existing class–faculty allocation by natural keys.
+    SELECT c.class_pk
+                FROM Class c
+                JOIN Department d ON c.dept_pk = d.dept_pk
+                WHERE c.batch = ? AND d.dept_name = ?
+    Delete a class–faculty allocation.
+    List all classes with batch and department name.
+    SELECT c.class_pk, c.batch, d.dept_name
+            FROM Class c
+            JOIN Department d ON c.dept_pk = d.dept_pk
+    List all departments.
+    Create a new class by batch and department name.
+    List all classes with batch and department name.
+    SELECT c.class_pk, c.batch, d.dept_name
+            FROM Class c
+            JOIN Department d ON c.dept_pk = d.dept_pk
+    Create a new class by batch and department name.
+    Update class batch or department by natural keys.
+    Delete a class by its PK.
+    Bulk insert faculty subject allocations via CSV.
+    INSERT INTO FacultySubject (faculty_pk, subject_pk, semester)
+    VALUES (
+        (SELECT faculty_pk FROM Faculty WHERE email = ?),
+        (SELECT subject_pk FROM Subject WHERE subject_code = ?),
+        ?
+    )
+    Single insert for faculty subject allocation.
+    INSERT INTO FacultySubject (faculty_pk, subject_pk, semester)
+    VALUES (
+        (SELECT faculty_pk FROM Faculty WHERE email = ?),
+        (SELECT subject_pk FROM Subject WHERE subject_code = ?),
+        ?
+    )
+    Update allocation by finding current record via email/code/semester.
+    UPDATE FacultySubject
+    SET subject_pk = COALESCE((SELECT subject_pk FROM Subject WHERE subject_code = ?), subject_pk),
+        semester = COALESCE(?, semester)
+    WHERE faculty_pk = (SELECT faculty_pk FROM Faculty WHERE email = ?)
+      AND subject_pk = (SELECT subject_pk FROM Subject WHERE subject_code = ?)
+      AND semester = ?
+    Delete specific allocation.
+    DELETE FROM FacultySubject
+    WHERE faculty_pk = (SELECT faculty_pk FROM Faculty WHERE email = ?)
+      AND subject_pk = (SELECT subject_pk FROM Subject WHERE subject_code = ?)
+      AND semester = ?
+    List all subjects with code and name.
+    SELECT subject_pk, subject_code, subject_name FROM Subject
+    Assign a student to a class based on natural keys.
+    INSERT INTO ClassStudent (student_pk, class_pk, semester)
+    VALUES (
+        (SELECT student_pk FROM Student WHERE roll_no = ?),
+        (SELECT c.class_pk FROM Class c 
+         JOIN Department d ON c.dept_pk = d.dept_pk 
+         WHERE c.batch = ? AND d.dept_name = ?),
+        ?
+    )
+    Bulk insert students into classes via CSV.
+    INSERT INTO ClassStudent (student_pk, class_pk, semester)
+    VALUES (
+        (SELECT student_pk FROM Student WHERE roll_no = ?),
+        (SELECT c.class_pk FROM Class c 
+         JOIN Department d ON c.dept_pk = d.dept_pk 
+         WHERE c.batch = ? AND d.dept_name = ?),
+        ?
+    )
+    Remove a student from a class allocation.
+    DELETE FROM ClassStudent
+    WHERE student_pk = (SELECT student_pk FROM Student WHERE roll_no = ?)
+      AND semester = ?
+      AND class_pk = (SELECT c.class_pk FROM Class c 
+                      JOIN Department d ON c.dept_pk = d.dept_pk 
+                      WHERE c.batch = ? AND d.dept_name = ?)
+    Update the semester column for a specific class.
+    UPDATE Class
+    SET semester = ?
+    WHERE batch = ? 
+      AND dept_pk = (SELECT dept_pk FROM Department WHERE dept_name = ?)
+    Change an existing semester record to a new value.
+    UPDATE Class
+    SET semester = ?
+    WHERE batch = ? 
+      AND semester = ?
+      AND dept_pk = (SELECT dept_pk FROM Department WHERE dept_name = ?)
+    List all classes with batch and department name.
+    SELECT c.class_pk, c.batch, d.dept_name
+    FROM Class c
+    JOIN Department d ON c.dept_pk = d.dept_pk
+    List all subjects with code and name.
+    SELECT subject_pk, subject_code, subject_name FROM Subject
+    Assign a subject to a class based on natural keys.
+    INSERT INTO ClassSubject (class_pk, subject_pk, semester)
+        VALUES (
+            (SELECT c.class_pk FROM Class c 
+             JOIN Department d ON c.dept_pk = d.dept_pk 
+             WHERE c.batch = ? AND d.dept_name = ?),
+            (SELECT subject_pk FROM Subject WHERE subject_code = ?),
+            ?
+        )
+    List all subject allocations grouped by class (batch + department).
+    SELECT 
+        c.class_pk,
+        c.batch,
+        d.dept_name,
+        s.subject_code,
+        s.subject_name,
+        cs.semester
+    FROM ClassSubject cs
+    JOIN Class c ON cs.class_pk = c.class_pk
+    JOIN Department d ON c.dept_pk = d.dept_pk
+    JOIN Subject s ON cs.subject_pk = s.subject_pk
+    ORDER BY c.batch, d.dept_name, cs.semester
+    List all class incharge allocations with class and faculty details.
+    SELECT 
+        ci.class_incharge_pk,
+        c.batch,
+        d.dept_name,
+        f.email,
+        f.name,
+        ci.semester
+    FROM ClassIncharge ci
+    JOIN Class c ON ci.class_pk = c.class_pk
+    JOIN Department d ON c.dept_pk = d.dept_pk
+    JOIN Faculty f ON ci.faculty_pk = f.faculty_pk
+    ORDER BY c.batch, d.dept_name, ci.semester
+    List all faculty with dept, name, email, designation.
+    SELECT f.faculty_pk, d.dept_name, f.name, f.email, f.designation
+    FROM Faculty f
+    JOIN Department d ON f.dept_pk = d.dept_pk
+    List all classes with batch and department.
+    SELECT c.class_pk, c.batch, d.dept_name
+    FROM Class c
+    JOIN Department d ON c.dept_pk = d.dept_pk
+    Assign a faculty as class incharge by selecting batch, department name, and faculty email.
+    INSERT INTO ClassIncharge (class_pk, faculty_pk, semester)
+    VALUES (
+        (SELECT c.class_pk FROM Class c 
+         JOIN Department d ON c.dept_pk = d.dept_pk 
+         WHERE c.batch = ? AND d.dept_name = ?),
+        (SELECT faculty_pk FROM Faculty WHERE email = ?),
+        ?
+    )
+    SELECT roll_no, subject_code, semester, dept_id,
+                   attendance_marks, assignment_marks,
+                   mst1_marks, mst2_marks, total_internal_marks, status
+            FROM vw_total_internal_marks
+    List all subjects with code and name.
+    SELECT subject_pk, subject_code, subject_name FROM Subject
+    List all faculty with dept, name, email, designation.
+    SELECT f.faculty_pk, d.dept_name, f.name, f.email, f.designation
+    FROM Faculty f
+    JOIN Department d ON f.dept_pk = d.dept_pk
+--------------------------------------------------
+
+File: E:\project\capstone\backend\login.py
+  Definition: verify_password
+  Definition: list_roles
+  Definition: login
+  Definition: list_emails
+  Definition: root
+  Documentation Extracted:
+    # For now, direct compare since DB stores '1234'
+    # Fetching all emails to populate the dropdown
+    Overview
+This module defines the authentication and login endpoints for the college management system. It handles user login requests, validates credentials against the database, and issues authentication tokens for secure access to other backend services.
+
+Key Components
+🔹 Data Models
+LoginRequest (Pydantic Model)  
+Represents the structure of a login request.
+Attributes:
+
+username: The user’s login name
+
+password: The user’s password
+
+LoginResponse (Pydantic Model)  
+Represents the structure of a login response.
+Attributes:
+
+access_token: JWT or session token issued upon successful login
+
+token_type: Type of token (e.g., bearer)
+
+🔹 Endpoints
+POST /login → login_user  
+Authenticates a user based on provided credentials.
+
+Input: LoginRequest (username, password)
+
+Process:
+
+Queries the database for matching user credentials
+
+Validates password
+
+Issues an authentication token if valid
+
+Output: LoginResponse with token details
+
+Error Handling: Returns HTTPException with status 401 if credentials are invalid
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections.
+
+Token Generation  
+Likely uses JWT or similar mechanism to generate secure tokens for authenticated sessions.
+
+Error Handling  
+Wraps queries and authentication logic in try/except blocks to ensure failures are returned as HTTP errors.
+    SELECT u.user_pk, u.username, u.email, ur.password_hash, r.role_name
+            FROM Users u
+            JOIN UserRoles ur ON u.user_pk = ur.user_pk
+            JOIN Roles r ON ur.role_pk = r.role_pk
+            WHERE u.email = ? AND r.role_name = ?
+--------------------------------------------------
+
+File: E:\project\capstone\backend\main.py
+  Definition: root
+  Definition: health_check
+  Documentation Extracted:
+    # Import all routers
+    # Include all routers
+    Overview
+This is the entry point for the Campus ERP backend. It initializes the FastAPI application and registers all routers that handle different modules of the system (attendance, assignments, exams, corrections, administration, etc.). It also provides basic health-check endpoints.
+
+Key Components
+🔹 Application Initialization
+app = FastAPI(...)  
+Creates the FastAPI application instance with metadata:
+
+title="Campus ERP API"
+
+version="1.0.0"
+
+🔹 Router Inclusions
+The file imports and registers routers from multiple backend modules, each with a prefix and tag for organization:
+
+Attendance
+
+attendence.router → /faculty/attendance
+
+attendance_aggregate.router → /faculty/attendance_aggregate
+
+Assignments
+
+assignment.router → /faculty/assignment
+
+assignment_marks.router → /faculty/assignment_marks
+
+Exams
+
+mst_exam.router → /faculty/mst_exam
+
+mst_exam_marks.router → /faculty/mst_exam_marks
+
+Corrections
+
+correction.router → /faculty/correction
+
+Administration
+
+admin.router → /admin
+
+Head of Department (HOD)
+
+hod.router → /hod
+
+Students
+
+student.router → /student
+
+Authentication
+
+login.router → /auth
+
+🔹 Endpoints
+GET / → root()  
+Returns a simple JSON message:
+
+json
+{ "message": "Campus ERP API is running" }
+GET /health  
+Provides a health-check endpoint to verify that the API is operational.
+--------------------------------------------------
+
+File: E:\project\capstone\backend\mst_exam.py
+  Definition: fetch_query
+  Definition: get_departments
+  Definition: get_subjects
+  Definition: list_faculties
+  Definition: insert_mst_exam
+  Documentation Extracted:
+    # ---------------------------
+    # Model
+    # ---------------------------
+    # ---------------------------
+    # Helpers
+    # ---------------------------
+    # Handle cases where query returns rows
+    # ---------------------------
+    # Endpoints
+    # ---------------------------
+    # consistent format: {"data": [...]}
+    # consistent format: {"data": [...]}
+    # FIXED: Now uses fetch_query to return the list inside {"data": [...]}
+    # Better practice: print error to console for debugging
+    # ---------------------------
+    # Entry point
+    # ---------------------------
+    Overview
+This module defines API endpoints for managing Mid-Semester Test (MST) exams in the college management system. It provides CRUD operations to create, update, delete, and list MST exams, ensuring proper linkage between courses, subjects, and faculty.
+
+Key Components
+🔹 Data Models
+MSTExamCreate (Pydantic Model)  
+Represents the structure for creating a new MST exam record.
+Attributes:
+
+course_pk: Primary key of the course
+
+subject_pk: Primary key of the subject
+
+faculty_pk: Faculty member conducting the exam
+
+exam_date: Date of the exam
+
+exam_type: Type of MST (e.g., MST-1, MST-2)
+
+MSTExamUpdate (Pydantic Model)  
+Used for updating existing MST exam records.
+Attributes:
+
+exam_id: Identifier of the MST exam record
+
+exam_date: Updated exam date
+
+exam_type: Updated exam type
+
+🔹 Endpoints
+GET /mst-exams/ → list_mst_exams  
+Retrieves all MST exam records.
+
+POST /mst-exams/ → create_mst_exam  
+Adds a new MST exam record.
+
+PUT /mst-exams/{id} → update_mst_exam  
+Updates an existing MST exam record by ID.
+
+DELETE /mst-exams/{id} → delete_mst_exam  
+Removes an MST exam record.
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections.
+
+Error Handling  
+Wraps queries in try/except blocks to ensure exceptions are caught and returned as HTTP errors.
+    INSERT INTO MSTExam (dept_pk, subject_pk, semester, exam_date, exam_pdf, total_marks, exam_name, faculty_pk)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+--------------------------------------------------
+
+File: E:\project\capstone\backend\mst_exam_marks.py
+  Definition: fetch_query
+  Definition: get_exams
+  Definition: get_students
+  Definition: bulk_insert_marks
+  Definition: get_marks
+  Definition: list_faculties
+  Documentation Extracted:
+    # --- Pydantic Model ---
+    # 1. Exams list (only unmarked exams)
+    # 2. Students list (Filtered by Dept and Batch)
+    # 3. Bulk insert marks (then mark exam as completed)
+    # Update parent exam status to marked
+    # 4. Fetch existing marks
+    # 5. Faculties list
+    # --- Uvicorn Entry Point ---
+    Overview
+This module defines API endpoints for managing marks obtained in Mid-Semester Tests (MSTs). It allows faculty to record, update, and retrieve exam marks for students, ensuring proper linkage between MST exams, subjects, and faculty.
+
+Key Components
+🔹 Data Models
+MSTExamMarkCreate (Pydantic Model)  
+Represents the structure for creating MST exam marks.
+Attributes:
+
+exam_pk: Primary key of the MST exam
+
+student_pk: Primary key of the student
+
+marks: Marks awarded
+
+faculty_pk: Faculty member who entered the marks
+
+MSTExamMarkUpdate (Pydantic Model)  
+Used for updating existing MST exam marks.
+Attributes:
+
+exam_mark_id: Identifier of the MST exam mark record
+
+marks: Updated marks
+
+🔹 Endpoints
+GET /students/ → get_students  
+Fetches students by department primary key.
+
+Parameters: dept_pk
+
+Returns: List of students with student_pk and roll_no.
+
+GET /mst-exams/ → get_mst_exams  
+Retrieves a list of MST exams available in the system.
+
+POST /mst-exam-marks/ → create_mst_exam_mark  
+Records marks for a student in a specific MST exam.
+
+PUT /mst-exam-marks/{id} → update_mst_exam_mark  
+Updates an existing MST exam mark record by ID.
+
+DELETE /mst-exam-marks/{id} → delete_mst_exam_mark  
+Removes an MST exam mark record.
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections.
+
+Error Handling  
+Wraps queries in try/except blocks to ensure exceptions are caught and returned as HTTP errors.
+    SELECT e.exam_pk,
+               e.dept_pk,
+               e.subject_pk,
+               d.dept_name,
+               s.subject_code,
+               s.subject_name,
+               e.semester,
+               e.exam_name,
+               e.exam_date,
+               e.total_marks
+        FROM MSTExam e
+        JOIN Department d ON e.dept_pk = d.dept_pk
+        JOIN Subject s ON e.subject_pk = s.subject_pk
+        WHERE e.status = 0
+    SELECT student_pk, roll_no, batch, dept_pk
+        FROM Student
+        WHERE dept_pk = ? AND batch = ?
+    INSERT INTO MSTExamMarks (exam_pk, student_pk, marks, faculty_pk)
+            VALUES (?, ?, ?, ?)
+    SELECT m.exam_pk,
+               m.exam_name,
+               subj.subject_name,
+               s.roll_no,
+               s.batch,
+               mm.marks,
+               f.name as faculty_name
+        FROM MSTExam m
+        JOIN MSTExamMarks mm ON mm.exam_pk = m.exam_pk
+        JOIN Subject subj    ON m.subject_pk = subj.subject_pk
+        JOIN Student s       ON mm.student_pk = s.student_pk
+        LEFT JOIN Faculty f  ON mm.faculty_pk = f.faculty_pk
+        WHERE m.exam_pk = ?
+--------------------------------------------------
+
+File: E:\project\capstone\backend\student.py
+  Definition: root
+  Definition: health_check
+  Definition: profile
+  Definition: attendance_aggregate
+  Definition: assignment_marks
+  Definition: mst_marks
+  Definition: class_info
+  Definition: total_internal_marks
+  Documentation Extracted:
+    ## attendence
+    ## assignment marks
+    ## mst marks
+    ## class info
+    ## total internal marks
+    ## View faculty teaching their class
+    ## View subjects allocated to class
+    ## View class allocation
+    Overview
+This module defines API endpoints for managing student records in the college management system. It provides CRUD operations, supports bulk uploads, and ensures proper linkage between students, departments, courses, and faculties.
+
+Key Components
+🔹 Data Models
+StudentCreate (Pydantic Model)  
+Represents the structure for creating a new student record.
+Attributes:
+
+roll_no: Student’s roll number
+
+name: Full name of the student
+
+dept_pk: Department primary key
+
+course_pk: Course primary key
+
+branch_pk: Branch primary key
+
+semester: Current semester
+
+StudentUpdate (Pydantic Model)  
+Used for updating existing student records.
+Attributes:
+
+student_id: Identifier of the student record
+
+roll_no, name, dept_pk, course_pk, branch_pk, semester (updated values)
+
+🔹 Endpoints
+GET /students/ → list_students  
+Retrieves all student records.
+
+POST /students/ → create_student  
+Adds a new student record.
+
+PUT /students/{id} → update_student  
+Updates an existing student record by ID.
+
+DELETE /students/{id} → delete_student  
+Removes a student record.
+
+POST /students/bulk-upload → bulk_upload_students  
+Allows uploading multiple student records at once (e.g., via CSV/Excel).
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections.
+
+Error Handling  
+Wraps queries in try/except blocks to ensure exceptions are caught and returned as HTTP errors.
+    SELECT st.roll_no, st.batch, st.phone_number, d.dept_name , c.college_name
+            FROM Student st
+            JOIN Department d ON st.dept_pk = d.dept_pk
+            JOIN College c ON d.college_pk = c.college_pk
+            WHERE st.roll_no = ?
+    SELECT sa.lectures_attended, sa.total_lectures, s.subject_code, sa.semester, d.dept_name
+            FROM AttendanceAggregate sa
+            JOIN Student st ON sa.student_pk = st.student_pk
+            JOIN Department d ON st.dept_pk = d.dept_pk
+            JOIN Subject s ON sa.subject_pk = s.subject_pk
+            WHERE st.roll_no = ?
+    SELECT am.marks, a.total_marks, s.subject_code, a.semester, d.dept_name
+            FROM AssignmentMarks am
+            JOIN Student st ON am.student_pk = st.student_pk
+            JOIN Department d ON st.dept_pk = d.dept_pk
+            JOIN Assignment a ON am.assignment_pk = a.assignment_pk
+            JOIN Subject s ON a.subject_pk = s.subject_pk
+            WHERE st.roll_no = ?
+    SELECT mm.marks, m.total_marks, s.subject_code, m.semester, d.dept_name
+            FROM MSTExamMarks mm
+            JOIN Student st ON mm.student_pk = st.student_pk
+            JOIN Department d ON st.dept_pk = d.dept_pk
+            JOIN MSTExam m ON mm.exam_pk = m.exam_pk
+            JOIN Subject s ON m.subject_pk = s.subject_pk
+            WHERE st.roll_no = ?
+    SELECT cs.semester,st.roll_no FROM ClassStudent cs JOIN Student st ON cs.student_pk = st.student_pk where st.roll_no = ?;
+    SELECT roll_no, subject_code, semester, dept_id, attendance_marks, assignment_marks, mst1_marks, mst2_marks, total_internal_marks, status
+            FROM vw_total_internal_marks
+            WHERE roll_no = ?
+--------------------------------------------------
+
+File: E:\project\capstone\backend\view.py
+  Definition: list_departments
+  Definition: get_batches
+  Definition: get_students
+  Definition: get_internal_marks
+  Documentation Extracted:
+    # ---------------------------
+    # Router
+    # ---------------------------
+    # Model
+    # ---------------------------
+    # Helpers
+    # ---------------------------
+    # Endpoints
+    # FIX: Added dept_pk to the SELECT statement (Index 2)
+    # ---------------------------
+    # Main app
+    Overview
+This module defines API endpoints for retrieving and viewing academic data in the college management system. It provides read-only access to entities such as students, faculties, departments, courses, subjects, and exams, ensuring administrators and faculty can query information without modifying records.
+
+Key Components
+🔹 Endpoints
+GET /students/ → view_students  
+Retrieves a list of students with details like roll number, name, department, course, and semester.
+
+GET /faculties/ → view_faculties  
+Fetches faculty records including faculty ID, name, department, and assigned subjects.
+
+GET /departments/ → view_departments  
+Returns all departments with their IDs and associated college information.
+
+GET /courses/ → view_courses  
+Lists available courses along with department and branch linkage.
+
+GET /subjects/ → view_subjects  
+Retrieves subject records including subject code, name, and course association.
+
+GET /mst-exams/ → view_mst_exams  
+Provides details of MST exams such as exam type, date, subject, and faculty.
+
+GET /assignments/ → view_assignments  
+Lists assignments with metadata like title, description, due date, and subject linkage.
+
+GET /attendance/ → view_attendance  
+Retrieves attendance records for students, including lecture dates and status.
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections.
+
+Error Handling  
+Wraps queries in try/except blocks to ensure exceptions are caught and returned as HTTP errors.
+
+Query Execution  
+Implements helper functions (fetch_query) to execute SQL queries and return structured results
+    SELECT roll_no, subject_code, semester, dept_id,
+                   attendance_marks, assignment_marks,
+                   mst1_marks, mst2_marks,
+                   total_internal_marks, status
+            FROM vw_total_internal_marks
+            WHERE dept_id = ? AND roll_no = ? AND semester = ?
+--------------------------------------------------
+
+File: E:\project\capstone\database\alter.sql
+  Definition: statements
+  Definition: Student
+  Definition: Faculty
+  Definition: MSTExam
+  Definition: Assignment
+  Definition: MSTExamMarks
+  Definition: AssignmentMarks
+  Definition: Users
+  Definition: Users
+  Definition: MSTExam
+  Definition: AssignmentMarks
+  Definition: Assignment
+  Definition: Class
+  Documentation Extracted:
+    /*
+    */
+    -- Adding Faculty to MSTExam
+    -- Adding Faculty to Assignment
+    -- Adding Faculty to MSTExamMarks
+    -- Adding Faculty to AssignmentMarks
+    -- 1. Drop the NOT NULL constraint on Users.password_hash
+    -- 2. Drop the password_hash column from Users
+    -- Add status column to MSTExam
+    -- Add status column to AssignmentMarks
+--------------------------------------------------
+
+File: E:\project\capstone\database\data.sql
+  Definition: UserRoles
+  Definition: Roles
+  Definition: Users
+  Definition: College
+  Definition: Department
+  Definition: Branch
+  Definition: Course
+  Definition: Subject
+  Definition: Faculty
+  Definition: Student
+  Definition: HOD
+  Definition: Class
+  Definition: ClassIncharge
+  Definition: Attendance
+  Definition: AttendanceAggregate
+  Definition: MSTExam
+  Definition: MSTExamMarks
+  Definition: Assignment
+  Definition: AssignmentMarks
+  Definition: Roles
+  Definition: Users
+  Definition: UserRoles
+  Definition: UserRoles
+  Definition: UserRoles
+  Definition: UserRoles
+  Definition: UserRoles
+  Definition: ClassStudent
+  Documentation Extracted:
+    /*
+    */
+    -- Roles & users
+    -- college / department / branch
+    -- course / subject
+    -- faculty / student / hod
+    -- class / class in‑charge
+    -- attendance
+    -- MST exams & marks
+    -- assignments & marks
+    -- insert roles and users for authentication/authorization
+    -- Insert Roles (5 values)
+    -- Insert Users (5 values)
+    -- Assign Roles to Users (UserRoles junction table)
+    -- Alice: Admin + Student
+    -- Bob: Faculty + ClassIncharge
+    -- Charlie: Student only
+    -- Diana: Faculty + HOD
+    -- Eric: Admin only
+    -- 2. Add password_hash column to UserRoles with a default value
+--------------------------------------------------
+
+File: E:\project\capstone\database\database.sql
+  Function/Definition: None
+  Documentation Extracted:
+    /*Overview
+    */
+--------------------------------------------------
+
+File: E:\project\capstone\database\drop.sql
+  Function/Definition: None
+  Documentation Extracted:
+    /*
+    */
+--------------------------------------------------
+
+File: E:\project\capstone\database\schema.sql
+  Definition: sys
+  Definition: sys
+  Definition: sys
+  Definition: sys
+  Definition: Tables
+  Definition: sys
+  Definition: sys
+  Documentation Extracted:
+    /*
+    Referential Integrity ensures consistent data across tables.*/
+    -- Generate Graphviz DOT text for tables and foreign keys
+    -- Nodes for tables
+    -- Edges for foreign keys
+    -- Generate Mermaid entity blocks for all user tables
+    /*
+    ------------------
+    -----------  -------------------
+    -----------  -------------------  -------------------  ----------  ----------  -----------
+    -----------  -------------------  -------------------
+    ------------------------------  -----------  -------------------  -------------  -----------------  ----------------  -----------------
+    */
+--------------------------------------------------
+
+File: E:\project\capstone\database\show.sql
+  Definition: ClassSubject
+  Definition: student
+  Definition: faculty
+  Definition: department
+  Definition: course
+  Definition: branch
+  Definition: subject
+  Definition: attendance
+  Definition: attendance_aggregate
+  Definition: mst_exam
+  Definition: mst_exam_marks
+  Definition: assignment
+  Definition: assignment_marks
+  Definition: hod
+  Definition: role
+  Definition: user
+  Definition: correction
+  Definition: Roles
+  Definition: Users
+  Definition: UserRoles
+  Definition: College
+  Definition: Department
+  Definition: Branch
+  Definition: Course
+  Definition: Subject
+  Definition: Faculty
+  Definition: Student
+  Definition: HOD
+  Definition: Class
+  Definition: ClassIncharge
+  Definition: Attendance
+  Definition: AttendanceAggregate
+  Definition: MSTExam
+  Definition: MSTExamMarks
+  Definition: Assignment
+  Definition: AssignmentMarks
+  Definition: FacultySubject
+  Definition: Class
+  Definition: Users
+  Definition: Department
+  Definition: Branch
+  Definition: Student
+  Definition: Attendance
+  Definition: vw_total_internal_marks
+  Definition: BatchSemester
+  Definition: Faculty
+  Definition: Assignment
+  Definition: UserRoles
+  Definition: Request
+  Definition: Accepted
+  Definition: Rejected
+  Definition: Assignment
+  Definition: Request
+  Definition: Accepted
+  Definition: Rejected
+  Definition: AttendanceAggregate
+  Definition: ClassStudent
+  Definition: ClassSubject
+  Definition: Subject
+  Definition: Subject
+  Documentation Extracted:
+    /*
+    Displays correction records made by faculty for student data.           */
+    -- basic dumps
+    -- a few examples with joins to show relationships
+    -- departments with their college
+    -- branches including computed code
+    -- students with their department and class (if any)
+    -- attendance records with student and subject names
+    -- …etc. tailor the `SELECT … JOIN …` queries to whatever output you need.
+    -- class list with their in‑charge and department
+    -- students and their current class‑in‑charge faculty (via batch/dept match)
+    -- attendance summary per subject, per student
+    -- attendance aggregates, with student and faculty names
+    -- MST exam marks with exam info and student details
+    -- assignment marks with department and subject context
+    -- faculty list with their department and any HOD role
+    -- users with their assigned role and any linked faculty/student record
+    -- courses with branch and department
+    -- …add more queries as needed to explore the data and relationships in your database!
+    -- Comprehensive Student Profile
+    -- Student Performance (MST + Assignments)
+    -- Faculty Teaching Load
+    -- Faculty List with HOD status and User Details
+    -- Faculty Teaching Load (Attendance they have marked)
+    -- Class Incharge List with their Classes and Departments
+    -- Organizational Hierarchy
+    -- Verify subject allocations for a given batch and department
+    -- Insert dummy allocations into ClassSubject
+--------------------------------------------------
+
+File: E:\project\capstone\database\table.sql
+  Definition: UserRoles
+  Definition: Department
+  Definition: Branch
+  Definition: Course
+  Definition: Subject
+  Definition: Faculty
+  Definition: Student
+  Definition: HOD
+  Definition: Class
+  Definition: ClassIncharge
+  Definition: Attendance
+  Definition: AttendanceAggregate
+  Definition: MSTExam
+  Definition: MSTExamMarks
+  Definition: Assignment
+  Definition: AssignmentMarks
+  Definition: Request
+  Definition: Accepted
+  Definition: Rejected
+  Definition: FacultySubject
+  Definition: ClassStudent
+  Definition: ClassSubject
+  Definition: ClassFaculty
+  Definition: sys
+  Documentation Extracted:
+    /*
+    Columns: student_pk, faculty_pk, description, date   */
+    -- User and Roles
+    -- College, Department, Branch
+    -- Course and Subject
+    -- Faculty, Student, HOD
+    -- Class and Class Incharge
+    -- Attendance
+    -- Exams and Marks
+    -- Assignments
+    -- Table to store all correction requests
+    -- Table to store accepted requests
+    -- Table to store rejected requests
+    -- class faculty allocation
+--------------------------------------------------
+
+File: E:\project\capstone\database\view.sql
+  Definition: BatchSemester
+  Definition: vw_total_internal_marks
+  Documentation Extracted:
+    /*
+    Includes: student_name, roll_no, subject_name, lectures_attended, total_lectures.    */
+    -- attendance component
+    -- assignment component
+    -- MST‑1
+    -- MST‑2
+    -- total and status
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\login.py
-  Function: __init__
-  Function: fetch_roles
-    Docstring: Fetch available roles from backend.
-  Function: login
-    Docstring: Send login request to backend.
-  Function: __init__
-  Function: run
+  Definition: fetch_login_options
+    Docstring: Fetch roles and emails from FastAPI for the dropdowns.
+  Definition: login_screen
+    Docstring: Renders the login UI as a gatekeeper.
+  Definition: run_selected_module
   Documentation Extracted:
-    # -------------------------------
-    # API Client Class
-    # -------------------------------
-    # -------------------------------
-    # UI Class
-    # -------------------------------
-    # Fetch roles for dropdown
-    # --- Login Form ---
-    # Redirect to dashboards based on role
-    # --- Debug Info ---
-    # -------------------------------
-    # Main Entry Point
-    # -------------------------------
-    Fetch available roles from backend.
-    Send login request to backend.
+    # --- 1. Page Config ---
+    # Backend URL - Update this if your FastAPI server runs elsewhere
+    # --- 2. Authentication Logic ---
+    # Fetch Roles
+    # Fetch Emails
+    # Check Authentication Status
+    # --- 3. Dashboard Logic (Only runs if authenticated) ---
+    # Logout button in sidebar
+    # Restrict the portal choice to the user's assigned role
+    # --- 4. Comprehensive Module Mapping ---
+    # --- 5. Sidebar second-level selection ---
+    # --- 6. Dispatcher function ---
+    # Special Case: HOD Correction (OOP)
+    # --- 7. Main Content Area Execution ---
+    Overview
+This module defines the login interface for the Campus ERP system. Built with Streamlit, it provides a secure entry point for users (students, faculty, HODs, and administrators) to authenticate and access their respective dashboards. It acts as the frontend layer that communicates with backend authentication APIs.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (forms, inputs, buttons).
+
+requests → Handles API calls to backend authentication endpoints.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Login Form
+
+Fields: Username/Email, Password.
+
+Submit button triggers authentication request.
+
+Role-Based Redirection
+
+After successful login, users are redirected to their respective dashboards:
+
+Student Dashboard → frontend/student/main.py
+
+Faculty Dashboard → frontend/faculty/main.py
+
+HOD Dashboard → frontend/hod/main.py
+
+Admin Dashboard → frontend/admin/main.py
+
+Error Handling
+
+Displays error messages for invalid credentials or failed API calls.
+
+Provides feedback for empty fields or incorrect input formats.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend authentication services via REST APIs:
+
+/login/ → Validates user credentials
+
+/role/ → Determines user role for dashboard redirection
+
+Security Measures
+
+Passwords are transmitted securely via HTTPS.
+
+Session tokens or cookies are used to maintain authenticated state.
+
+🔹 Utility Functions
+authenticate_user(username, password)  
+Sends credentials to backend and validates login.
+
+redirect_user(role)  
+Redirects authenticated users to their respective dashboards.
+    Fetch roles and emails from FastAPI for the dropdowns.
+    Renders the login UI as a gatekeeper.
 --------------------------------------------------
 
-File: E:\project\capstone\frontend\mem.py
-  Function: fetch_exams
-  Function: fetch_students
-  Function: fetch_marks
-  Function: fetch_faculty
-  Function: semester_to_batch
+File: E:\project\capstone\frontend\main.py
+  Definition: run_selected_module
+    Docstring: Executes modules safely without double-loading or requiring main().
   Documentation Extracted:
-    # API Base matches your MST Exam Marks API
-    # Base for Faculty (Ensure this matches your faculty endpoint path)
-    # Assuming faculty data is fetched from the same API for simplicity
-    # ---------------------------
-    # Fetch helpers
-    # ---------------------------
-    # Note: Using the endpoint we verified earlier: /faculty/
-    # ---------------------------
-    # Helper: map semester → batch
-    # ---------------------------
-    # Changed return type to string to match NVARCHAR(10) in SQL
-    # ---------------------------
-    # Main Logic
-    # ---------------------------
-    # 1. Selection Header
-    # Display Exam Info
-    # Initialize marks column
-    # Explicitly include the 4th parameter: faculty_pk
---------------------------------------------------
+    # 1. Page Config
+    # 2. Sidebar Navigation
+    # 3. Comprehensive Module Mapping
+    # This maps the UI display name to the actual python module path
+    # "correction-requests" is handled as a special case in the dispatcher
+    # Hierarchy for Sidebar UI
+    # 4. Sidebar second-level selection
+    # 5. Dispatcher function
+    # 5. Dispatcher function
+    # 1. Special Case: HOD Correction (OOP)
+    # 2. General Module Execution
+    # We check if this is a fresh selection to avoid redundant reloads
+    # and ID collisions.
+    # Import the module (this runs it the first time)
+    # If it was already in memory from a previous selection,
+    # we reload it to ensure the UI actually renders.
+    # Mark this module as "active" in session state
+    # 6. Main Content Area Execution
+    Overview
+This module defines the main entry point for the Campus ERP system frontend. Built with Streamlit, it integrates dashboards for different user roles (Admin, HOD, Faculty, Student) into a unified interface. It acts as the central hub that provides role-based navigation and connects to backend APIs.
 
-File: E:\project\capstone\frontend\test.py
-  Function: None
-  Documentation Extracted:
-    # Tabs for roles
-    # ---------------------------
-    # Student Tab
-    # ---------------------------
-    # Faculty Tab
-    # ---------------------------
-    # HoD Tab
-    # ---------------------------
-    # Admin Tab
---------------------------------------------------
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components and layout management.
 
-File: E:\project\capstone\frontend\view.py
-  Function: __init__
-  Function: safe_get
-  Function: get_batches
-  Function: get_departments
-  Function: get_students
-  Function: get_internal_marks
-  Function: render
-  Function: __init__
-  Function: run
-  Documentation Extracted:
-    # -------------
-    # ------------------
-    # ---------------------------
-    # API Client Class
-    # ---------------------------
-    # ---------------------------
-    # Report Card Renderer
-    # ---------------------------
-    # Header
-    # Metrics
-    # Progress bars
-    # Expandable details
-    # Status badge
-    # ---------------------------
-    # UI Class
-    # ---------------------------
-    # ---------------------------
-    # Main Entry Point
-    # ---------------------------
-    <div style="border:3px solid #4CAF50; border-radius:12px; padding:20px; background:linear-gradient(135deg,#fdfdfd,#f0f9ff); 
-                            max-width:750px; margin:auto; box-shadow:0 6px 12px rgba(0,0,0,0.15);">
-                    <h2 style="text-align:center; color:#2c3e50; margin-bottom:10px;">🎓 Student Report Card</h2>
-                    <p style="text-align:center; font-size:16px; color:#555;">
-                        Roll No: <b>{record['roll_no']}</b> | Subject: <b>{record['subject_code']}</b> | Semester: <b>{record['semester']}</b>
-                    </p>
-                </div>
-    <table style="width:100%; border-collapse:collapse;">
-                        <tr><th style="background:#2c3e50; color:#fff; padding:8px;">Department ID</th><td style="padding:8px;">{record['dept_id']}</td></tr>
-                        <tr><th style="background:#2c3e50; color:#fff; padding:8px;">MST1 Marks</th><td style="padding:8px;">{record['mst1_marks']}</td></tr>
-                        <tr><th style="background:#2c3e50; color:#fff; padding:8px;">MST2 Marks</th><td style="padding:8px;">{record['mst2_marks']}</td></tr>
-                    </table>
-    <div style="text-align:center; font-size:20px; font-weight:bold; color:{status_color}; margin-top:10px;">
-                    ✅ Status: {record['status']}
-                </div>
+requests → Handles API calls to backend services.
+
+pandas → Displays tabular data.
+
+json → Parses API responses.
+
+Local Modules → Imports role-specific dashboards (e.g., frontend/admin/main.py, frontend/hod/main.py, frontend/faculty/main.py, frontend/student/main.py).
+
+🔹 UI Structure
+Page Configuration
+
+Sets page title, layout, and sidebar navigation.
+
+Provides a consistent look across all role dashboards.
+
+Sidebar Navigation  
+Users can switch between dashboards based on their role:
+
+Admin Dashboard → Manage institution-wide records.
+
+HOD Dashboard → Manage departmental workflows.
+
+Faculty Dashboard → Manage faculty-specific tasks.
+
+Student Dashboard → Manage student-specific tasks.
+
+Dynamic Rendering  
+Based on sidebar selection, the corresponding role module is loaded and displayed in the main content area.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend communicates with backend APIs for CRUD operations across modules:
+
+/faculty/ → Faculty records
+
+/students/ → Student records
+
+/courses/ → Course records
+
+/branches/ → Branch records
+
+/semesters/ → Semester records
+
+/timetable/ → Timetable records
+
+/decisions/ → Departmental decisions
+
+/corrections/ → Correction requests
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection issues gracefully.
+
+🔹 Utility Functions
+load_module(module_name)  
+Dynamically loads and executes the selected role-specific module.
+
+fetch_data(endpoint)  
+Retrieves data from backend APIs.
+    Executes modules safely without double-loading or requiring main().
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\__init__.py
-  Function: None
+  Function/Definition: None
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\admin\branch.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # View Branches
     # Create Branch
@@ -199,7 +1999,7 @@ GET /dp/departments/ → Retrieve department list for dropdowns.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\admin\college.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # View Colleges
     # Create College
@@ -262,7 +2062,7 @@ DELETE /cg/colleges/{college_pk} → Delete a college.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\admin\course.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # View Courses
     # Create Course
@@ -334,79 +2134,526 @@ GET /br/branches/ → Retrieve branch list for dropdowns.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\admin\department.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # View Departments
+    # Fetch colleges for dropdown
     # Create Department
     # Fetch colleges for dropdown
     # Update Department
-    # Fetch departments for dropdown
     # Fetch colleges for dropdown
-    # Delete Department
     # Fetch departments for dropdown
+    # Tab 4: Delete Department
+    # Fetch colleges for dropdown
+    # College dropdown with unique key
+    # Fetch departments for dropdown
+    # Department dropdown with unique key
+    # Delete button
+    Department Management App Documentation
+Overview
+This Streamlit application provides a frontend interface for managing Departments in a college system. It interacts with a FastAPI backend (http://127.0.0.1:8000/dp) to perform CRUD (Create, Read, Update, Delete) operations on departments, with college associations handled via dropdowns.
+
+🔗 Backend API Endpoints
+Colleges
+
+GET /colleges/ → Fetch all colleges (returns college_name, college_pk)
+
+Departments
+
+GET /departments/{college_pk} → Fetch all departments under a specific college
+
+POST /departments/ → Create a new department
+
+PUT /departments/{dept_pk} → Update an existing department
+
+DELETE /departments/{dept_pk} → Delete a department
+
+🖥️ Tabs Functionality
+1. View Departments
+Fetches all colleges and displays them in a dropdown (view_college_select).
+
+When a college is selected and Load Departments is clicked:
+
+Sends GET /departments/{college_pk}.
+
+Displays the department list in a table.
+
+2. Create Department
+Inputs: Department ID, Department Name.
+
+Dropdown (create_college_select) to select a college.
+
+On Create Department:
+
+Sends POST /departments/ with parameters:
+
+dept_id, dept_name, college_pk.
+
+Displays success or error message.
+
+3. Update Department
+Dropdown to select a college (update_college_select).
+
+Fetches departments for that college (GET /departments/{college_pk}).
+
+Dropdown (update_dept_select) to select department.
+
+Inputs: New Department ID, New Department Name.
+
+On Update Department:
+
+Sends PUT /departments/{dept_pk} with updated values.
+
+Displays success or error message.
+
+4. Delete Department
+Dropdown (delete_college_select) to select a college.
+
+Fetches departments for that college (GET /departments/{college_pk}).
+
+Dropdown (delete_dept_select) to select department.
+
+On Delete Department:
+
+Sends DELETE /departments/{dept_pk}.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\admin\faculty.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # View Faculty
     # Create Faculty
+    # Fetch colleges for dropdown
     # Fetch departments for dropdown
     # Update Faculty
-    # Fetch faculty for dropdown
-    # Fetch departments for dropdown
+    # Update Faculty
+    # Fetch colleges for dropdown
+    # Faculty dropdown
+    # Update fields
+    # Department dropdown
     # Delete Faculty
     # Fetch faculty for dropdown
+    Faculty Management App Documentation
+Overview
+This Streamlit application provides a frontend interface for managing Faculty Members in a college system. It interacts with a FastAPI backend (http://127.0.0.1:8000/fc) to perform CRUD (Create, Read, Update, Delete) operations on faculty records. Colleges and departments are fetched dynamically from related endpoints.
+
+🔗 Backend API Endpoints
+Colleges
+
+GET /cg/colleges/ → Fetch all colleges (returns college_name, college_pk)
+
+Departments
+
+GET /dp/departments/{college_pk} → Fetch all departments under a specific college
+
+Faculty
+
+GET /fc/faculties/ → Fetch all faculty members
+
+POST /fc/faculties/ → Create a new faculty member
+
+PUT /fc/faculties/{email} → Update an existing faculty member (identified by email)
+
+DELETE /fc/faculties/{email} → Delete a faculty member (identified by email)
+
+🖥️ Tabs Functionality
+1. View Faculty
+Displays all faculty members in a table.
+
+On Load Faculty:
+
+Sends GET /faculties/.
+
+Shows results in a table or a message if none found.
+
+2. Create Faculty
+Dropdown (create_college_select) to select a college.
+
+Inputs:
+
+Faculty Name (create_name_input)
+
+Faculty Email (create_email_input)
+
+Designation (create_designation_input)
+
+Dropdown to select department (fetched via GET /dp/departments/{college_pk}).
+
+On Create Faculty:
+
+Sends POST /faculties/ with parameters:
+
+name, email, designation, dept_name.
+
+Displays success or error message.
+
+3. Update Faculty
+Dropdown (update_college_select) to select a college.
+
+Dropdown (update_faculty_select) to select faculty by email.
+
+Inputs:
+
+New Name (update_name_input)
+
+New Designation (update_designation_input)
+
+Dropdown (update_dept_select) to select new department.
+
+On Update Faculty:
+
+Sends PUT /faculties/{email} with updated values.
+
+Displays success or error message.
+
+4. Delete Faculty
+Dropdown to select faculty by email.
+
+On Delete Faculty:
+
+Sends DELETE /faculties/{email}.
+
+Displays success or error message.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\admin\hod.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # View HODs
     # Assign HOD
+    # Fetch colleges for dropdown
     # Fetch departments for dropdown
     # Fetch faculty for dropdown
     # Update HOD
+    # Fetch colleges for dropdown
     # Fetch departments for dropdown
     # Fetch faculty for dropdown
     # Delete HOD
+    # Fetch colleges for dropdown
     # Fetch departments for dropdown
+    HOD Management App Documentation
+Overview
+This Streamlit application provides a frontend interface for managing Head of Department (HOD) assignments in a college system. It interacts with a FastAPI backend (http://127.0.0.1:8000/hd) to perform CRUD (Create, Read, Update, Delete) operations on HOD records. Colleges, departments, and faculty are fetched dynamically from related endpoints.
+
+🔗 Backend API Endpoints
+Colleges
+
+GET /cg/colleges/ → Fetch all colleges (returns college_name, college_pk)
+
+Departments
+
+GET /dp/departments/{college_pk} → Fetch all departments under a specific college
+
+Faculty
+
+GET /fc/faculties/ → Fetch all faculty members (returns email)
+
+HOD
+
+GET /hd/hods/ → Fetch all HOD assignments
+
+POST /hd/hods/ → Assign a faculty member as HOD
+
+PUT /hd/hods/{dept_name} → Update HOD assignment for a department
+
+DELETE /hd/hods/{dept_name} → Delete HOD assignment for a department
+
+🖥️ Tabs Functionality
+1. View HODs
+Displays all HOD assignments in a table.
+
+On Load HODs:
+
+Sends GET /hods/.
+
+Shows results in a table or a message if none found.
+
+2. Assign HOD
+Dropdown (create_college_select) to select a college.
+
+Dropdown to select department (fetched via GET /dp/departments/{college_pk}).
+
+Dropdown to select faculty by email (fetched via GET /fc/faculties/).
+
+On Assign HOD:
+
+Sends POST /hods/ with parameters:
+
+dept_name, faculty_email.
+
+Displays success or error message.
+
+3. Update HOD
+Dropdown to select a college.
+
+Dropdown to select department (HOD to update).
+
+Dropdown to select new faculty by email.
+
+On Update HOD:
+
+Sends PUT /hods/{dept_name} with parameter:
+
+new_faculty_email.
+
+Displays success or error message.
+
+4. Delete HOD
+Dropdown (delete_college_select) to select a college.
+
+Dropdown to select department (HOD to delete).
+
+On Delete HOD:
+
+Sends DELETE /hods/{dept_name}.
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\admin\main.py
+  Definition: run_selected_module
+    Docstring: Import and run the selected module safely.
+  Definition: main
+  Documentation Extracted:
+    # 1. Page Config
+    # 2. Sidebar Navigation
+    # 3. Module Mapping
+    # 4. Function Wrapper
+    # 5. Execute
+    Import and run the selected module safely.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\admin\query.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # Text area for SQL input
     # Run query button
     # Handle multiple queries
     # Single query fallback
+    Admin Query Editor App Documentation
+Overview
+This Streamlit application provides a frontend interface for executing SQL queries against a FastAPI backend (http://127.0.0.1:8000/admin). It allows administrators to run single or multiple queries, view results in tables, and receive success/error messages directly in the UI.
+
+🔗 Backend API Endpoint
+Admin Query
+
+POST /admin/query → Executes SQL queries.
+
+Accepts parameter: query (string, can contain multiple queries separated by ;).
+
+Returns JSON response with either:
+
+queries: list of executed queries with results/messages.
+
+results: single query result.
+
+message: confirmation message for queries without results.
+
+🖥️ Application Workflow
+1. SQL Input
+Text area (st.text_area) allows entry of one or more SQL queries.
+
+Queries can be separated by semicolons (;).
+
+2. Run Query
+On Run Query button click:
+
+Sends POST /query with the SQL string.
+
+Handles both single and multiple queries.
+
+3. Response Handling
+Multiple Queries:
+
+If response contains "queries", iterate through each query.
+
+Display subheader with query text.
+
+Show results in a table if available, otherwise display success message.
+
+Single Query:
+
+If response contains "results", display results in a table.
+
+Otherwise, show success message.
+
+4. Error Handling
+If backend returns non-200 status:
+
+Display error message from backend.
+
+If exception occurs:
+
+Display error message with exception details.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\admin\role.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # Tabs for each service
     # Insert Role
     # Update Role
     # Delete Role
     # Tab 4: View Roles
+    Roles Management App Documentation
+Overview
+This Streamlit application provides a frontend interface for managing Roles in a system. It interacts with a FastAPI backend (http://127.0.0.1:8000/role) to perform CRUD (Create, Read, Update, Delete) operations on role records. The app uses tabs to separate each operation for clarity.
+
+🔗 Backend API Endpoints
+Roles
+
+POST /roles/ → Insert a new role
+
+PUT /roles/{role_id} → Update an existing role by ID
+
+DELETE /roles/{role_id} → Delete a role by ID
+
+GET /roles/ → View all roles
+
+🖥️ Tabs Functionality
+1. Insert Role
+Input: Role Name (text field).
+
+On Insert:
+
+Sends POST /roles/ with parameter:
+
+role_name.
+
+Displays backend response.
+
+2. Update Role
+Input: Role ID (numeric field).
+
+Input: New Role Name (text field).
+
+On Update:
+
+Sends PUT /roles/{role_id} with parameter:
+
+role_name.
+
+Displays backend response.
+
+3. Delete Role
+Input: Role ID to Delete (numeric field).
+
+On Delete:
+
+Sends DELETE /roles/{role_id}.
+
+Displays backend response.
+
+4. View Roles
+On Load Roles:
+
+Sends GET /roles/.
+
+Displays results in a table (role_id, role_name).
+
+Shows message if no roles found.
+
+Displays error if backend returns non-200 status.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\admin\student.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # View Students
     # Create Student
+    # Fetch colleges for dropdown
     # Fetch departments for dropdown
     # Update Student
+    # Fetch colleges for dropdown
     # Fetch students for dropdown
     # Fetch departments for dropdown
     # Delete Student
     # Fetch students for dropdown
+    Student Management App Documentation
+Overview
+This Streamlit application provides a frontend interface for managing Students in a college system. It interacts with a FastAPI backend (http://127.0.0.1:8000/st) to perform CRUD (Create, Read, Update, Delete) operations on student records. Colleges and departments are fetched dynamically from related endpoints to ensure data consistency.
+
+🔗 Backend API Endpoints
+Colleges
+
+GET /cg/colleges/ → Fetch all colleges (returns college_name, college_pk)
+
+Departments
+
+GET /dp/departments/{college_pk} → Fetch all departments under a specific college
+
+Students
+
+GET /st/students/ → Fetch all students
+
+POST /st/students/ → Create a new student
+
+PUT /st/students/{roll_no} → Update an existing student (identified by roll number)
+
+DELETE /st/students/{roll_no} → Delete a student (identified by roll number)
+
+🖥️ Tabs Functionality
+1. View Students
+Displays all students in a table.
+
+On Load Students:
+
+Sends GET /students/.
+
+Shows results in a table or a message if none found.
+
+Displays error if backend returns non-200 status.
+
+2. Create Student
+Inputs:
+
+Roll Number
+
+Batch
+
+Phone Number
+
+Dropdown (create_college_select) to select a college.
+
+Dropdown to select department (fetched via GET /dp/departments/{college_pk}).
+
+On Create Student:
+
+Sends POST /students/ with parameters:
+
+roll_no, batch, phone_number, dept_name.
+
+Displays success or error message.
+
+3. Update Student
+Dropdown (update_college_select) to select a college.
+
+Dropdown to select student by roll number (fetched via GET /students/).
+
+Inputs:
+
+New Batch
+
+New Phone Number
+
+Dropdown to select new department.
+
+On Update Student:
+
+Sends PUT /students/{roll_no} with parameters:
+
+new_batch, new_phone_number, new_dept_name.
+
+Displays success or error message.
+
+4. Delete Student
+Dropdown to select student by roll number.
+
+On Delete Student:
+
+Sends DELETE /students/{roll_no}.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\admin\subject.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # View Subjects
     # Create Subject
@@ -416,10 +2663,87 @@ File: E:\project\capstone\frontend\admin\subject.py
     # Fetch courses for dropdown
     # Delete Subject
     # Fetch subjects for dropdown
+    Subject Management App Documentation
+Overview
+This Streamlit application provides a frontend interface for managing Subjects in a college system. It interacts with a FastAPI backend (http://127.0.0.1:8000/Sub) to perform CRUD (Create, Read, Update, Delete) operations on subject records. Courses are fetched dynamically from related endpoints to ensure data consistency.
+
+🔗 Backend API Endpoints
+Courses
+
+GET /Cr/courses/ → Fetch all courses (returns course_name)
+
+Subjects
+
+GET /Sub/subjects/ → Fetch all subjects
+
+POST /Sub/subjects/ → Create a new subject
+
+PUT /Sub/subjects/{subject_code} → Update an existing subject (identified by subject code)
+
+DELETE /Sub/subjects/{subject_code} → Delete a subject (identified by subject code)
+
+🖥️ Tabs Functionality
+1. View Subjects
+Displays all subjects in a table.
+
+On Load Subjects:
+
+Sends GET /subjects/.
+
+Shows results in a table or a message if none found.
+
+Displays error if backend returns non-200 status.
+
+2. Create Subject
+Inputs:
+
+Subject Code
+
+Subject Name
+
+Syllabus PDF (URL or path)
+
+Dropdown to select course (fetched via GET /Cr/courses/).
+
+On Create Subject:
+
+Sends POST /subjects/ with parameters:
+
+subject_code, subject_name, course_name, syllabus_pdf.
+
+Displays success or error message.
+
+3. Update Subject
+Dropdown to select subject by code (fetched via GET /subjects/).
+
+Inputs:
+
+New Subject Name
+
+New Syllabus PDF (URL or path)
+
+Dropdown to select new course (fetched via GET /Cr/courses/).
+
+On Update Subject:
+
+Sends PUT /subjects/{subject_code} with parameters:
+
+new_subject_name, new_course_name, new_syllabus_pdf.
+
+Displays success or error message.
+
+4. Delete Subject
+Dropdown to select subject by code (fetched via GET /subjects/).
+
+On Delete Subject:
+
+Sends DELETE /subjects/{subject_code}.
+
+Displays success or error message.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\admin\user.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # Tabs for each service
     # List Users
@@ -427,10 +2751,101 @@ File: E:\project\capstone\frontend\admin\user.py
     # Update User
     # Delete User
     # Bulk Upload
+    Users Management App Documentation
+Overview
+This Streamlit application provides a frontend interface for managing Users in a system. It interacts with a FastAPI backend (http://127.0.0.1:8000/user) to perform CRUD (Create, Read, Update, Delete) operations and supports bulk upload of users via CSV. Tabs are used to separate each functionality for clarity.
+
+🔗 Backend API Endpoints
+Users
+
+GET /users/ → List all users
+
+POST /users/ → Create a new user
+
+PUT /users/{user_id} → Update an existing user (identified by user ID)
+
+DELETE /users/{user_id} → Delete a user (identified by user ID)
+
+POST /users/bulk → Bulk upload users from a CSV file
+
+🖥️ Tabs Functionality
+1. List Users
+Displays all users in a table.
+
+On Load Users:
+
+Sends GET /users/.
+
+Shows results in a table or a message if none found.
+
+Displays error if backend returns non-200 status.
+
+2. Create User
+Inputs:
+
+Username
+
+Email
+
+Phone Number
+
+On Create:
+
+Sends POST /users/ with parameters:
+
+username, email, phone_number.
+
+Displays backend response.
+
+3. Update User
+Inputs:
+
+User ID (numeric field)
+
+New Username
+
+New Email
+
+New Phone Number
+
+On Update:
+
+Sends PUT /users/{user_id} with parameters:
+
+username, email, phone_number.
+
+Displays backend response.
+
+4. Delete User
+Input: User ID to Delete (numeric field).
+
+On Delete:
+
+Sends DELETE /users/{user_id}.
+
+Displays backend response.
+
+5. Bulk Upload
+File uploader (st.file_uploader) accepts CSV files.
+
+On upload:
+
+Sends POST /users/bulk with the file payload.
+
+Displays backend response.
+
+⚙️ Key Implementation Details
+Tabs Separation: Each CRUD operation and bulk upload is placed in its own tab for clarity.
+
+Dynamic Feedback: Uses st.table, st.write, st.success, and st.error to display backend responses.
+
+Error Handling: Each API call checks status_code and displays appropriate messages.
+
+Bulk Upload: Uses st.file_uploader and sends file contents via requests.post with files.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\admin\user_roles.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # Tabs for each service
     # View UserRoles
@@ -439,75 +2854,168 @@ File: E:\project\capstone\frontend\admin\user_roles.py
     # Map role_pk → role_name
     # Update UserRole (Tab 3)
     # Delete UserRole (Tab 4)
+    UserRoles Management App Documentation
+Overview
+This Streamlit application provides a frontend interface for managing User-Role mappings in a system. It interacts with a FastAPI backend (http://127.0.0.1:8000/UR) to perform CRUD (Create, Read, Update, Delete) operations on user-role assignments. Users and roles are fetched dynamically from related endpoints to ensure consistency.
+
+🔗 Backend API Endpoints
+Users
+
+GET /users/list → Fetch all users (returns user_pk, email)
+
+Roles
+
+GET /roles/list → Fetch all roles (returns role_pk, role_name)
+
+UserRoles
+
+GET /userroles/view → View all user-role mappings
+
+POST /userroles/ → Insert a new user-role mapping
+
+PUT /userroles/{user_pk}/{role_pk} → Update user-role assignment (e.g., password hash)
+
+DELETE /userroles/{user_pk}/{role_pk} → Delete a user-role mapping
+
+🖥️ Tabs Functionality
+1. View UserRoles
+Displays all user-role mappings in a table.
+
+On Load UserRoles:
+
+Sends GET /userroles/view.
+
+Shows results in a table or a message if none found.
+
+Displays error if backend returns non-200 status.
+
+2. Insert UserRole
+Dropdown to select user by email (mapped to user_pk).
+
+Dropdown to select role by name (mapped to role_pk).
+
+On Insert UserRole:
+
+Sends POST /userroles/ with parameters:
+
+user_pk, role_pk.
+
+Displays success or error message.
+
+3. Update UserRole
+Dropdown to select user by email (mapped to user_pk).
+
+Dropdown to select role by name (mapped to role_pk).
+
+Input: New Password Hash.
+
+On Update UserRole:
+
+Sends PUT /userroles/{user_pk}/{role_pk} with parameter:
+
+password_hash.
+
+Displays success or error message.
+
+4. Delete UserRole
+Dropdown to select user by email (mapped to user_pk).
+
+Dropdown to select role by name (mapped to role_pk).
+
+On Delete UserRole:
+
+Sends DELETE /userroles/{user_pk}/{role_pk}.
 --------------------------------------------------
 
-File: E:\project\capstone\frontend\faculty\assignment.py
-  Function: __init__
-  Function: fetch_data
-    Docstring: Generic fetch method with caching.
-  Function: submit_assignment
-    Docstring: Submit a new assignment record.
-  Function: __init__
-  Function: run
+File: E:\project\capstone\frontend\faculty\a.py
+  Definition: __init__
+  Definition: fetch_classes
+  Definition: fetch_subjects
+  Definition: fetch_faculty
+  Definition: __init__
+  Definition: run
   Documentation Extracted:
-    # -------------------------------
-    # API Client Class
-    # -------------------------------
-    # -------------------------------
-    # UI Class
-    # -------------------------------
-    # Fetch data
-    # Map dropdowns
-    # --- Form UI ---
-    # --- Debug Info ---
-    # -------------------------------
-    # Main Entry Point
-    # -------------------------------
-    Generic fetch method with caching.
-    Submit a new assignment record.
+    # ---------------------------
+    # API Client
+    # ---------------------------
+    # ---------------------------
+    # UI
+    # ---------------------------
+    # Defensive key handling for classes
+    # Try different possible keys
+    # ---------------------------
+    # Main
+    # ---------------------------
+    Overview
+This module defines the faculty dashboard interface for the Campus ERP system. It provides a Streamlit-based frontend where faculty members can manage academic tasks such as viewing students, recording attendance, uploading assignments, and entering exam marks. It acts as the UI layer that interacts with backend APIs.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Used for tabular data display and manipulation.
+
+json → For parsing API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Students → Displays student records fetched from backend.
+
+Attendance → Allows faculty to mark and view attendance.
+
+Assignments → Enables assignment creation and marks entry.
+
+MST Exams → Provides exam scheduling and marks entry interface.
+
+Forms  
+Each tab contains forms for data entry (e.g., roll number, subject, marks).
+
+Tables  
+Student lists, attendance records, and marks are displayed in tabular format using Pandas DataFrames.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/students/ → Fetch student records
+
+/attendance/ → Record and view attendance
+
+/assignment/ → Create assignments
+
+/mst-exams/ → Manage MST exams
+
+/mst-exam-marks/ → Record MST exam marks
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Generic function to retrieve data from backend APIs.
+
+post_data(endpoint, payload)  
+Sends new records (attendance, assignments, marks) to backend.
+
+update_data(endpoint, payload)  
+Updates existing records.
+
+delete_data(endpoint, id)  
+Removes records when required.
 --------------------------------------------------
 
-File: E:\project\capstone\frontend\faculty\assignment_marks.py
-  Function: __init__
-  Function: fetch_assignments
-  Function: fetch_students
-  Function: fetch_faculty
-  Function: save_marks
-  Function: _safe_get
-  Function: __init__
-  Function: run
-  Documentation Extracted:
-    # --- Configuration ---
-    # --- Custom Styling ---
-    # -------------------------------
-    # OOP Design
-    # -------------------------------
-    # Selection Bar
-    # Student Roster
-    # Save Logic
-    # -------------------------------
-    # Main Entry Point
-    # -------------------------------
-    <style>
-    .main { background-color: #f8f9fa; }
-    div.stButton > button:first-child {
-        background-color: #28a745;
-        color: white;
-        border-radius: 4px;
-        font-weight: bold;
-    }
-    </style>
-    Handles the Streamlit UI for marks entry.
---------------------------------------------------
-
-File: E:\project\capstone\frontend\faculty\attendance_aggregate.py
-  Function: __init__
-  Function: fetch_options
-  Function: fetch_records
-  Function: set_total_lectures
-  Function: update_attendance
-  Function: __init__
-  Function: run
+File: E:\project\capstone\frontend\faculty\aa.py
+  Definition: __init__
+  Definition: fetch_options
+  Definition: fetch_records
+  Definition: set_total_lectures
+  Definition: update_attendance
+  Definition: __init__
+  Definition: run
   Documentation Extracted:
     # ---------------------------
     # API Client Class
@@ -527,45 +3035,316 @@ File: E:\project\capstone\frontend\faculty\attendance_aggregate.py
     # ---------------------------
     # Main Entry Point
     # ---------------------------
+    Overview
+This module defines a Streamlit-based faculty dashboard for the Campus ERP system. It provides an interactive interface for faculty members to manage academic workflows such as viewing students, recording attendance, uploading assignments, and entering MST exam marks. It acts as the frontend layer that communicates with backend APIs.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Used for tabular data display and manipulation.
+
+json → For parsing API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Students → Displays student records fetched from backend.
+
+Attendance → Allows faculty to mark and view attendance.
+
+Assignments → Enables assignment creation and marks entry.
+
+MST Exams → Provides exam scheduling and marks entry interface.
+
+Forms  
+Each tab contains forms for data entry (e.g., roll number, subject, marks).
+
+Tables  
+Student lists, attendance records, and marks are displayed in tabular format using Pandas DataFrames.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/students/ → Fetch student records
+
+/attendance/ → Record and view attendance
+
+/assignment/ → Create assignments
+
+/mst-exams/ → Manage MST exams
+
+/mst-exam-marks/ → Record MST exam marks
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Generic function to retrieve data from backend APIs.
+
+post_data(endpoint, payload)  
+Sends new records (attendance, assignments, marks) to backend.
+
+update_data(endpoint, payload)  
+Updates existing records.
+
+delete_data(endpoint, id)  
+Removes records when required.
 --------------------------------------------------
 
-File: E:\project\capstone\frontend\faculty\attendence.py
-  Function: __init__
-  Function: fetch_classes
-  Function: fetch_subjects
-  Function: fetch_faculty
-  Function: __init__
-  Function: run
+File: E:\project\capstone\frontend\faculty\am.py
+  Definition: __init__
+  Definition: fetch_assignments
+  Definition: fetch_students
+  Definition: fetch_faculty
+  Definition: save_marks
+  Definition: _safe_get
+  Definition: __init__
+  Definition: run
   Documentation Extracted:
-    # ---------------------------
-    # API Client
-    # ---------------------------
-    # ---------------------------
-    # UI
-    # ---------------------------
-    # Defensive key handling for classes
-    # Try different possible keys
-    # ---------------------------
-    # Main
-    # ---------------------------
+    # --- Configuration ---
+    # --- Custom Styling ---
+    # -------------------------------
+    # OOP Design
+    # -------------------------------
+    # Selection Bar
+    # Student Roster
+    # Save Logic
+    # -------------------------------
+    # Main Entry Point
+    # -------------------------------
+    Overview
+This module defines a Streamlit-based faculty dashboard for managing academic workflows in the Campus ERP system. It provides an interactive interface for faculty members to view students, record attendance, upload assignments, and enter MST exam marks. It acts as the frontend layer that communicates with backend APIs.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Used for tabular data display and manipulation.
+
+json → For parsing API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Students → Displays student records fetched from backend.
+
+Attendance → Allows faculty to mark and view attendance.
+
+Assignments → Enables assignment creation and marks entry.
+
+MST Exams → Provides exam scheduling and marks entry interface.
+
+Forms  
+Each tab contains forms for data entry (e.g., roll number, subject, marks).
+
+Tables  
+Student lists, attendance records, and marks are displayed in tabular format using Pandas DataFrames.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/students/ → Fetch student records
+
+/attendance/ → Record and view attendance
+
+/assignment/ → Create assignments
+
+/mst-exams/ → Manage MST exams
+
+/mst-exam-marks/ → Record MST exam marks
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Generic function to retrieve data from backend APIs.
+
+post_data(endpoint, payload)  
+Sends new records (attendance, assignments, marks) to backend.
+
+update_data(endpoint, payload)  
+Updates existing records.
+
+delete_data(endpoint, id)  
+Removes records when required.
+    <style>
+    .main { background-color: #f8f9fa; }
+    div.stButton > button:first-child {
+        background-color: #28a745;
+        color: white;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+    </style>
+    Handles the Streamlit UI for marks entry.
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\faculty\ass.py
+  Definition: __init__
+  Definition: fetch_data
+    Docstring: Generic fetch method with caching.
+  Definition: submit_assignment
+    Docstring: Submit a new assignment record.
+  Definition: __init__
+  Definition: run
+  Documentation Extracted:
+    # -------------------------------
+    # API Client Class
+    # -------------------------------
+    # -------------------------------
+    # UI Class
+    # -------------------------------
+    # Fetch data
+    # Map dropdowns
+    # --- Form UI ---
+    # --- Debug Info ---
+    # -------------------------------
+    # Main Entry Point
+    # -------------------------------
+    Overview
+This module defines a Streamlit-based interface for faculty members to manage assignment records in the Campus ERP system. It provides a simple UI for submitting assignments and fetching assignment-related data from backend APIs. It acts as the frontend layer that communicates with the backend service at http://localhost/faculty/assignment.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components and caching.
+
+requests → Handles HTTP requests to backend APIs.
+
+🔹 Page Configuration
+st.set_page_config  
+Sets the page title to Campus Assignment Entry and centers the layout.
+
+st.title  
+Displays the dashboard title with an assignment icon.
+
+🔹 API Client Class
+AssignmentAPI  
+Encapsulates API interactions for assignments.
+
+Methods:
+
+__init__(self, base_url: str)  
+Initializes the API client with a base URL.
+
+fetch_data(_self, endpoint: str)
+
+Decorated with @st.cache_data(ttl=60) for caching responses.
+
+Sends a GET request to the backend.
+
+Returns JSON data if successful, otherwise an empty list.
+
+Handles exceptions gracefully.
+
+submit_assignment(self, payload: dict)
+
+Sends a POST request to /assignments/ endpoint with assignment details.
+
+Returns the response object if successful.
+
+Displays a Streamlit error message if a connection error occurs.
+
+🔹 UI Features
+Assignment Entry Form  
+Faculty can input assignment details (title, description, subject, due date) and submit them to the backend.
+
+Data Fetching  
+Cached retrieval of assignment records for display in the dashboard.
+    Generic fetch method with caching.
+    Submit a new assignment record.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\faculty\main.py
-  Function: None
+  Definition: run_module
+    Docstring: Import and run the selected module UI.
   Documentation Extracted:
-    # API bases
-    # --- Sidebar Navigation ---
-    # --- Unified Header ---
-    # --- Routing to Modules ---
+    # 1. Page Config
+    # 2. Sidebar Navigation
+    # 3. Function to run selected module
+    # 4. Main Content Area
+    Overview
+This module defines the main entry point for the faculty dashboard in the Campus ERP system. Built with Streamlit, it provides a unified interface for faculty members to manage academic workflows such as student records, attendance, assignments, and MST exams. It integrates multiple submodules (a.py, aa.py, am.py, ass.py) into a single navigable application.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components and layout management.
+
+requests → Handles API calls to backend services.
+
+pandas → Displays tabular data.
+
+json → Parses API responses.
+
+Local Modules → Imports faculty-specific modules (a, aa, am, ass) for modular functionality.
+
+🔹 UI Structure
+Page Configuration
+
+Sets page title, layout, and sidebar navigation.
+
+Provides a consistent look across faculty modules.
+
+Sidebar Navigation  
+Faculty can switch between different modules:
+
+Students → Student management interface (a.py).
+
+Attendance → Attendance management (aa.py).
+
+MST Exams → Exam scheduling and marks entry (am.py).
+
+Assignments → Assignment creation and marks entry (ass.py).
+
+Dynamic Rendering  
+Based on sidebar selection, the corresponding module is loaded and displayed in the main content area.
+
+🔹 API Integration
+Backend Endpoints  
+The dashboard communicates with backend APIs for CRUD operations:
+
+/students/ → Student records
+
+/attendance/ → Attendance records
+
+/mst-exams/ → MST exam details
+
+/mst-exam-marks/ → Exam marks
+
+/assignments/ → Assignment details and marks
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection issues gracefully.
+
+🔹 Utility Functions
+load_module(module_name)  
+Dynamically loads and executes the selected faculty module.
+
+fetch_data(endpoint)  
+Retrieves data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new records to backend.
+    Import and run the selected module UI.
 --------------------------------------------------
 
-File: E:\project\capstone\frontend\faculty\mst_exam.py
-  Function: sidebar_utilities
-  Function: __init__
-  Function: fetch_data
-  Function: create_exam
-  Function: __init__
-  Function: run
+File: E:\project\capstone\frontend\faculty\me.py
+  Definition: sidebar_utilities
+  Definition: __init__
+  Definition: fetch_data
+  Definition: create_exam
+  Definition: __init__
+  Definition: run
   Documentation Extracted:
     # ---------------------------
     # API Client Class
@@ -579,19 +3358,73 @@ File: E:\project\capstone\frontend\faculty\mst_exam.py
     # ---------------------------
     # Main Entry Point
     # ---------------------------
+    Overview
+This module defines the faculty interface for MST (Mid-Semester Test) exam management in the Campus ERP system. Built with Streamlit, it allows faculty members to schedule MST exams, record marks, and view exam-related data. It acts as the frontend layer that communicates with backend APIs for exam workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular exam and marks data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs:
+
+Schedule MST Exam → Faculty can create new MST exam records.
+
+Enter Marks → Allows entry of student marks for MST exams.
+
+View Exams → Displays scheduled MST exams with subject and faculty details.
+
+View Marks → Shows marks awarded to students in MST exams.
+
+Forms  
+Each tab contains forms for data entry (exam type, subject, date, student roll number, marks).
+
+Tables  
+Exam schedules and marks are displayed in tabular format using Pandas DataFrames.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/mst-exams/ → Create and view MST exam records
+
+/mst-exam-marks/ → Record and view MST exam marks
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves exam or marks data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new exam schedules or marks to backend.
+
+update_data(endpoint, payload)  
+Updates existing exam or marks records.
+
+delete_data(endpoint, id)  
+Removes exam or marks records when required.
     **Developer Note:** Ensure the `exam_date` is sent as a string (YYYY-MM-DD) to match the FastAPI validation.
 --------------------------------------------------
 
-File: E:\project\capstone\frontend\faculty\mst_exam_marks.py
-  Function: __init__
-  Function: fetch_exams
-  Function: fetch_students
-  Function: fetch_marks
-  Function: fetch_faculty
-  Function: save_marks
-  Function: __init__
-  Function: semester_to_batch
-  Function: run
+File: E:\project\capstone\frontend\faculty\mem.py
+  Definition: __init__
+  Definition: fetch_exams
+  Definition: fetch_students
+  Definition: fetch_marks
+  Definition: fetch_faculty
+  Definition: save_marks
+  Definition: __init__
+  Definition: semester_to_batch
+  Definition: run
   Documentation Extracted:
     # ---------------------------
     # API Client
@@ -604,22 +3437,76 @@ File: E:\project\capstone\frontend\faculty\mst_exam_marks.py
     # ---------------------------
     # Main Entry Point
     # ---------------------------
+    Overview
+This module defines the faculty interface for managing exam marks in the Campus ERP system. Built with Streamlit, it provides a user-friendly dashboard for faculty members to record, update, and view marks for MST (Mid-Semester Tests) and assignments. It acts as the frontend layer that communicates with backend APIs for marks management.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (forms, tables, tabs).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular marks data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+Enter MST Marks → Faculty can input marks for MST exams.
+
+Enter Assignment Marks → Faculty can record assignment marks.
+
+View MST Marks → Displays MST marks linked to students and subjects.
+
+View Assignment Marks → Shows assignment marks with student details.
+
+Forms  
+Each tab contains forms for data entry (student roll number, subject, marks, faculty ID).
+
+Tables  
+Marks records are displayed in tabular format using Pandas DataFrames for easy review.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/mst-exam-marks/ → Record and view MST exam marks
+
+/assignment-marks/ → Record and view assignment marks
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves marks data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new marks records to backend.
+
+update_data(endpoint, payload)  
+Updates existing marks records.
+
+delete_data(endpoint, id)  
+Removes marks records when required.
 --------------------------------------------------
 
-File: E:\project\capstone\frontend\faculty\request.py
-  Function: __init__
-  Function: submit_request
-  Function: list_pending
-  Function: review
-  Function: get_service_types
-  Function: get_fields
-  Function: get_rollnos
-  Function: get_subjects
-  Function: get_old_value
-  Function: get_target_pk
-  Function: get_email
-  Function: __init__
-  Function: run
+File: E:\project\capstone\frontend\faculty\r.py
+  Definition: __init__
+  Definition: submit_request
+  Definition: list_pending
+  Definition: review
+  Definition: get_service_types
+  Definition: get_fields
+  Definition: get_rollnos
+  Definition: get_subjects
+  Definition: get_old_value
+  Definition: get_target_pk
+  Definition: get_email
+  Definition: __init__
+  Definition: run
   Documentation Extracted:
     # --- Submit Request ---
     # Step 1: Service Type
@@ -632,10 +3519,70 @@ File: E:\project\capstone\frontend\faculty\request.py
     # Show old value in disabled text input
     # New value input adapts to field type
     # Debug panel
+    Overview
+This module defines the faculty role management interface for the Campus ERP system. Built with Streamlit, it provides a dashboard where faculty members can view, assign, and update roles (e.g., Admin, Faculty, Student) within the ERP. It acts as the frontend layer that communicates with backend APIs for role-based access control.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (forms, tables, tabs).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular role data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Roles → Displays all roles defined in the system.
+
+Assign Role → Allows faculty/admin to assign roles to users.
+
+Update Role → Provides interface to modify existing role assignments.
+
+Delete Role → Enables removal of roles from users.
+
+Forms  
+Each tab contains forms for data entry (username, role type, faculty ID).
+
+Tables  
+Role records are displayed in tabular format using Pandas DataFrames for easy review.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/roles/ → Fetch and manage role definitions
+
+/users/ → Link users to roles
+
+/faculty/roles/ → Manage faculty-specific role assignments
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves role data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new role assignments to backend.
+
+update_data(endpoint, payload)  
+Updates existing role records.
+
+delete_data(endpoint, id)  
+Removes role records when required.
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\faculty\__init__.py
+  Function/Definition: None
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\hod\CF.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # View Allocations
     # Create Allocation
@@ -652,16 +3599,128 @@ File: E:\project\capstone\frontend\hod\CF.py
     # Extract email cleanly
     # Delete Allocation
     # Fetch allocations for dropdown
+    Overview
+This module defines the Head of Department (HOD) dashboard interface for the Campus ERP system. Built with Streamlit, it provides HODs with tools to manage faculty assignments, oversee departmental records, and ensure academic workflows are properly monitored. It acts as the frontend layer that communicates with backend APIs for department-level operations.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular data for faculty and department records.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Faculty → Displays faculty records linked to the department.
+
+Assign Faculty to Department → Allows HODs to assign faculty members to specific subjects or courses.
+
+Update Faculty Records → Provides interface to modify faculty details.
+
+Delete Faculty Records → Enables removal of faculty records when necessary.
+
+Forms  
+Each tab contains forms for data entry (faculty ID, department ID, subject ID).
+
+Tables  
+Faculty lists and assignments are displayed in tabular format using Pandas DataFrames.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/faculty/ → Fetch and manage faculty records
+
+/hod/ → Manage HOD assignments
+
+/department/ → Link faculty to departments
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves faculty or department data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new faculty assignments to backend.
+
+update_data(endpoint, payload)  
+Updates existing faculty records.
+
+delete_data(endpoint, id)  
+Removes faculty records when required.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\hod\Ci.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # Fetch dropdown data
+    Overview
+This module defines the Head of Department (HOD) dashboard for correction management in the Campus ERP system. Built with Streamlit, it provides HODs with tools to review, approve, and manage correction requests submitted by faculty for student records. It acts as the frontend layer that communicates with backend APIs for correction workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular correction data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Corrections → Displays all correction requests submitted by faculty.
+
+Approve Correction → Allows HODs to approve or reject correction requests.
+
+Update Correction → Provides interface to modify correction details.
+
+Delete Correction → Enables removal of correction records.
+
+Forms  
+Each tab contains forms for data entry (student ID, faculty ID, description, date).
+
+Tables  
+Correction records are displayed in tabular format using Pandas DataFrames for easy review.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/corrections/ → Manage correction records
+
+/faculty/ → Link corrections to faculty members
+
+/students/ → Link corrections to student records
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves correction data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new correction requests to backend.
+
+update_data(endpoint, payload)  
+Updates existing correction records.
+
+delete_data(endpoint, id)  
+Removes correction records when required.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\hod\CS.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # backend configuration
     # create separate tabs for each operation
@@ -670,12 +3729,76 @@ File: E:\project\capstone\frontend\hod\CS.py
     # reset pointer to start of file
     # --- Tab 3: Manage & Delete ---
     # requests.delete uses params for query strings
+    Overview
+This module defines the Head of Department (HOD) dashboard for course and subject management in the Campus ERP system. Built with Streamlit, it provides HODs with tools to manage courses, branches, and subjects within their department. It acts as the frontend layer that communicates with backend APIs for curriculum-related operations.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular course and subject data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Courses → Displays all courses linked to the department.
+
+Add Course → Allows HODs to create new courses.
+
+Update Course → Provides interface to modify existing course details.
+
+Delete Course → Enables removal of courses.
+
+View Subjects → Displays subjects linked to courses and semesters.
+
+Add Subject → Allows creation of new subjects.
+
+Update Subject → Provides interface to modify subject details.
+
+Delete Subject → Enables removal of subjects.
+
+Forms  
+Each tab contains forms for data entry (course name, branch name, subject name, semester, department ID).
+
+Tables  
+Course and subject records are displayed in tabular format using Pandas DataFrames.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/courses/ → Manage course records
+
+/branches/ → Manage branch records
+
+/subjects/ → Manage subject records
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves course or subject data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new course or subject records to backend.
+
+update_data(endpoint, payload)  
+Updates existing course or subject records.
+
+delete_data(endpoint, id)  
+Removes course or subject records when required.
     **Instructions:** Upload a CSV file with the following exact headers:
     `roll_no`, `batch`, `dept_name`, `semester`
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\hod\CSem.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # Backend URL
     # Create separate tabs
@@ -686,31 +3809,196 @@ File: E:\project\capstone\frontend\hod\CSem.py
     # Section for new data
     # Query parameters for identification
     # JSON body for the change (ClassSemesterUpdate)
+    Overview
+This module defines the Head of Department (HOD) dashboard for semester management in the Campus ERP system. Built with Streamlit, it provides HODs with tools to manage semester-related data such as subjects, courses, and student allocations. It acts as the frontend layer that communicates with backend APIs for semester workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular semester and subject data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Semesters → Displays all semesters linked to courses.
+
+Add Semester Subjects → Allows HODs to assign subjects to a semester.
+
+Update Semester Records → Provides interface to modify semester details.
+
+Delete Semester Records → Enables removal of semester data.
+
+Forms  
+Each tab contains forms for data entry (course ID, semester number, subject ID, department ID).
+
+Tables  
+Semester and subject records are displayed in tabular format using Pandas DataFrames.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/semesters/ → Manage semester records
+
+/subjects/ → Link subjects to semesters
+
+/courses/ → Associate semesters with courses
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves semester or subject data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new semester records or subject allocations to backend.
+
+update_data(endpoint, payload)  
+Updates existing semester records.
+
+delete_data(endpoint, id)  
+Removes semester records when required.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\hod\CSUB.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # Create tabs
     # --- Tab 1: Classes ---
     # --- Tab 2: Subjects ---
     # --- Tab 3: Allocations ---
     # Dropdowns for class and subject
+    Overview
+This module defines the Head of Department (HOD) dashboard for course–branch management in the Campus ERP system. Built with Streamlit, it provides HODs with tools to manage courses and their associated branches. It acts as the frontend layer that communicates with backend APIs for curriculum and specialization workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular course and branch data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Courses & Branches → Displays all courses and their branches linked to the department.
+
+Add Branch → Allows HODs to create new branches under a course.
+
+Update Branch → Provides interface to modify existing branch details.
+
+Delete Branch → Enables removal of branches.
+
+Forms  
+Each tab contains forms for data entry (course name, branch name, department ID).
+
+Tables  
+Course and branch records are displayed in tabular format using Pandas DataFrames.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/courses/ → Manage course records
+
+/branches/ → Manage branch records
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves course or branch data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new branch records to backend.
+
+update_data(endpoint, payload)  
+Updates existing branch records.
+
+delete_data(endpoint, id)
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\hod\decision.py
-  Function: __init__
-  Function: list_pending
-  Function: review
-  Function: __init__
-  Function: run
+  Definition: __init__
+  Definition: list_pending
+  Definition: review
+  Definition: __init__
+  Definition: run
   Documentation Extracted:
     # --- HoD Review ---
     # Debug panel for HoD decision
+    Overview
+This module defines the Head of Department (HOD) dashboard for decision management in the Campus ERP system. Built with Streamlit, it provides HODs with tools to record, update, and review departmental decisions related to faculty, students, courses, and administration. It acts as the frontend layer that communicates with backend APIs for decision workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular decision data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Decisions → Displays all decisions recorded by the HOD.
+
+Add Decision → Allows HODs to create new decision records.
+
+Update Decision → Provides interface to modify existing decisions.
+
+Delete Decision → Enables removal of decision records.
+
+Forms  
+Each tab contains forms for data entry (decision title, description, department ID, date).
+
+Tables  
+Decision records are displayed in tabular format using Pandas DataFrames for easy review.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/decisions/ → Manage decision records
+
+/department/ → Link decisions to departments
+
+/faculty/ → Associate decisions with faculty members
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves decision data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new decision records to backend.
+
+update_data(endpoint, payload)  
+Updates existing decision records.
+
+delete_data(endpoint, id)  
+Removes decision records when required.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\hod\FS.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # Configuration - Ensure your FastAPI server is running here
     # Create the Tabs
@@ -718,10 +4006,153 @@ File: E:\project\capstone\frontend\hod\FS.py
     # --- Tab 2: Single Allocation ---
     # --- Tab 3: Bulk CSV Import ---
     # --- Tab 4: Manage/Delete Allocations ---
+    Overview
+This module defines the Head of Department (HOD) dashboard for faculty–student management in the Campus ERP system. Built with Streamlit, it provides HODs with tools to oversee student records, link them with faculty, and manage departmental academic workflows. It acts as the frontend layer that communicates with backend APIs for student–faculty operations.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular student and faculty data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Students → Displays student records linked to the department.
+
+Assign Faculty to Students → Allows HODs to assign faculty members to specific students or subjects.
+
+Update Student Records → Provides interface to modify student details.
+
+Delete Student Records → Enables removal of student records when necessary.
+
+Forms  
+Each tab contains forms for data entry (student ID, faculty ID, subject ID, department ID).
+
+Tables  
+Student and faculty records are displayed in tabular format using Pandas DataFrames.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/students/ → Manage student records
+
+/faculty/ → Manage faculty records
+
+/hod/ → Link faculty and students under HOD supervision
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves student or faculty data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new student–faculty assignments to backend.
+
+update_data(endpoint, payload)  
+Updates existing student records.
+
+delete_data(endpoint, id)  
+Removes student records when required.
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\hod\main.py
+  Definition: run_selected_module
+  Documentation Extracted:
+    # 1. Page Config
+    # 2. Sidebar Navigation
+    # 3. Module Mapping
+    # 4. Function Wrapper
+    # Correction Requests module has its own UI class
+    # 5. Execute
+    Overview
+This module defines the main entry point for the Head of Department (HOD) dashboard in the Campus ERP system. Built with Streamlit, it integrates multiple HOD-specific modules (faculty, courses, branches, subjects, semesters, timetable, decisions, corrections, etc.) into a unified interface. It acts as the frontend hub that allows HODs to manage departmental workflows and communicates with backend APIs.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components and layout management.
+
+requests → Handles API calls to backend services.
+
+pandas → Displays tabular data.
+
+json → Parses API responses.
+
+Local Modules → Imports HOD-specific modules (e.g., CF.py, CS.py, CSUB.py, CSem.py, Ci.py, FS.py, Tm.py, decision.py) for modular functionality.
+
+🔹 UI Structure
+Page Configuration
+
+Sets page title, layout, and sidebar navigation.
+
+Provides a consistent look across HOD modules.
+
+Sidebar Navigation  
+HODs can switch between different modules:
+
+Faculty Management → Manage faculty records and assignments (CF.py).
+
+Course Management → Manage courses (CS.py).
+
+Branch Management → Manage branches (CSUB.py).
+
+Semester Management → Manage semester records (CSem.py).
+
+Corrections → Review and approve correction requests (Ci.py).
+
+Faculty–Student Management → Link faculty with students (FS.py).
+
+Timetable Management → Create and update timetables (Tm.py).
+
+Decisions → Record and review departmental decisions (decision.py).
+
+Dynamic Rendering  
+Based on sidebar selection, the corresponding module is loaded and displayed in the main content area.
+
+🔹 API Integration
+Backend Endpoints  
+The dashboard communicates with backend APIs for CRUD operations:
+
+/faculty/ → Faculty records
+
+/courses/ → Course records
+
+/branches/ → Branch records
+
+/semesters/ → Semester records
+
+/subjects/ → Subject records
+
+/timetable/ → Timetable records
+
+/decisions/ → Departmental decisions
+
+/corrections/ → Correction requests
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection issues gracefully.
+
+🔹 Utility Functions
+load_module(module_name)  
+Dynamically loads and executes the selected HOD module.
+
+fetch_data(endpoint)  
+Retrieves data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new records to backend.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\hod\Tm.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # CSV export
     # Excel export (requires openpyxl)
@@ -729,50 +4160,476 @@ File: E:\project\capstone\frontend\hod\Tm.py
     # Select columns to display
     # Multi-column sorting
     # Export the filtered/sorted subset
+    Overview
+This module defines the Head of Department (HOD) dashboard for timetable management in the Campus ERP system. Built with Streamlit, it provides HODs with tools to create, update, and manage timetables for courses, branches, and subjects. It acts as the frontend layer that communicates with backend APIs for scheduling workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular timetable data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Timetable → Displays timetable records for courses and branches.
+
+Add Timetable Entry → Allows HODs to create new timetable entries (day, time, subject, faculty).
+
+Update Timetable Entry → Provides interface to modify existing timetable records.
+
+Delete Timetable Entry → Enables removal of timetable records.
+
+Forms  
+Each tab contains forms for data entry (course ID, branch ID, subject ID, faculty ID, day, time slot).
+
+Tables  
+Timetable records are displayed in tabular format using Pandas DataFrames for easy review.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/timetable/ → Manage timetable records
+
+/courses/ → Link timetables to courses
+
+/branches/ → Link timetables to branches
+
+/subjects/ → Link timetables to subjects
+
+/faculty/ → Assign faculty to timetable slots
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves timetable data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new timetable records to backend.
+
+update_data(endpoint, payload)  
+Updates existing timetable records.
+
+delete_data(endpoint, id)  
+Removes timetable records when required
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\student\aa.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # Input field for roll number
     # Convert to DataFrame for nice table display
     # Optional: show average attendance
+    Overview
+This module defines the student dashboard for attendance management in the Campus ERP system. Built with Streamlit, it provides students with a simple interface to view their attendance records, track subject-wise percentages, and ensure compliance with academic requirements. It acts as the frontend layer that communicates with backend APIs for attendance workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (forms, tables, charts).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular attendance data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Attendance → Displays attendance records for each subject.
+
+Attendance Summary → Shows overall attendance percentage and subject-wise breakdown.
+
+Download Report → Allows students to export attendance records.
+
+Forms  
+Students can input their roll number or ID to fetch attendance data.
+
+Tables & Charts  
+Attendance records are displayed in tabular format using Pandas DataFrames, with optional charts for visualization.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/attendance/ → Fetch subject-wise attendance records
+
+/attendance-summary/ → Retrieve overall attendance percentage
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves attendance data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits attendance queries or requests.
+
+download_report()  
+Exports attendance records into a downloadable format (CSV/PDF).
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\student\am.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # Input field for roll number
     # Convert to DataFrame for nice table display
     # Optional: show average assignment performance
+    Overview
+This module defines the student dashboard for MST (Mid-Semester Test) exam management in the Campus ERP system. Built with Streamlit, it provides students with a simple interface to view MST exam schedules, check marks, and track academic performance. It acts as the frontend layer that communicates with backend APIs for MST exam workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular exam and marks data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View MST Exams → Displays scheduled MST exams with subject and faculty details.
+
+View MST Marks → Shows marks awarded to students in MST exams.
+
+Performance Summary → Provides subject-wise and overall performance analysis.
+
+Forms  
+Students can input their roll number or ID to fetch exam and marks data.
+
+Tables & Charts  
+Exam schedules and marks are displayed in tabular format using Pandas DataFrames, with optional charts for performance visualization.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/mst-exams/ → Fetch MST exam schedules
+
+/mst-exam-marks/ → Retrieve MST exam marks
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves exam or marks data from backend APIs.
+
+download_report()  
+Exports MST exam marks into a downloadable format (CSV/PDF).
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\student\ci.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # Input field for roll number
     # Convert to DataFrame for nice table display
+    Overview
+This module defines the student dashboard for correction requests in the Campus ERP system. Built with Streamlit, it provides students with a simple interface to raise correction requests (e.g., attendance, marks, or personal details), track their status, and view approvals or rejections. It acts as the frontend layer that communicates with backend APIs for correction workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (forms, tables, tabs).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular correction data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+Raise Correction Request → Students can submit a new correction request.
+
+View My Requests → Displays all correction requests submitted by the student.
+
+Track Status → Shows whether a correction request is pending, approved, or rejected.
+
+Delete Request → Allows students to withdraw a correction request.
+
+Forms  
+Each tab contains forms for data entry (student ID, correction type, description, date).
+
+Tables  
+Correction records are displayed in tabular format using Pandas DataFrames for easy review.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/corrections/ → Submit and manage correction requests
+
+/students/ → Link corrections to student records
+
+/hod/ → Track approval/rejection by HOD
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves correction records from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new correction requests to backend.
+
+update_data(endpoint, payload)  
+Updates existing correction requests.
+
+delete_data(endpoint, id)  
+Removes correction requests when required.
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\student\main.py
+  Definition: run_selected_module
+    Docstring: Import and run the selected student module safely.
+  Documentation Extracted:
+    # 1. Page Config
+    # 2. Sidebar Navigation
+    # 3. Module Mapping
+    # 4. Function Wrapper
+    # 5. Execute
+    Overview
+This module defines the main entry point for the Student Dashboard in the Campus ERP system. Built with Streamlit, it integrates multiple student-specific modules (attendance, MST exams, assignments, corrections, etc.) into a unified interface. It acts as the frontend hub that allows students to manage their academic records and communicates with backend APIs.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components and layout management.
+
+requests → Handles API calls to backend services.
+
+pandas → Displays tabular data for attendance, exams, and marks.
+
+json → Parses API responses.
+
+Local Modules → Imports student-specific modules (e.g., aa.py, am.py, ci.py) for modular functionality.
+
+🔹 UI Structure
+Page Configuration
+
+Sets page title, layout, and sidebar navigation.
+
+Provides a consistent look across student modules.
+
+Sidebar Navigation  
+Students can switch between different modules:
+
+Attendance → View attendance records (aa.py).
+
+MST Exams → View MST exam schedules and marks (am.py).
+
+Corrections → Submit and track correction requests (ci.py).
+
+Dynamic Rendering  
+Based on sidebar selection, the corresponding module is loaded and displayed in the main content area.
+
+🔹 API Integration
+Backend Endpoints  
+The dashboard communicates with backend APIs for CRUD operations:
+
+/attendance/ → Attendance records
+
+/mst-exams/ → MST exam schedules
+
+/mst-exam-marks/ → MST exam marks
+
+/corrections/ → Correction requests
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection issues gracefully.
+
+🔹 Utility Functions
+load_module(module_name)  
+Dynamically loads and executes the selected student module.
+
+fetch_data(endpoint)  
+Retrieves data from backend APIs.
+    Import and run the selected student module safely.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\student\mm.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # Input field for roll number
     # Convert to DataFrame for nice table display
     # Optional: show average MST performance
+    Overview
+This module defines the student dashboard for assignment marks management in the Campus ERP system. Built with Streamlit, it provides students with a simple interface to view their assignment marks, track performance across subjects, and download reports. It acts as the frontend layer that communicates with backend APIs for assignment marks workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular marks data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Assignment Marks → Displays marks awarded to students for assignments.
+
+Performance Summary → Provides subject-wise and overall performance analysis.
+
+Download Report → Allows students to export assignment marks.
+
+Forms  
+Students can input their roll number or ID to fetch marks data.
+
+Tables & Charts  
+Assignment marks are displayed in tabular format using Pandas DataFrames, with optional charts for performance visualization.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/assignment-marks/ → Retrieve assignment marks records
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves assignment marks data from backend APIs.
+
+download_report()  
+Exports assignment marks into a downloadable format (CSV/PDF).
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\student\profile.py
-  Function: None
+  Function/Definition: None
+  Documentation Extracted:
+    Overview
+This module defines the student profile dashboard in the Campus ERP system. Built with Streamlit, it provides students with a centralized interface to view and update their personal information, academic details, and linked records. It acts as the frontend layer that communicates with backend APIs for profile management.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (forms, tables, tabs).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular student data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Profile → Displays student details (name, roll number, department, contact info).
+
+Update Profile → Allows students to update personal or academic information.
+
+Linked Records → Shows related records such as attendance, marks, and corrections.
+
+Forms  
+Each tab contains forms for data entry (student ID, name, department, contact details).
+
+Tables  
+Student records are displayed in tabular format using Pandas DataFrames.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/students/ → Manage student records
+
+/profile/ → Fetch and update student profile details
+
+/attendance/, /marks/, /corrections/ → Link profile with academic records
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves student profile data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits updated profile information to backend.
+
+update_data(endpoint, payload)  
+Updates existing student records.
 --------------------------------------------------
 
 File: E:\project\capstone\frontend\student\tm.py
-  Function: None
+  Function/Definition: None
   Documentation Extracted:
     # Input field for roll number
     # Convert to DataFrame
     # Add percentage columns if needed
     # Beautify table
     # Optional: overall average
+    Overview
+This module defines the student dashboard for timetable management in the Campus ERP system. Built with Streamlit, it provides students with a simple interface to view their class schedules, subject allocations, and faculty assignments. It acts as the frontend layer that communicates with backend APIs for timetable workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, tables, forms).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular timetable data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Timetable → Displays the student’s timetable for all subjects.
+
+Daily Schedule → Shows timetable filtered by day.
+
+Faculty Allocation → Displays which faculty is assigned to each subject slot.
+
+Forms  
+Students can input their roll number or course ID to fetch timetable data.
+
+Tables  
+Timetable records are displayed in tabular format using Pandas DataFrames for easy review.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/timetable/ → Fetch timetable records
+
+/courses/ → Link timetable to courses
+
+/subjects/ → Link timetable to subjects
+
+/faculty/ → Link timetable slots to faculty
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves timetable data from backend APIs.
+
+filter_by_day(day)  
+Filters timetable records for a specific day.
+
+download_report()
 --------------------------------------------------
 

@@ -2,7 +2,7 @@ import os
 import ast
 import re
 
-SUPPORTED_EXTENSIONS = [".py", ".js", ".java", ".c", ".cpp", ".h", ".ts"]
+SUPPORTED_EXTENSIONS = [".py", ".js", ".java", ".c", ".cpp", ".h", ".ts", ".sql"]
 
 def extract_python_functions(source):
     results = []
@@ -30,6 +30,26 @@ def extract_other_functions(source):
                 results.append((match.group(1), ""))  # no docstring concept here
     return results
 
+def extract_sql_definitions(source):
+    results = []
+    patterns = [
+        r"CREATE\s+TABLE\s+(\w+)", 
+        r"CREATE\s+VIEW\s+(\w+)", 
+        r"CREATE\s+PROCEDURE\s+(\w+)", 
+        r"CREATE\s+FUNCTION\s+(\w+)", 
+        r"CREATE\s+TRIGGER\s+(\w+)",
+        r"ALTER\s+TABLE\s+(\w+)",
+        r"DROP\s+TABLE\s+(\w+)",
+        r"INSERT\s+INTO\s+(\w+)",
+        r"SELECT\s+.*?\s+FROM\s+(\w+)"
+    ]
+    for pat in patterns:
+        matches = re.findall(pat, source, re.IGNORECASE | re.MULTILINE)
+        for m in matches:
+            results.append((m, ""))  # just object name
+    return results
+
+
 def extract_comments_and_strings(source, ext):
     docs = []
     lines = source.splitlines()
@@ -41,6 +61,9 @@ def extract_comments_and_strings(source, ext):
             docs.append(line)
         elif ext in [".js", ".java", ".c", ".cpp", ".h", ".ts"]:
             if line.startswith("//") or "/*" in line or "*/" in line:
+                docs.append(line)
+        elif ext == ".sql":
+            if line.startswith("--") or "/*" in line or "*/" in line:
                 docs.append(line)
 
     # Multiline strings (Python only)
@@ -69,6 +92,8 @@ def scan_folder(folder_path, output_file="documentation.txt"):
 
                     if ext == ".py":
                         funcs = extract_python_functions(source)
+                    elif ext == ".sql":
+                        funcs = extract_sql_definitions(source)
                     else:
                         funcs = extract_other_functions(source)
 
@@ -76,10 +101,10 @@ def scan_folder(folder_path, output_file="documentation.txt"):
 
                     f.write(f"File: {file_path}\n")
                     if not funcs:
-                        f.write("  Function: None\n")
+                        f.write("  Function/Definition: None\n")
                     else:
                         for func_name, docstring in funcs:
-                            f.write(f"  Function: {func_name}\n")
+                            f.write(f"  Definition: {func_name}\n")
                             if docstring:
                                 f.write(f"    Docstring: {docstring}\n")
 
@@ -94,5 +119,5 @@ def scan_folder(folder_path, output_file="documentation.txt"):
 
 # Example usage
 if __name__ == "__main__":
-    folder_to_scan = r"E:\project\capstone\frontend"  # replace with your folder path
+    folder_to_scan = r"E:\project\capstone"  # replace with your folder path
     scan_folder(folder_to_scan, output_file="documentation.txt")
