@@ -1,3 +1,53 @@
+'''Overview
+This module defines a Streamlit-based interface for faculty members to manage assignment records in the Campus ERP system. It provides a simple UI for submitting assignments and fetching assignment-related data from backend APIs. It acts as the frontend layer that communicates with the backend service at http://localhost/faculty/assignment.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components and caching.
+
+requests → Handles HTTP requests to backend APIs.
+
+🔹 Page Configuration
+st.set_page_config  
+Sets the page title to Campus Assignment Entry and centers the layout.
+
+st.title  
+Displays the dashboard title with an assignment icon.
+
+🔹 API Client Class
+AssignmentAPI  
+Encapsulates API interactions for assignments.
+
+Methods:
+
+__init__(self, base_url: str)  
+Initializes the API client with a base URL.
+
+fetch_data(_self, endpoint: str)
+
+Decorated with @st.cache_data(ttl=60) for caching responses.
+
+Sends a GET request to the backend.
+
+Returns JSON data if successful, otherwise an empty list.
+
+Handles exceptions gracefully.
+
+submit_assignment(self, payload: dict)
+
+Sends a POST request to /assignments/ endpoint with assignment details.
+
+Returns the response object if successful.
+
+Displays a Streamlit error message if a connection error occurs.
+
+🔹 UI Features
+Assignment Entry Form  
+Faculty can input assignment details (title, description, subject, due date) and submit them to the backend.
+
+Data Fetching  
+Cached retrieval of assignment records for display in the dashboard.
+'''
 import streamlit as st
 import requests
 
