@@ -1,3 +1,56 @@
+'''
+Overview
+This module defines API endpoints for managing marks obtained in Mid-Semester Tests (MSTs). It allows faculty to record, update, and retrieve exam marks for students, ensuring proper linkage between MST exams, subjects, and faculty.
+
+Key Components
+🔹 Data Models
+MSTExamMarkCreate (Pydantic Model)  
+Represents the structure for creating MST exam marks.
+Attributes:
+
+exam_pk: Primary key of the MST exam
+
+student_pk: Primary key of the student
+
+marks: Marks awarded
+
+faculty_pk: Faculty member who entered the marks
+
+MSTExamMarkUpdate (Pydantic Model)  
+Used for updating existing MST exam marks.
+Attributes:
+
+exam_mark_id: Identifier of the MST exam mark record
+
+marks: Updated marks
+
+🔹 Endpoints
+GET /students/ → get_students  
+Fetches students by department primary key.
+
+Parameters: dept_pk
+
+Returns: List of students with student_pk and roll_no.
+
+GET /mst-exams/ → get_mst_exams  
+Retrieves a list of MST exams available in the system.
+
+POST /mst-exam-marks/ → create_mst_exam_mark  
+Records marks for a student in a specific MST exam.
+
+PUT /mst-exam-marks/{id} → update_mst_exam_mark  
+Updates an existing MST exam mark record by ID.
+
+DELETE /mst-exam-marks/{id} → delete_mst_exam_mark  
+Removes an MST exam mark record.
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections.
+
+Error Handling  
+Wraps queries in try/except blocks to ensure exceptions are caught and returned as HTTP errors.
+'''
 import uvicorn
 from fastapi import FastAPI, HTTPException, Query, APIRouter
 from pydantic import BaseModel
