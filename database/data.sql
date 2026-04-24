@@ -1,4 +1,4 @@
-'''
+/*
 Overview
 This SQL script contains initial data population commands for the Campus ERP database. It inserts records into core tables such as departments, courses, branches, subjects, faculties, students, and roles. The script ensures that the system has baseline data for testing and deployment.
 
@@ -51,7 +51,7 @@ Inserts records into role and user tables.
 Roles: Admin, Faculty, Student.
 
 Users: Linked to roles for authentication and authorization.
-'''
+*/
 -- Roles & users
 INSERT INTO Roles (role_name)
 VALUES ('Admin'), ('Faculty'), ('Student');
