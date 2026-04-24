@@ -1,3 +1,60 @@
+'''Overview
+This module defines the Head of Department (HOD) dashboard interface for the Campus ERP system. Built with Streamlit, it provides HODs with tools to manage faculty assignments, oversee departmental records, and ensure academic workflows are properly monitored. It acts as the frontend layer that communicates with backend APIs for department-level operations.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular data for faculty and department records.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Faculty → Displays faculty records linked to the department.
+
+Assign Faculty to Department → Allows HODs to assign faculty members to specific subjects or courses.
+
+Update Faculty Records → Provides interface to modify faculty details.
+
+Delete Faculty Records → Enables removal of faculty records when necessary.
+
+Forms  
+Each tab contains forms for data entry (faculty ID, department ID, subject ID).
+
+Tables  
+Faculty lists and assignments are displayed in tabular format using Pandas DataFrames.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/faculty/ → Fetch and manage faculty records
+
+/hod/ → Manage HOD assignments
+
+/department/ → Link faculty to departments
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves faculty or department data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new faculty assignments to backend.
+
+update_data(endpoint, payload)  
+Updates existing faculty records.
+
+delete_data(endpoint, id)  
+Removes faculty records when required.
+'''
 import streamlit as st
 import requests
 
