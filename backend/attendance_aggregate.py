@@ -1,3 +1,48 @@
+'''
+Overview
+This module defines API endpoints and data models for managing aggregated attendance records in the college management system. It allows faculty and administrators to track student attendance across subjects and semesters, ensuring accurate reporting and monitoring.
+
+Key Components
+🔹 Data Models
+AttendanceAggregateRecord (Pydantic Model)  
+Represents a complete attendance record for a student in a subject.
+Attributes:
+
+student_pk: Primary key of the student
+
+subject_pk: Primary key of the subject
+
+semester: Semester number
+
+faculty_pk: Faculty member responsible
+
+lectures_attended: Number of lectures attended
+
+total_lectures: Total lectures conducted
+
+UpdateRecord (Pydantic Model)  
+Used for updating attendance records.
+Attributes:
+
+roll_no: Student roll number
+
+lectures_attended: Updated number of lectures attended
+
+🔹 Helper Functions
+fetch_query(sql: str, params: tuple = ())  
+Executes a SQL query and returns results as a list of dictionaries.
+Process:
+
+Establishes a database connection via get_connection()
+
+Executes the query with parameters
+
+Fetches all rows and maps them to column names
+
+Closes cursor and connection safely
+
+Returns structured results
+'''
 import uvicorn
 from fastapi import APIRouter, FastAPI, HTTPException, Query
 from pydantic import BaseModel
