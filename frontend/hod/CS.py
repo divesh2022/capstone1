@@ -1,3 +1,67 @@
+'''Overview
+This module defines the Head of Department (HOD) dashboard for course and subject management in the Campus ERP system. Built with Streamlit, it provides HODs with tools to manage courses, branches, and subjects within their department. It acts as the frontend layer that communicates with backend APIs for curriculum-related operations.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular course and subject data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Courses → Displays all courses linked to the department.
+
+Add Course → Allows HODs to create new courses.
+
+Update Course → Provides interface to modify existing course details.
+
+Delete Course → Enables removal of courses.
+
+View Subjects → Displays subjects linked to courses and semesters.
+
+Add Subject → Allows creation of new subjects.
+
+Update Subject → Provides interface to modify subject details.
+
+Delete Subject → Enables removal of subjects.
+
+Forms  
+Each tab contains forms for data entry (course name, branch name, subject name, semester, department ID).
+
+Tables  
+Course and subject records are displayed in tabular format using Pandas DataFrames.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/courses/ → Manage course records
+
+/branches/ → Manage branch records
+
+/subjects/ → Manage subject records
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves course or subject data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new course or subject records to backend.
+
+update_data(endpoint, payload)  
+Updates existing course or subject records.
+
+delete_data(endpoint, id)  
+Removes course or subject records when required.'''
 import streamlit as st
 import requests
 import pandas as pd
