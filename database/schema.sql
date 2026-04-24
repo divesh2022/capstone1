@@ -1,3 +1,97 @@
+'''
+       Overview
+This SQL script defines the initial database schema for the Campus ERP system. It creates all core tables, primary keys, and foreign key relationships required to manage students, faculty, departments, courses, subjects, exams, assignments, attendance, and administrative roles.
+
+Key Components
+🔹 Core Academic Entities
+department  
+Stores department details.
+
+Columns: dept_id (PK), dept_name, college_pk
+
+course  
+Defines academic programs offered by departments.
+
+Columns: course_id (PK), course_name, dept_pk (FK → department)
+
+branch  
+Represents specializations within courses.
+
+Columns: branch_id (PK), branch_name, course_pk (FK → course)
+
+subject  
+Stores subject details linked to courses and semesters.
+
+Columns: subject_id (PK), subject_name, course_pk (FK → course), semester
+
+🔹 Student & Faculty Records
+student  
+Stores student information.
+
+Columns: student_id (PK), roll_no, name, dept_pk, course_pk, branch_pk, semester
+
+faculty  
+Stores faculty information.
+
+Columns: faculty_id (PK), faculty_name, dept_pk, subject_pk
+
+🔹 Attendance & Exams
+attendance  
+Records student attendance per subject and date.
+
+Columns: student_pk, subject_pk, faculty_pk, date, status
+
+attendance_aggregate  
+Stores aggregated attendance data.
+
+Columns: student_pk, subject_pk, semester, lectures_attended, total_lectures
+
+mst_exam  
+Stores MST exam details.
+
+Columns: exam_id (PK), subject_pk, faculty_pk, exam_date, exam_type
+
+mst_exam_marks  
+Records marks awarded in MST exams.
+
+Columns: exam_pk, student_pk, marks, faculty_pk
+
+🔹 Assignments
+assignment  
+Stores assignment details.
+
+Columns: assignment_id (PK), title, description, subject_pk, due_date
+
+assignment_marks  
+Records marks awarded for assignments.
+
+Columns: assignment_pk, student_pk, marks, faculty_pk
+
+🔹 Administration & Roles
+hod  
+Links faculty members as Heads of Departments.
+
+Columns: faculty_pk, dept_pk
+
+role  
+Defines system roles (Admin, Faculty, Student).
+
+user  
+Stores login credentials and links to roles.
+
+Columns: username, password, role_pk
+
+correction  
+Records corrections made to student data or academic records.
+
+Columns: student_pk, faculty_pk, description, date
+
+🔹 Constraints & Relationships
+Primary Keys ensure unique identification of records.
+
+Foreign Keys enforce relationships between students, faculties, subjects, courses, and departments.
+
+Referential Integrity ensures consistent data across tables.'''
 SELECT name AS schema_name
 FROM sys.schemas
 ORDER BY name;
