@@ -1,3 +1,42 @@
+'''
+Overview
+This module defines API endpoints for managing assignment marks within the college management system. It allows faculty to record, update, and retrieve marks for students, ensuring proper linkage between assignments, students, and faculty.
+
+Key Components
+🔹 Data Models
+AssignmentMarkCreate (Pydantic Model)  
+Represents the structure for creating assignment marks.
+Attributes:
+
+assignment_pk: Primary key of the assignment
+
+student_pk: Primary key of the student
+
+marks: Marks awarded
+
+faculty_pk: Faculty member who entered the marks
+
+🔹 Endpoints
+GET /students/ → get_students  
+Fetches students by department primary key.
+
+Parameters: dept_pk (department primary key)
+
+Returns: List of students with student_pk and roll_no.
+
+Error Handling: Raises HTTPException with status 500 if query fails.
+
+GET /assignments-list/ → get_assignments_list  
+Retrieves a list of assignments available in the system.
+(Implementation details continue in the file beyond the snippet.)
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections safely.
+
+Error Handling  
+Wraps queries in try/except blocks to ensure exceptions are caught and returned as HTTP errors.
+'''
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel
 from typing import List
