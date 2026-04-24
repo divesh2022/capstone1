@@ -1,3 +1,65 @@
+'''Overview
+This module defines the main entry point for the faculty dashboard in the Campus ERP system. Built with Streamlit, it provides a unified interface for faculty members to manage academic workflows such as student records, attendance, assignments, and MST exams. It integrates multiple submodules (a.py, aa.py, am.py, ass.py) into a single navigable application.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components and layout management.
+
+requests → Handles API calls to backend services.
+
+pandas → Displays tabular data.
+
+json → Parses API responses.
+
+Local Modules → Imports faculty-specific modules (a, aa, am, ass) for modular functionality.
+
+🔹 UI Structure
+Page Configuration
+
+Sets page title, layout, and sidebar navigation.
+
+Provides a consistent look across faculty modules.
+
+Sidebar Navigation  
+Faculty can switch between different modules:
+
+Students → Student management interface (a.py).
+
+Attendance → Attendance management (aa.py).
+
+MST Exams → Exam scheduling and marks entry (am.py).
+
+Assignments → Assignment creation and marks entry (ass.py).
+
+Dynamic Rendering  
+Based on sidebar selection, the corresponding module is loaded and displayed in the main content area.
+
+🔹 API Integration
+Backend Endpoints  
+The dashboard communicates with backend APIs for CRUD operations:
+
+/students/ → Student records
+
+/attendance/ → Attendance records
+
+/mst-exams/ → MST exam details
+
+/mst-exam-marks/ → Exam marks
+
+/assignments/ → Assignment details and marks
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection issues gracefully.
+
+🔹 Utility Functions
+load_module(module_name)  
+Dynamically loads and executes the selected faculty module.
+
+fetch_data(endpoint)  
+Retrieves data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new records to backend.'''
 import streamlit as st
 
 # 1. Page Config
