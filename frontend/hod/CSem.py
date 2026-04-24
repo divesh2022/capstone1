@@ -1,3 +1,59 @@
+'''Overview
+This module defines the Head of Department (HOD) dashboard for semester management in the Campus ERP system. Built with Streamlit, it provides HODs with tools to manage semester-related data such as subjects, courses, and student allocations. It acts as the frontend layer that communicates with backend APIs for semester workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular semester and subject data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Semesters → Displays all semesters linked to courses.
+
+Add Semester Subjects → Allows HODs to assign subjects to a semester.
+
+Update Semester Records → Provides interface to modify semester details.
+
+Delete Semester Records → Enables removal of semester data.
+
+Forms  
+Each tab contains forms for data entry (course ID, semester number, subject ID, department ID).
+
+Tables  
+Semester and subject records are displayed in tabular format using Pandas DataFrames.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/semesters/ → Manage semester records
+
+/subjects/ → Link subjects to semesters
+
+/courses/ → Associate semesters with courses
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves semester or subject data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new semester records or subject allocations to backend.
+
+update_data(endpoint, payload)  
+Updates existing semester records.
+
+delete_data(endpoint, id)  
+Removes semester records when required.'''
 import streamlit as st
 import requests
 
