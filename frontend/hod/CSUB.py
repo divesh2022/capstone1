@@ -1,3 +1,56 @@
+'''Overview
+This module defines the Head of Department (HOD) dashboard for course–branch management in the Campus ERP system. Built with Streamlit, it provides HODs with tools to manage courses and their associated branches. It acts as the frontend layer that communicates with backend APIs for curriculum and specialization workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular course and branch data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Courses & Branches → Displays all courses and their branches linked to the department.
+
+Add Branch → Allows HODs to create new branches under a course.
+
+Update Branch → Provides interface to modify existing branch details.
+
+Delete Branch → Enables removal of branches.
+
+Forms  
+Each tab contains forms for data entry (course name, branch name, department ID).
+
+Tables  
+Course and branch records are displayed in tabular format using Pandas DataFrames.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/courses/ → Manage course records
+
+/branches/ → Manage branch records
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves course or branch data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new branch records to backend.
+
+update_data(endpoint, payload)  
+Updates existing branch records.
+
+delete_data(endpoint, id)'''
 import streamlit as st
 import requests
 
