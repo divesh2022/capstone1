@@ -1,0 +1,1239 @@
+{
+  "sha": "9235e8a36182cfb970df7acc391928cadb15fd70",
+  "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/9235e8a36182cfb970df7acc391928cadb15fd70",
+  "tree": [
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+      "size": 1,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/8b137891791fe96927ad78e64b0aad7bded08bdc"
+    },
+    {
+      "path": ".vscode",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d1adfe356616b2c9bb1bca4ba95db9862cd84d43",
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/d1adfe356616b2c9bb1bca4ba95db9862cd84d43"
+    },
+    {
+      "path": ".vscode/settings.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e2aaccbc8676d430d6814b33137fb9c9d070c3bc",
+      "size": 169,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/e2aaccbc8676d430d6814b33137fb9c9d070c3bc"
+    },
+    {
+      "path": "backend",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e6f934eb2f064862499080a4cd1b36eacd833fce",
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/e6f934eb2f064862499080a4cd1b36eacd833fce"
+    },
+    {
+      "path": "backend/__pycache__",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d3b92d920327d797a4337d28c02adf0607921225",
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/d3b92d920327d797a4337d28c02adf0607921225"
+    },
+    {
+      "path": "backend/__pycache__/admin.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "94e7ae7c7b0213e162fe42a52ec4fd39677ec964",
+      "size": 26719,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/94e7ae7c7b0213e162fe42a52ec4fd39677ec964"
+    },
+    {
+      "path": "backend/__pycache__/assignment.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef4068195f17a37f97d23248b8f30f5dc8eb20c4",
+      "size": 2887,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/ef4068195f17a37f97d23248b8f30f5dc8eb20c4"
+    },
+    {
+      "path": "backend/__pycache__/assignment_marks.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f73a51409f16819c26629fb2b2033e9ef7c794d2",
+      "size": 4985,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/f73a51409f16819c26629fb2b2033e9ef7c794d2"
+    },
+    {
+      "path": "backend/__pycache__/attendance_aggregate.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e30f8baacde0829479eca32b683dcfa30e313d98",
+      "size": 4398,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/e30f8baacde0829479eca32b683dcfa30e313d98"
+    },
+    {
+      "path": "backend/__pycache__/attendence.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb5a322ef04f1175b306a949ef33fb56fc5be6a4",
+      "size": 2814,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/fb5a322ef04f1175b306a949ef33fb56fc5be6a4"
+    },
+    {
+      "path": "backend/__pycache__/connect.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "afe5a16a9f3be45bec98be797014680a93dde820",
+      "size": 586,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/afe5a16a9f3be45bec98be797014680a93dde820"
+    },
+    {
+      "path": "backend/__pycache__/correction.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8516025aded22ffd76467efce4c55e276a4c58a",
+      "size": 9809,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/c8516025aded22ffd76467efce4c55e276a4c58a"
+    },
+    {
+      "path": "backend/__pycache__/faculty.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c77eaf9f86193cae60e82a33cca47974016ac0e7",
+      "size": 1345,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/c77eaf9f86193cae60e82a33cca47974016ac0e7"
+    },
+    {
+      "path": "backend/__pycache__/hod.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "733b55f8fb3af547102c9324d6a0c6981793c732",
+      "size": 21578,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/733b55f8fb3af547102c9324d6a0c6981793c732"
+    },
+    {
+      "path": "backend/__pycache__/login.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "28a659104eee1b8a600ddac361f5736ba5ec5c40",
+      "size": 2980,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/28a659104eee1b8a600ddac361f5736ba5ec5c40"
+    },
+    {
+      "path": "backend/__pycache__/main.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7cba4b65f205ac5646b3fa066c9a856b61023806",
+      "size": 1524,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/7cba4b65f205ac5646b3fa066c9a856b61023806"
+    },
+    {
+      "path": "backend/__pycache__/mst_exam.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6aacf159c7e1cbd3fa6fa19eb57845c42e326e48",
+      "size": 2967,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/6aacf159c7e1cbd3fa6fa19eb57845c42e326e48"
+    },
+    {
+      "path": "backend/__pycache__/mst_exam_marks.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d217e5f882e326505a0e1fb089f6f5fb48e201ad",
+      "size": 4853,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/d217e5f882e326505a0e1fb089f6f5fb48e201ad"
+    },
+    {
+      "path": "backend/__pycache__/student.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "596f55573cc2f30e67c4e0a5dbf4628dad540fab",
+      "size": 5025,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/596f55573cc2f30e67c4e0a5dbf4628dad540fab"
+    },
+    {
+      "path": "backend/__pycache__/view.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "81c8be33a1ab28c553448a0301d20f83ab7dc094",
+      "size": 3231,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/81c8be33a1ab28c553448a0301d20f83ab7dc094"
+    },
+    {
+      "path": "backend/admin.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "58b60f0583094f475de15a50a277b907b60a7536",
+      "size": 38794,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/58b60f0583094f475de15a50a277b907b60a7536"
+    },
+    {
+      "path": "backend/assignment.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dce1aadead4af6a63bd45e4b4295ffe81265c38a",
+      "size": 4408,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/dce1aadead4af6a63bd45e4b4295ffe81265c38a"
+    },
+    {
+      "path": "backend/assignment_marks.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73933626eb2179ec37d97c58b4492c99eaa9fe7c",
+      "size": 5951,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/73933626eb2179ec37d97c58b4492c99eaa9fe7c"
+    },
+    {
+      "path": "backend/attendance_aggregate.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "822337223063878d096be0d9584e21dc46fd0512",
+      "size": 5045,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/822337223063878d096be0d9584e21dc46fd0512"
+    },
+    {
+      "path": "backend/attendence.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a48327a056b0583b5df795d3a8e1a1a578e3d8c1",
+      "size": 4013,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/a48327a056b0583b5df795d3a8e1a1a578e3d8c1"
+    },
+    {
+      "path": "backend/connect.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce1023c709e35fef4707c4077c5aefc108f0c5c9",
+      "size": 1668,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/ce1023c709e35fef4707c4077c5aefc108f0c5c9"
+    },
+    {
+      "path": "backend/correction.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db8a70bc999e952a7b95cf643601e4231a03773f",
+      "size": 12395,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/db8a70bc999e952a7b95cf643601e4231a03773f"
+    },
+    {
+      "path": "backend/hod.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2274d6391e319efa01d554b8d4f8b381f6b0b52d",
+      "size": 27313,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/2274d6391e319efa01d554b8d4f8b381f6b0b52d"
+    },
+    {
+      "path": "backend/login.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab06700d7881a24e0902a98d93ed256b998ae248",
+      "size": 3919,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/ab06700d7881a24e0902a98d93ed256b998ae248"
+    },
+    {
+      "path": "backend/main.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b0a89deb33900832c0dcde1995bd6e3b26653d1",
+      "size": 2905,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/0b0a89deb33900832c0dcde1995bd6e3b26653d1"
+    },
+    {
+      "path": "backend/mst_exam.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3b1ad3623370506c089e4c9266b05c51fe54be14",
+      "size": 4407,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/3b1ad3623370506c089e4c9266b05c51fe54be14"
+    },
+    {
+      "path": "backend/mst_exam_marks.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9c4c82f1b6076a9f2c11321f84bdbb4cb1c71b81",
+      "size": 5535,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/9c4c82f1b6076a9f2c11321f84bdbb4cb1c71b81"
+    },
+    {
+      "path": "backend/student.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d37bfd43ef2362350ebb4bb67bcf401695428580",
+      "size": 8507,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/d37bfd43ef2362350ebb4bb67bcf401695428580"
+    },
+    {
+      "path": "backend/view.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "576367e9786450e0f5a9116eb75296e98a8eec27",
+      "size": 4711,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/576367e9786450e0f5a9116eb75296e98a8eec27"
+    },
+    {
+      "path": "database",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3c2b47d62a105f1e0c2ad249408dbd88fd4e400f",
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/3c2b47d62a105f1e0c2ad249408dbd88fd4e400f"
+    },
+    {
+      "path": "database/## GitHub Copilot Chat.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b65d50a38b88568c8fa57e6768ce54997407e462",
+      "size": 674,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/b65d50a38b88568c8fa57e6768ce54997407e462"
+    },
+    {
+      "path": "database/alter.sql",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cd9bb14b53bb852f195b013b0f1160d212564649",
+      "size": 2562,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/cd9bb14b53bb852f195b013b0f1160d212564649"
+    },
+    {
+      "path": "database/data.sql",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1dae10db658201e7f0f1d9fc0c1944cab9de8725",
+      "size": 5431,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/1dae10db658201e7f0f1d9fc0c1944cab9de8725"
+    },
+    {
+      "path": "database/database.sql",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "868f8662392cefee606ee42cae86e2ce06718da4",
+      "size": 290,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/868f8662392cefee606ee42cae86e2ce06718da4"
+    },
+    {
+      "path": "database/drop.sql",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d9551bf7c6f1aeb62dbd58d00f4d2c42364624b",
+      "size": 358,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/9d9551bf7c6f1aeb62dbd58d00f4d2c42364624b"
+    },
+    {
+      "path": "database/schema.sql",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e180f2456381819ff63c5cd4039ce968886b6311",
+      "size": 29573,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/e180f2456381819ff63c5cd4039ce968886b6311"
+    },
+    {
+      "path": "database/show.sql",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d9ee1d342a7aa59b9289cadfc88cd79fd415f58",
+      "size": 12100,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/4d9ee1d342a7aa59b9289cadfc88cd79fd415f58"
+    },
+    {
+      "path": "database/t1.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b45d265fdcbe52724fdb149f42d48c99a8094e2",
+      "size": 7889,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/2b45d265fdcbe52724fdb149f42d48c99a8094e2"
+    },
+    {
+      "path": "database/table.sql",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22d7b86e62fbbee5a2f3b40822f64da9417d2b4f",
+      "size": 9168,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/22d7b86e62fbbee5a2f3b40822f64da9417d2b4f"
+    },
+    {
+      "path": "database/view.sql",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b43910402bf3d8b16955c4ed5af991aeff657aa1",
+      "size": 5651,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/b43910402bf3d8b16955c4ed5af991aeff657aa1"
+    },
+    {
+      "path": "doc.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2242f6a8fb8c8f7cbd55b920b7b3a5e0f1e63301",
+      "size": 4278,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/2242f6a8fb8c8f7cbd55b920b7b3a5e0f1e63301"
+    },
+    {
+      "path": "documentation.tex",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed32aed6be54673d6128c9b734c04361765649cb",
+      "size": 50220,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/ed32aed6be54673d6128c9b734c04361765649cb"
+    },
+    {
+      "path": "documentation.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ceda6390d3f737b75664b74b78b4a9a88befbe97",
+      "size": 147180,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/ceda6390d3f737b75664b74b78b4a9a88befbe97"
+    },
+    {
+      "path": "frontend",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e8c421f32112eb33cdb2fad126532cdebef5aeeb",
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/e8c421f32112eb33cdb2fad126532cdebef5aeeb"
+    },
+    {
+      "path": "frontend/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "frontend/__pycache__",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9ee4f5183460a00f7141d45eff92d73ad5f6ac69",
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/9ee4f5183460a00f7141d45eff92d73ad5f6ac69"
+    },
+    {
+      "path": "frontend/__pycache__/__init__.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "251fe27db981ecd5ac57b4476088f95fd879f3fd",
+      "size": 133,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/251fe27db981ecd5ac57b4476088f95fd879f3fd"
+    },
+    {
+      "path": "frontend/__pycache__/app.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "69e498680fce41d3d71ae16528ca72f1a2be7f9d",
+      "size": 3181,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/69e498680fce41d3d71ae16528ca72f1a2be7f9d"
+    },
+    {
+      "path": "frontend/__pycache__/assignment.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "050e8ac8e948fca76c63ed00382975dda2264ca2",
+      "size": 3893,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/050e8ac8e948fca76c63ed00382975dda2264ca2"
+    },
+    {
+      "path": "frontend/__pycache__/assignment_marks.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d188caad9815fdd0bb713d89a3b81add442104c",
+      "size": 5371,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/9d188caad9815fdd0bb713d89a3b81add442104c"
+    },
+    {
+      "path": "frontend/__pycache__/attendance_aggregate.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01524d30394ef6e6d83428eb6076b7ab6d8d3b6f",
+      "size": 4471,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/01524d30394ef6e6d83428eb6076b7ab6d8d3b6f"
+    },
+    {
+      "path": "frontend/__pycache__/attendence.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fdf23221517d8854005eb36f863f74f833642834",
+      "size": 3755,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/fdf23221517d8854005eb36f863f74f833642834"
+    },
+    {
+      "path": "frontend/__pycache__/login.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "78a6f96e1d9457ed5415dfe3f8767e2876b7f193",
+      "size": 3165,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/78a6f96e1d9457ed5415dfe3f8767e2876b7f193"
+    },
+    {
+      "path": "frontend/__pycache__/main.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "426b1a9c376b42240c6fda90045ae64f2188efe6",
+      "size": 194,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/426b1a9c376b42240c6fda90045ae64f2188efe6"
+    },
+    {
+      "path": "frontend/__pycache__/mst_exam.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eb31981b8c2b1d1d88d5159f781d566d09021edf",
+      "size": 5179,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/eb31981b8c2b1d1d88d5159f781d566d09021edf"
+    },
+    {
+      "path": "frontend/__pycache__/mst_exam_marks.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1c7c13c8db71e1b2cba84444de6f1eed65495d2f",
+      "size": 5664,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/1c7c13c8db71e1b2cba84444de6f1eed65495d2f"
+    },
+    {
+      "path": "frontend/__pycache__/view.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9da45b7da364ee46be6d795e060d37b0c9cb7c4f",
+      "size": 6204,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/9da45b7da364ee46be6d795e060d37b0c9cb7c4f"
+    },
+    {
+      "path": "frontend/admin",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "56c4d8669675568cdfbf01ff5161f70aaa362dc0",
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/56c4d8669675568cdfbf01ff5161f70aaa362dc0"
+    },
+    {
+      "path": "frontend/admin/__pycache__",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f31f49221d61a7772754b7c113a9db02d1a03c9f",
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/f31f49221d61a7772754b7c113a9db02d1a03c9f"
+    },
+    {
+      "path": "frontend/admin/__pycache__/branch.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f70252985bbaa682ca367ba617fb10ae117589a",
+      "size": 3859,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/3f70252985bbaa682ca367ba617fb10ae117589a"
+    },
+    {
+      "path": "frontend/admin/__pycache__/course.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c9d936fe02b01cd9a2a0db846358e8cc54d5ef4",
+      "size": 3894,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/6c9d936fe02b01cd9a2a0db846358e8cc54d5ef4"
+    },
+    {
+      "path": "frontend/admin/__pycache__/department.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f856e9ca905b1ac97b8a17621b01a9b04a8208f",
+      "size": 4928,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/7f856e9ca905b1ac97b8a17621b01a9b04a8208f"
+    },
+    {
+      "path": "frontend/admin/__pycache__/faculty.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "41389d52db843b19fa6f3304dbe4eac02dce7cbb",
+      "size": 5237,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/41389d52db843b19fa6f3304dbe4eac02dce7cbb"
+    },
+    {
+      "path": "frontend/admin/__pycache__/hod.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "19072b37400d7f0fb9cd05e44984e8418d91ae9d",
+      "size": 5043,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/19072b37400d7f0fb9cd05e44984e8418d91ae9d"
+    },
+    {
+      "path": "frontend/admin/__pycache__/main.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cd3901de7c394e8f3e082316471b6bef81fcf2c0",
+      "size": 1692,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/cd3901de7c394e8f3e082316471b6bef81fcf2c0"
+    },
+    {
+      "path": "frontend/admin/__pycache__/query.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b7d8bac9b24a5a1008f42f6dc445bb68ec79b1d9",
+      "size": 2421,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/b7d8bac9b24a5a1008f42f6dc445bb68ec79b1d9"
+    },
+    {
+      "path": "frontend/admin/__pycache__/role.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bc07a98697c2b466d7a8afff733734e09f45c10f",
+      "size": 2630,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/bc07a98697c2b466d7a8afff733734e09f45c10f"
+    },
+    {
+      "path": "frontend/admin/__pycache__/student.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e52b1d27167dc2a2f9e54a4ee0a34c633e67d78",
+      "size": 4939,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/2e52b1d27167dc2a2f9e54a4ee0a34c633e67d78"
+    },
+    {
+      "path": "frontend/admin/__pycache__/subject.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2bb0fe803722e2f4389e606e0a5f50d3661dde5",
+      "size": 4310,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/a2bb0fe803722e2f4389e606e0a5f50d3661dde5"
+    },
+    {
+      "path": "frontend/admin/__pycache__/user.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf29205f980faf9b162e501308cd54382e810148",
+      "size": 3779,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/bf29205f980faf9b162e501308cd54382e810148"
+    },
+    {
+      "path": "frontend/admin/__pycache__/user_roles.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4eddfa5398b586d6127ca3bbb9df7394693dcb7e",
+      "size": 4884,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/4eddfa5398b586d6127ca3bbb9df7394693dcb7e"
+    },
+    {
+      "path": "frontend/admin/branch.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f761ee9294fc0274690c68d73ff42229e98a8d7",
+      "size": 4831,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/4f761ee9294fc0274690c68d73ff42229e98a8d7"
+    },
+    {
+      "path": "frontend/admin/college.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7e62cd3fbe8cd671c1f21ad99f482ceae16c13cb",
+      "size": 4372,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/7e62cd3fbe8cd671c1f21ad99f482ceae16c13cb"
+    },
+    {
+      "path": "frontend/admin/course.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "409e20fd33b42e5aa8909f0a6ae3687770e35436",
+      "size": 4857,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/409e20fd33b42e5aa8909f0a6ae3687770e35436"
+    },
+    {
+      "path": "frontend/admin/department.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "043d27fb528e5ac83255e0da4d74a7d2dae89f0d",
+      "size": 6789,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/043d27fb528e5ac83255e0da4d74a7d2dae89f0d"
+    },
+    {
+      "path": "frontend/admin/faculty.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e29ab55e03027edd4fef286118edae1860ce0f7",
+      "size": 6656,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/4e29ab55e03027edd4fef286118edae1860ce0f7"
+    },
+    {
+      "path": "frontend/admin/hod.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d3bdccf31f5fa9ae0d1358bd1a2ff8d251efa81e",
+      "size": 6509,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/d3bdccf31f5fa9ae0d1358bd1a2ff8d251efa81e"
+    },
+    {
+      "path": "frontend/admin/main.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ac518df92637076378c86ef15488d105ed1e17d5",
+      "size": 1989,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/ac518df92637076378c86ef15488d105ed1e17d5"
+    },
+    {
+      "path": "frontend/admin/query.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "09566b729b74e0354da1e21af3b2c29e76627053",
+      "size": 2716,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/09566b729b74e0354da1e21af3b2c29e76627053"
+    },
+    {
+      "path": "frontend/admin/role.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03edb9e7c5cdbba4dbf3a847b8b5d248f4e52c0e",
+      "size": 2801,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/03edb9e7c5cdbba4dbf3a847b8b5d248f4e52c0e"
+    },
+    {
+      "path": "frontend/admin/student.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b1df2fd8a06c3c4b3e4c9dc8847fa650d495179",
+      "size": 6207,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/0b1df2fd8a06c3c4b3e4c9dc8847fa650d495179"
+    },
+    {
+      "path": "frontend/admin/subject.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d7bfa3e149686758224f917c91599aafd7ba0ea",
+      "size": 5381,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/4d7bfa3e149686758224f917c91599aafd7ba0ea"
+    },
+    {
+      "path": "frontend/admin/user.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5def1a0d67e73f8dd28a40ea3d91fca87abeeb68",
+      "size": 4176,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/5def1a0d67e73f8dd28a40ea3d91fca87abeeb68"
+    },
+    {
+      "path": "frontend/admin/user_roles.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5461108c2ef69161e25f30a3b84010d61b822caa",
+      "size": 6242,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/5461108c2ef69161e25f30a3b84010d61b822caa"
+    },
+    {
+      "path": "frontend/faculty",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "18bda5088f1edeacdb27099c5f0e86e4a45cda11",
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/18bda5088f1edeacdb27099c5f0e86e4a45cda11"
+    },
+    {
+      "path": "frontend/faculty/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "frontend/faculty/__pycache__",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9c7eceddd153c5f9aa8a132ac8c909d5d758061e",
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/9c7eceddd153c5f9aa8a132ac8c909d5d758061e"
+    },
+    {
+      "path": "frontend/faculty/__pycache__/__init__.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f39b67ae444dca3c4361f8693dc531c0b53c184c",
+      "size": 141,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/f39b67ae444dca3c4361f8693dc531c0b53c184c"
+    },
+    {
+      "path": "frontend/faculty/__pycache__/a.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1d0ac1e7455887b77edfaf357f99b59f650b11f1",
+      "size": 3754,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/1d0ac1e7455887b77edfaf357f99b59f650b11f1"
+    },
+    {
+      "path": "frontend/faculty/__pycache__/aa.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1e7bbd0fdb2b958e1d6079e9fbea78e76759172",
+      "size": 5290,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/e1e7bbd0fdb2b958e1d6079e9fbea78e76759172"
+    },
+    {
+      "path": "frontend/faculty/__pycache__/am.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8af16f7632f3d6c9f92495924a56d05c86c3e686",
+      "size": 5365,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/8af16f7632f3d6c9f92495924a56d05c86c3e686"
+    },
+    {
+      "path": "frontend/faculty/__pycache__/ass.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "48bfd0e5f64b66814c1ba2e8bd84615b417e2aa7",
+      "size": 3902,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/48bfd0e5f64b66814c1ba2e8bd84615b417e2aa7"
+    },
+    {
+      "path": "frontend/faculty/__pycache__/assignment_marks.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3babe736edc080a591fbae98d80cf4bccd95d657",
+      "size": 5379,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/3babe736edc080a591fbae98d80cf4bccd95d657"
+    },
+    {
+      "path": "frontend/faculty/__pycache__/attendance_aggregate.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9091dc60bca5f364867c93214a3fbb947ee931a2",
+      "size": 5308,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/9091dc60bca5f364867c93214a3fbb947ee931a2"
+    },
+    {
+      "path": "frontend/faculty/__pycache__/main.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ac6f86acffbae1f28dd8c7a75143109bd80e1085",
+      "size": 1557,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/ac6f86acffbae1f28dd8c7a75143109bd80e1085"
+    },
+    {
+      "path": "frontend/faculty/__pycache__/me.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab79d9c83e63771a15ea8e47f846408bb5128458",
+      "size": 5189,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/ab79d9c83e63771a15ea8e47f846408bb5128458"
+    },
+    {
+      "path": "frontend/faculty/__pycache__/mem.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0f215a09e1ab2d122b4d64c16a37ac77121c42d0",
+      "size": 5661,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/0f215a09e1ab2d122b4d64c16a37ac77121c42d0"
+    },
+    {
+      "path": "frontend/faculty/__pycache__/mst_exam.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1509407d01518db6afa822dff567e82d063fd3c1",
+      "size": 5187,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/1509407d01518db6afa822dff567e82d063fd3c1"
+    },
+    {
+      "path": "frontend/faculty/__pycache__/mst_exam_marks.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b476cc4e118a9ce02e64f06d3d253f634976ec34",
+      "size": 5672,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/b476cc4e118a9ce02e64f06d3d253f634976ec34"
+    },
+    {
+      "path": "frontend/faculty/__pycache__/r.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17d6370a68f46a6d764591a2e456a491657007bf",
+      "size": 5420,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/17d6370a68f46a6d764591a2e456a491657007bf"
+    },
+    {
+      "path": "frontend/faculty/__pycache__/request.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d6d3fa4aa400d936930f0dfacc4b805dc70619b7",
+      "size": 5418,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/d6d3fa4aa400d936930f0dfacc4b805dc70619b7"
+    },
+    {
+      "path": "frontend/faculty/a.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5909942c3b744d6a1ac51c41bf50bba91b0704f4",
+      "size": 6152,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/5909942c3b744d6a1ac51c41bf50bba91b0704f4"
+    },
+    {
+      "path": "frontend/faculty/aa.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9f6487700c7eba928c45283f8de9b65cde030ba",
+      "size": 7367,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/c9f6487700c7eba928c45283f8de9b65cde030ba"
+    },
+    {
+      "path": "frontend/faculty/am.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01482ab1d0e60d430d86ec221e11d1d138102cba",
+      "size": 6568,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/01482ab1d0e60d430d86ec221e11d1d138102cba"
+    },
+    {
+      "path": "frontend/faculty/ass.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e82ba48a1b5d3463c7a37038d3d44cc0229dbe03",
+      "size": 5609,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/e82ba48a1b5d3463c7a37038d3d44cc0229dbe03"
+    },
+    {
+      "path": "frontend/faculty/main.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "348804612629b06957da68c008a971e37141e74c",
+      "size": 3221,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/348804612629b06957da68c008a971e37141e74c"
+    },
+    {
+      "path": "frontend/faculty/me.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6115a09e24ef42e916d2e8796083ad4d2b06bf55",
+      "size": 6558,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/6115a09e24ef42e916d2e8796083ad4d2b06bf55"
+    },
+    {
+      "path": "frontend/faculty/mem.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "308f969a982fe71026c250ba2939b43feeec4dfa",
+      "size": 7071,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/308f969a982fe71026c250ba2939b43feeec4dfa"
+    },
+    {
+      "path": "frontend/faculty/r.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0e3c4c1b8ed6cdfafeb2046c3d979f387ae2d35",
+      "size": 8043,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/e0e3c4c1b8ed6cdfafeb2046c3d979f387ae2d35"
+    },
+    {
+      "path": "frontend/hod",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c33acf5788721a5aa4ff916094ed2d30ae8d4b46",
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/c33acf5788721a5aa4ff916094ed2d30ae8d4b46"
+    },
+    {
+      "path": "frontend/hod/CF.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b5ef3a5cd2febfa1b6bec1664405163b650dd848",
+      "size": 7438,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/b5ef3a5cd2febfa1b6bec1664405163b650dd848"
+    },
+    {
+      "path": "frontend/hod/CS.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "443c8d7f6df604aa197dfbbfcf59134798dc5b23",
+      "size": 6297,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/443c8d7f6df604aa197dfbbfcf59134798dc5b23"
+    },
+    {
+      "path": "frontend/hod/CSUB.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2fb03fc209b197b98af087d33b683fc998ef7b15",
+      "size": 4914,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/2fb03fc209b197b98af087d33b683fc998ef7b15"
+    },
+    {
+      "path": "frontend/hod/CSem.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4c6938f3992486aa53ed11e81aa0ac0cad05fe8",
+      "size": 5386,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/a4c6938f3992486aa53ed11e81aa0ac0cad05fe8"
+    },
+    {
+      "path": "frontend/hod/Ci.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44b55a67ef18cb8c9cbe2a2ad2f1f56430f48657",
+      "size": 3389,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/44b55a67ef18cb8c9cbe2a2ad2f1f56430f48657"
+    },
+    {
+      "path": "frontend/hod/FS.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "20ccd9dd996ddf9cb21e2aa92bb53f14e6a14715",
+      "size": 6012,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/20ccd9dd996ddf9cb21e2aa92bb53f14e6a14715"
+    },
+    {
+      "path": "frontend/hod/Tm.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a222c196eb2b46742c4ecdb4d0f05fd3a0738ab",
+      "size": 5612,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/3a222c196eb2b46742c4ecdb4d0f05fd3a0738ab"
+    },
+    {
+      "path": "frontend/hod/__pycache__",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "074fd73d4abc12859939f8429e9594fae4402f15",
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/074fd73d4abc12859939f8429e9594fae4402f15"
+    },
+    {
+      "path": "frontend/hod/__pycache__/CF.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0117c028965dfee1b4d95028e4f3cd8f6e28525e",
+      "size": 3682,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/0117c028965dfee1b4d95028e4f3cd8f6e28525e"
+    },
+    {
+      "path": "frontend/hod/__pycache__/CS.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9b7646e4e737121a4595e604d5c5d5ac5666eba",
+      "size": 3400,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/d9b7646e4e737121a4595e604d5c5d5ac5666eba"
+    },
+    {
+      "path": "frontend/hod/__pycache__/CSUB.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "82c35df0b73fb1f704621c0e265e03c0ce08a889",
+      "size": 2681,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/82c35df0b73fb1f704621c0e265e03c0ce08a889"
+    },
+    {
+      "path": "frontend/hod/__pycache__/CSem.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd5a4e9814002dc53c23e068f7c5244afd90ed58",
+      "size": 2818,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/fd5a4e9814002dc53c23e068f7c5244afd90ed58"
+    },
+    {
+      "path": "frontend/hod/__pycache__/FS.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3644f57846c55325b4c530268f3bf3e7ede4de55",
+      "size": 3404,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/3644f57846c55325b4c530268f3bf3e7ede4de55"
+    },
+    {
+      "path": "frontend/hod/__pycache__/Tm.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6d6992313dba978d0a0edc0b7d4987d4527c0299",
+      "size": 2441,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/6d6992313dba978d0a0edc0b7d4987d4527c0299"
+    },
+    {
+      "path": "frontend/hod/__pycache__/decision.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "21f27fe52b276ee7340b4f05b0113545671dc779",
+      "size": 3464,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/21f27fe52b276ee7340b4f05b0113545671dc779"
+    },
+    {
+      "path": "frontend/hod/__pycache__/main.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03cd31876a3c226891d114740de9a8078ce00401",
+      "size": 1346,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/03cd31876a3c226891d114740de9a8078ce00401"
+    },
+    {
+      "path": "frontend/hod/decision.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de7ce93bc1a39159599eb97377bd718439c8ae26",
+      "size": 5881,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/de7ce93bc1a39159599eb97377bd718439c8ae26"
+    },
+    {
+      "path": "frontend/hod/main.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3621c93e39ef61fb71ec0943b56968f641935856",
+      "size": 3903,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/3621c93e39ef61fb71ec0943b56968f641935856"
+    },
+    {
+      "path": "frontend/login.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e379722bf55eed556a04f8acb9476dedd04ead8",
+      "size": 9186,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/4e379722bf55eed556a04f8acb9476dedd04ead8"
+    },
+    {
+      "path": "frontend/main.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9084edf45df04c8aca44948650f21ae555edd70",
+      "size": 7127,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/c9084edf45df04c8aca44948650f21ae555edd70"
+    },
+    {
+      "path": "frontend/student",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fde58f374f52046d6f5c029602c2f68d2263d643",
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/fde58f374f52046d6f5c029602c2f68d2263d643"
+    },
+    {
+      "path": "frontend/student/__pycache__",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5852167fdc4ddedf09056e4daea2bdf488029d97",
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/5852167fdc4ddedf09056e4daea2bdf488029d97"
+    },
+    {
+      "path": "frontend/student/__pycache__/aa.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9514ef7d85301223215dc0c879e0de455220ddb0",
+      "size": 1296,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/9514ef7d85301223215dc0c879e0de455220ddb0"
+    },
+    {
+      "path": "frontend/student/__pycache__/am.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "987f96eed27bba9e77f6f8bf15e79d465eec4d10",
+      "size": 1292,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/987f96eed27bba9e77f6f8bf15e79d465eec4d10"
+    },
+    {
+      "path": "frontend/student/__pycache__/main.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d929c78bebc816d7650813f2808626f46496ee6",
+      "size": 944,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/3d929c78bebc816d7650813f2808626f46496ee6"
+    },
+    {
+      "path": "frontend/student/__pycache__/mm.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "886faef16b7f1de6d99a78b2891e8ae2e72cd262",
+      "size": 1237,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/886faef16b7f1de6d99a78b2891e8ae2e72cd262"
+    },
+    {
+      "path": "frontend/student/__pycache__/profile.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9c7b8958777284fbb2925952f1dc0a4362a64867",
+      "size": 867,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/9c7b8958777284fbb2925952f1dc0a4362a64867"
+    },
+    {
+      "path": "frontend/student/__pycache__/tm.cpython-310.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "63febd3078d29614d23ff0a91630d27b5dd976b3",
+      "size": 1527,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/63febd3078d29614d23ff0a91630d27b5dd976b3"
+    },
+    {
+      "path": "frontend/student/aa.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "884ebbc4d1ddb98495c14f65a38f10aea7d48de7",
+      "size": 3284,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/884ebbc4d1ddb98495c14f65a38f10aea7d48de7"
+    },
+    {
+      "path": "frontend/student/am.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bfe033b0a90c8b27eacf463aefe03a948df60d89",
+      "size": 3199,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/bfe033b0a90c8b27eacf463aefe03a948df60d89"
+    },
+    {
+      "path": "frontend/student/ci.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d0d36607ee74cd803d24142f57e4afcc7a7be939",
+      "size": 3120,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/d0d36607ee74cd803d24142f57e4afcc7a7be939"
+    },
+    {
+      "path": "frontend/student/main.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f09a7d6dde27ee26944696178e7052559a1a1f70",
+      "size": 2913,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/f09a7d6dde27ee26944696178e7052559a1a1f70"
+    },
+    {
+      "path": "frontend/student/mm.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "210e28ac88f373ce2ac4ae2436d14c5d98862a91",
+      "size": 3085,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/210e28ac88f373ce2ac4ae2436d14c5d98862a91"
+    },
+    {
+      "path": "frontend/student/profile.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b73e33ff04406f3e7962958d73dede893f129a6",
+      "size": 2514,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/8b73e33ff04406f3e7962958d73dede893f129a6"
+    },
+    {
+      "path": "frontend/student/tm.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85379d8b2e6fb8f43953a497ebf607ca0190ee55",
+      "size": 3774,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/85379d8b2e6fb8f43953a497ebf607ca0190ee55"
+    },
+    {
+      "path": "marks_export.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93251f1ecc4989170e792c9322f689c16c656f34",
+      "size": 5157,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/93251f1ecc4989170e792c9322f689c16c656f34"
+    },
+    {
+      "path": "marks_filtered.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93251f1ecc4989170e792c9322f689c16c656f34",
+      "size": 5157,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/93251f1ecc4989170e792c9322f689c16c656f34"
+    },
+    {
+      "path": "uploads",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8ad4e719fade1bdab7e6946c1ab60f9eccb37752",
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/8ad4e719fade1bdab7e6946c1ab60f9eccb37752"
+    },
+    {
+      "path": "uploads/__pycache__",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0dd693f39581b1ef9f536d0e392c3373c6309054",
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/trees/0dd693f39581b1ef9f536d0e392c3373c6309054"
+    },
+    {
+      "path": "uploads/__pycache__/test.cpython-313.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "84f9f36c19ed4d400803cbd867e071345082e1f7",
+      "size": 18195,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/84f9f36c19ed4d400803cbd867e071345082e1f7"
+    },
+    {
+      "path": "uploads/test.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "12d468bac2ac0e7ee3cfe71321a8822e5d62be04",
+      "size": 203,
+      "url": "https://api.github.com/repos/divesh2022/capstone1/git/blobs/12d468bac2ac0e7ee3cfe71321a8822e5d62be04"
+    }
+  ],
+  "truncated": false
+}
