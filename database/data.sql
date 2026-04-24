@@ -1,3 +1,57 @@
+'''
+Overview
+This SQL script contains initial data population commands for the Campus ERP database. It inserts records into core tables such as departments, courses, branches, subjects, faculties, students, and roles. The script ensures that the system has baseline data for testing and deployment.
+
+Key Components
+🔹 Department Data
+Inserts records into the department table.
+
+Typical fields: dept_id, dept_name, college_pk.
+
+Example: Computer Science, Mechanical Engineering, Electrical Engineering.
+
+🔹 Course Data
+Populates the course table with academic programs.
+
+Fields: course_id, course_name, dept_pk.
+
+Example: B.Tech, M.Tech, Diploma.
+
+🔹 Branch Data
+Inserts records into the branch table.
+
+Fields: branch_id, branch_name, course_pk.
+
+Example: AI & ML, Civil, Electronics.
+
+🔹 Subject Data
+Populates the subject table with course subjects.
+
+Fields: subject_id, subject_name, course_pk, semester.
+
+Example: Compiler Design, Database Systems, Operating Systems.
+
+🔹 Faculty Data
+Inserts records into the faculty table.
+
+Fields: faculty_id, faculty_name, dept_pk, subject_pk.
+
+Example: Faculty assigned to teach Database Systems in CSE.
+
+🔹 Student Data
+Populates the student table with student records.
+
+Fields: student_id, roll_no, name, dept_pk, course_pk, branch_pk, semester.
+
+Example: Roll numbers linked to CSE (AI & ML) branch.
+
+🔹 Role & User Data
+Inserts records into role and user tables.
+
+Roles: Admin, Faculty, Student.
+
+Users: Linked to roles for authentication and authorization.
+'''
 -- Roles & users
 INSERT INTO Roles (role_name)
 VALUES ('Admin'), ('Faculty'), ('Student');
