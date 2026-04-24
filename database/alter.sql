@@ -1,4 +1,4 @@
-'''
+/*
 Overview
 This SQL script contains schema modification commands for the Campus ERP database. It is used to alter existing tables, update constraints, and adjust relationships between entities such as students, faculties, courses, subjects, and exams.
 
@@ -38,7 +38,7 @@ A department can have multiple courses.
 A course can have multiple subjects.
 
 A student can have multiple attendance and exam records.
-'''
+*/
 use [campus];
 
 ALTER TABLE Student 
