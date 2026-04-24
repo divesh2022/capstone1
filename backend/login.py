@@ -1,3 +1,53 @@
+'''
+Overview
+This module defines the authentication and login endpoints for the college management system. It handles user login requests, validates credentials against the database, and issues authentication tokens for secure access to other backend services.
+
+Key Components
+🔹 Data Models
+LoginRequest (Pydantic Model)  
+Represents the structure of a login request.
+Attributes:
+
+username: The user’s login name
+
+password: The user’s password
+
+LoginResponse (Pydantic Model)  
+Represents the structure of a login response.
+Attributes:
+
+access_token: JWT or session token issued upon successful login
+
+token_type: Type of token (e.g., bearer)
+
+🔹 Endpoints
+POST /login → login_user  
+Authenticates a user based on provided credentials.
+
+Input: LoginRequest (username, password)
+
+Process:
+
+Queries the database for matching user credentials
+
+Validates password
+
+Issues an authentication token if valid
+
+Output: LoginResponse with token details
+
+Error Handling: Returns HTTPException with status 401 if credentials are invalid
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections.
+
+Token Generation  
+Likely uses JWT or similar mechanism to generate secure tokens for authenticated sessions.
+
+Error Handling  
+Wraps queries and authentication logic in try/except blocks to ensure failures are returned as HTTP errors.
+'''
 from fastapi import FastAPI, HTTPException, APIRouter
 from pydantic import BaseModel
 import uvicorn
