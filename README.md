@@ -228,9 +228,5 @@ capstone1/
 
 ## Author
 Developed by Divesh Chauhan  
-B.Tech Computer Science Engineering (AI & ML), JNGEC Himachal Pradesh
-```
+B.Tech Computer Science Engineering (AI & ML), JNGEC Himachal Pradesh 
 
-This version matches the file list you pulled from GitHub (`api.github.com/repos/divesh2022/capstone1/git/trees/main?recursive=1`) and is ready to drop into your repo as `README.md`.  
-
-Would you like me to also add a **Future Enhancements** section (planned features like analytics dashboards, notifications, or mobile support) so the README looks more complete for GitHub?
