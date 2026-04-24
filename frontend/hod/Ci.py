@@ -1,3 +1,59 @@
+'''Overview
+This module defines the Head of Department (HOD) dashboard for correction management in the Campus ERP system. Built with Streamlit, it provides HODs with tools to review, approve, and manage correction requests submitted by faculty for student records. It acts as the frontend layer that communicates with backend APIs for correction workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular correction data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Corrections → Displays all correction requests submitted by faculty.
+
+Approve Correction → Allows HODs to approve or reject correction requests.
+
+Update Correction → Provides interface to modify correction details.
+
+Delete Correction → Enables removal of correction records.
+
+Forms  
+Each tab contains forms for data entry (student ID, faculty ID, description, date).
+
+Tables  
+Correction records are displayed in tabular format using Pandas DataFrames for easy review.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/corrections/ → Manage correction records
+
+/faculty/ → Link corrections to faculty members
+
+/students/ → Link corrections to student records
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves correction data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new correction requests to backend.
+
+update_data(endpoint, payload)  
+Updates existing correction records.
+
+delete_data(endpoint, id)  
+Removes correction records when required.'''
 import streamlit as st
 import requests
 
