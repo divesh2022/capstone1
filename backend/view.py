@@ -1,3 +1,41 @@
+'''Overview
+This module defines API endpoints for retrieving and viewing academic data in the college management system. It provides read-only access to entities such as students, faculties, departments, courses, subjects, and exams, ensuring administrators and faculty can query information without modifying records.
+
+Key Components
+🔹 Endpoints
+GET /students/ → view_students  
+Retrieves a list of students with details like roll number, name, department, course, and semester.
+
+GET /faculties/ → view_faculties  
+Fetches faculty records including faculty ID, name, department, and assigned subjects.
+
+GET /departments/ → view_departments  
+Returns all departments with their IDs and associated college information.
+
+GET /courses/ → view_courses  
+Lists available courses along with department and branch linkage.
+
+GET /subjects/ → view_subjects  
+Retrieves subject records including subject code, name, and course association.
+
+GET /mst-exams/ → view_mst_exams  
+Provides details of MST exams such as exam type, date, subject, and faculty.
+
+GET /assignments/ → view_assignments  
+Lists assignments with metadata like title, description, due date, and subject linkage.
+
+GET /attendance/ → view_attendance  
+Retrieves attendance records for students, including lecture dates and status.
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections.
+
+Error Handling  
+Wraps queries in try/except blocks to ensure exceptions are caught and returned as HTTP errors.
+
+Query Execution  
+Implements helper functions (fetch_query) to execute SQL queries and return structured results'''
 import uvicorn
 from fastapi import FastAPI, HTTPException, APIRouter, Query
 from pydantic import BaseModel
