@@ -1,3 +1,49 @@
+'''
+Overview
+This module defines API endpoints for managing correction records in the college management system. It allows administrators and faculty to record, update, and retrieve corrections related to student data, assignments, or attendance.
+
+Key Components
+🔹 Data Models
+CorrectionCreate (Pydantic Model)  
+Represents the structure for creating a correction entry.
+Attributes:
+
+student_pk: Primary key of the student
+
+faculty_pk: Faculty member making the correction
+
+description: Details of the correction
+
+date: Date of correction
+
+CorrectionUpdate (Pydantic Model)  
+Used for updating existing correction records.
+Attributes:
+
+correction_id: Identifier of the correction record
+
+description: Updated correction details
+
+🔹 Endpoints
+GET /corrections/ → list_corrections  
+Retrieves all correction records.
+
+POST /corrections/ → create_correction  
+Adds a new correction record.
+
+PUT /corrections/{id} → update_correction  
+Updates an existing correction record by ID.
+
+DELETE /corrections/{id} → delete_correction  
+Removes a correction record.
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections.
+
+Error Handling  
+Wraps queries in try/except blocks to ensure exceptions are caught and returned as HTTP errors.
+'''
 from fastapi import FastAPI, HTTPException, APIRouter
 from pydantic import BaseModel
 import uvicorn
