@@ -1,3 +1,56 @@
+'''
+Overview
+This module defines API endpoints for managing student records in the college management system. It provides CRUD operations, supports bulk uploads, and ensures proper linkage between students, departments, courses, and faculties.
+
+Key Components
+🔹 Data Models
+StudentCreate (Pydantic Model)  
+Represents the structure for creating a new student record.
+Attributes:
+
+roll_no: Student’s roll number
+
+name: Full name of the student
+
+dept_pk: Department primary key
+
+course_pk: Course primary key
+
+branch_pk: Branch primary key
+
+semester: Current semester
+
+StudentUpdate (Pydantic Model)  
+Used for updating existing student records.
+Attributes:
+
+student_id: Identifier of the student record
+
+roll_no, name, dept_pk, course_pk, branch_pk, semester (updated values)
+
+🔹 Endpoints
+GET /students/ → list_students  
+Retrieves all student records.
+
+POST /students/ → create_student  
+Adds a new student record.
+
+PUT /students/{id} → update_student  
+Updates an existing student record by ID.
+
+DELETE /students/{id} → delete_student  
+Removes a student record.
+
+POST /students/bulk-upload → bulk_upload_students  
+Allows uploading multiple student records at once (e.g., via CSV/Excel).
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections.
+
+Error Handling  
+Wraps queries in try/except blocks to ensure exceptions are caught and returned as HTTP errors.
+'''
 from fastapi import APIRouter, FastAPI, HTTPException, Header
 from connect import get_connection
 
