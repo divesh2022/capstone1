@@ -1,4 +1,4 @@
-'''
+/*
  Overview
 This SQL script provides read-only queries to inspect and verify the data stored in the Campus ERP database. It is primarily used for debugging, validation, and reporting purposes, allowing administrators and developers to quickly view records across different tables.
 
@@ -58,7 +58,7 @@ SELECT * FROM user;
 Shows login credentials and role associations.
 
 SELECT * FROM correction;  
-Displays correction records made by faculty for student data.           '''
+Displays correction records made by faculty for student data.           */
             
 use [campus];
 -- basic dumps
