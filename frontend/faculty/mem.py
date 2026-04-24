@@ -1,3 +1,57 @@
+'''Overview
+This module defines the faculty interface for managing exam marks in the Campus ERP system. Built with Streamlit, it provides a user-friendly dashboard for faculty members to record, update, and view marks for MST (Mid-Semester Tests) and assignments. It acts as the frontend layer that communicates with backend APIs for marks management.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (forms, tables, tabs).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular marks data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+Enter MST Marks → Faculty can input marks for MST exams.
+
+Enter Assignment Marks → Faculty can record assignment marks.
+
+View MST Marks → Displays MST marks linked to students and subjects.
+
+View Assignment Marks → Shows assignment marks with student details.
+
+Forms  
+Each tab contains forms for data entry (student roll number, subject, marks, faculty ID).
+
+Tables  
+Marks records are displayed in tabular format using Pandas DataFrames for easy review.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/mst-exam-marks/ → Record and view MST exam marks
+
+/assignment-marks/ → Record and view assignment marks
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves marks data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new marks records to backend.
+
+update_data(endpoint, payload)  
+Updates existing marks records.
+
+delete_data(endpoint, id)  
+Removes marks records when required.'''
 import streamlit as st
 import requests
 import pandas as pd
