@@ -1,3 +1,68 @@
+'''Overview
+This module defines the main entry point for the Campus ERP system frontend. Built with Streamlit, it integrates dashboards for different user roles (Admin, HOD, Faculty, Student) into a unified interface. It acts as the central hub that provides role-based navigation and connects to backend APIs.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components and layout management.
+
+requests → Handles API calls to backend services.
+
+pandas → Displays tabular data.
+
+json → Parses API responses.
+
+Local Modules → Imports role-specific dashboards (e.g., frontend/admin/main.py, frontend/hod/main.py, frontend/faculty/main.py, frontend/student/main.py).
+
+🔹 UI Structure
+Page Configuration
+
+Sets page title, layout, and sidebar navigation.
+
+Provides a consistent look across all role dashboards.
+
+Sidebar Navigation  
+Users can switch between dashboards based on their role:
+
+Admin Dashboard → Manage institution-wide records.
+
+HOD Dashboard → Manage departmental workflows.
+
+Faculty Dashboard → Manage faculty-specific tasks.
+
+Student Dashboard → Manage student-specific tasks.
+
+Dynamic Rendering  
+Based on sidebar selection, the corresponding role module is loaded and displayed in the main content area.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend communicates with backend APIs for CRUD operations across modules:
+
+/faculty/ → Faculty records
+
+/students/ → Student records
+
+/courses/ → Course records
+
+/branches/ → Branch records
+
+/semesters/ → Semester records
+
+/timetable/ → Timetable records
+
+/decisions/ → Departmental decisions
+
+/corrections/ → Correction requests
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection issues gracefully.
+
+🔹 Utility Functions
+load_module(module_name)  
+Dynamically loads and executes the selected role-specific module.
+
+fetch_data(endpoint)  
+Retrieves data from backend APIs.'''
 import streamlit as st
 import importlib
 
