@@ -1,3 +1,59 @@
+'''Overview
+This module defines the Head of Department (HOD) dashboard for decision management in the Campus ERP system. Built with Streamlit, it provides HODs with tools to record, update, and review departmental decisions related to faculty, students, courses, and administration. It acts as the frontend layer that communicates with backend APIs for decision workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular decision data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Decisions → Displays all decisions recorded by the HOD.
+
+Add Decision → Allows HODs to create new decision records.
+
+Update Decision → Provides interface to modify existing decisions.
+
+Delete Decision → Enables removal of decision records.
+
+Forms  
+Each tab contains forms for data entry (decision title, description, department ID, date).
+
+Tables  
+Decision records are displayed in tabular format using Pandas DataFrames for easy review.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/decisions/ → Manage decision records
+
+/department/ → Link decisions to departments
+
+/faculty/ → Associate decisions with faculty members
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves decision data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new decision records to backend.
+
+update_data(endpoint, payload)  
+Updates existing decision records.
+
+delete_data(endpoint, id)  
+Removes decision records when required.'''
 import streamlit as st
 import requests
 
