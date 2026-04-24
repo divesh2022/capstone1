@@ -1,3 +1,68 @@
+'''
+This module provides administrative APIs for managing roles, users, departments, colleges, branches, courses, subjects, faculties, students, and heads of departments (HODs). It defines routes and functions to perform CRUD operations, bulk uploads, and health checks for the backend of the capstone project.
+
+Key Components
+🔹 Role Management
+create_role – Add a new role to the system.
+
+update_role – Modify details of an existing role.
+
+delete_role – Remove a role.
+
+list_roles – Retrieve all roles.
+
+🔹 User Management
+list_users – Fetch all users.
+
+create_user – Register a new user.
+
+update_user – Update user details.
+
+delete_user – Delete a user.
+
+bulk_upload_users – Upload multiple users at once.
+
+insert_userrole – Assign a role to a user.
+
+update_userrole – Modify a user’s role.
+
+delete_userrole – Remove a user’s role.
+
+view_userroles – View roles assigned to users.
+
+🔹 College & Department Management
+list_colleges, create_college, update_college, delete_college
+
+get_departments, create_department, update_department, delete_department
+
+Classes:
+
+Department – Represents a department entity with dept_id, dept_name, and college_pk.
+
+DepartmentUpdate – Used for updating department details.
+
+🔹 Branch, Course, and Subject Management
+Branches: list_branches, create_branch, update_branch, delete_branch
+
+Courses: list_courses, create_course, update_course, delete_course
+
+Subjects: list_subjects, create_subject, update_subject, delete_subject
+
+🔹 Faculty, Student, and HOD Management
+Faculties: list_faculties, create_faculty, update_faculty, delete_faculty
+
+Students: list_students, create_student, update_student, delete_student
+
+HODs: list_hods, create_hod, update_hod, delete_hod
+
+🔹 Utility Functions
+health_check – Endpoint to verify system health.
+
+run_query – Execute custom queries.
+
+fetch_query – Retrieve data using query execution.
+'''
+
 ## endpoints to insert / update / delete data in the database, only accessible by admin users
 ## custom query editor for admin users to run any query on the database and see the results execpt drop database or delete from table without where clause
 import csv
