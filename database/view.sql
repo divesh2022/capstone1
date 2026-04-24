@@ -1,3 +1,68 @@
+'''
+Overview
+This SQL script defines views for the Campus ERP database. Views are virtual tables created from queries that simplify access to complex data relationships. They allow administrators, faculty, and developers to query consolidated information without repeatedly writing joins across multiple tables.
+
+Key Components
+🔹 Student Views
+vw_students  
+Provides a consolidated view of student records.
+
+Includes: student_id, roll_no, name, dept_name, course_name, branch_name, semester.
+
+Joins: student ↔ department ↔ course ↔ branch.
+
+🔹 Faculty Views
+vw_faculties  
+Displays faculty details along with department and subject associations.
+
+Includes: faculty_id, faculty_name, dept_name, subject_name.
+
+Joins: faculty ↔ department ↔ subject.
+
+🔹 Department Views
+vw_departments  
+Lists departments with their associated courses and branches.
+
+Includes: dept_id, dept_name, course_name, branch_name.
+
+🔹 Subject Views
+vw_subjects  
+Provides subject details linked to courses and semesters.
+
+Includes: subject_id, subject_name, course_name, semester.
+
+🔹 Exam & Marks Views
+vw_mst_exams  
+Displays MST exam details with subject and faculty linkage.
+
+Includes: exam_id, exam_type, exam_date, subject_name, faculty_name.
+
+vw_mst_exam_marks  
+Consolidates MST exam marks with student and exam details.
+
+Includes: exam_id, student_name, roll_no, marks, faculty_name.
+
+🔹 Assignment Views
+vw_assignments  
+Shows assignment metadata with subject and faculty linkage.
+
+Includes: assignment_id, title, description, due_date, subject_name, faculty_name.
+
+vw_assignment_marks  
+Displays assignment marks linked to students and assignments.
+
+Includes: assignment_id, student_name, roll_no, marks, faculty_name.
+
+🔹 Attendance Views
+vw_attendance  
+Provides detailed attendance records per student and subject.
+
+Includes: student_name, roll_no, subject_name, date, status.
+
+vw_attendance_aggregate  
+Summarizes attendance data for reporting.
+
+Includes: student_name, roll_no, subject_name, lectures_attended, total_lectures.    '''
 use [campus];
 CREATE OR ALTER VIEW dbo.vw_total_internal_marks AS
 WITH assignment_avg AS (
