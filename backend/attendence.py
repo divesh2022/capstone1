@@ -1,3 +1,63 @@
+'''
+Overview
+This module defines API endpoints for managing student attendance records in the college management system. It provides CRUD operations, supports bulk uploads, and ensures faculty can track and update attendance efficiently.
+
+Key Components
+🔹 Data Models
+AttendanceRecord (Pydantic Model)  
+Represents a student’s attendance entry.
+Attributes:
+
+student_pk: Primary key of the student
+
+subject_pk: Primary key of the subject
+
+faculty_pk: Faculty member recording attendance
+
+date: Date of the lecture
+
+status: Attendance status (e.g., Present/Absent)
+
+AttendanceUpdate (Pydantic Model)  
+Used for updating attendance records.
+Attributes:
+
+roll_no: Student roll number
+
+date: Date of lecture
+
+status: Updated attendance status
+
+🔹 Endpoints
+GET /students/ → get_students  
+Fetches students by department primary key.
+
+Parameters: dept_pk
+
+Returns: List of students with student_pk and roll_no.
+
+GET /subjects/ → get_subjects  
+Retrieves subjects by department primary key.
+
+POST /attendance/ → create_attendance  
+Records attendance for a student in a subject.
+
+PUT /attendance/ → update_attendance  
+Updates an existing attendance record.
+
+DELETE /attendance/ → delete_attendance  
+Removes an attendance record.
+
+POST /attendance/bulk-upload → bulk_upload_attendance  
+Allows uploading multiple attendance records at once (e.g., via CSV/Excel).
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections.
+
+Error Handling  
+Wraps queries in try/except blocks to ensure exceptions are caught and returned as HTTP errors.
+'''
 import uvicorn
 from fastapi import FastAPI, HTTPException,APIRouter
 from pydantic import BaseModel
