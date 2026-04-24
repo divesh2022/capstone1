@@ -1,3 +1,59 @@
+'''Overview
+This module defines the login interface for the Campus ERP system. Built with Streamlit, it provides a secure entry point for users (students, faculty, HODs, and administrators) to authenticate and access their respective dashboards. It acts as the frontend layer that communicates with backend authentication APIs.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (forms, inputs, buttons).
+
+requests → Handles API calls to backend authentication endpoints.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Login Form
+
+Fields: Username/Email, Password.
+
+Submit button triggers authentication request.
+
+Role-Based Redirection
+
+After successful login, users are redirected to their respective dashboards:
+
+Student Dashboard → frontend/student/main.py
+
+Faculty Dashboard → frontend/faculty/main.py
+
+HOD Dashboard → frontend/hod/main.py
+
+Admin Dashboard → frontend/admin/main.py
+
+Error Handling
+
+Displays error messages for invalid credentials or failed API calls.
+
+Provides feedback for empty fields or incorrect input formats.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend authentication services via REST APIs:
+
+/login/ → Validates user credentials
+
+/role/ → Determines user role for dashboard redirection
+
+Security Measures
+
+Passwords are transmitted securely via HTTPS.
+
+Session tokens or cookies are used to maintain authenticated state.
+
+🔹 Utility Functions
+authenticate_user(username, password)  
+Sends credentials to backend and validates login.
+
+redirect_user(role)  
+Redirects authenticated users to their respective dashboards.'''
 import streamlit as st
 import importlib
 import requests
