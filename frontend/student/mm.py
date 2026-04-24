@@ -1,3 +1,47 @@
+'''Overview
+This module defines the student dashboard for assignment marks management in the Campus ERP system. Built with Streamlit, it provides students with a simple interface to view their assignment marks, track performance across subjects, and download reports. It acts as the frontend layer that communicates with backend APIs for assignment marks workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular marks data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Assignment Marks → Displays marks awarded to students for assignments.
+
+Performance Summary → Provides subject-wise and overall performance analysis.
+
+Download Report → Allows students to export assignment marks.
+
+Forms  
+Students can input their roll number or ID to fetch marks data.
+
+Tables & Charts  
+Assignment marks are displayed in tabular format using Pandas DataFrames, with optional charts for performance visualization.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/assignment-marks/ → Retrieve assignment marks records
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves assignment marks data from backend APIs.
+
+download_report()  
+Exports assignment marks into a downloadable format (CSV/PDF).'''
 import streamlit as st
 import requests
 import pandas as pd
