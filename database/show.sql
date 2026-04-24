@@ -1,3 +1,65 @@
+'''
+ Overview
+This SQL script provides read-only queries to inspect and verify the data stored in the Campus ERP database. It is primarily used for debugging, validation, and reporting purposes, allowing administrators and developers to quickly view records across different tables.
+
+Key Components
+🔹 Student Records
+SELECT * FROM student;  
+Displays all student records including roll number, name, department, course, branch, and semester.
+
+🔹 Faculty Records
+SELECT * FROM faculty;  
+Retrieves faculty details such as faculty ID, name, department, and assigned subjects.
+
+🔹 Department Records
+SELECT * FROM department;  
+Lists all departments with their IDs and names.
+
+🔹 Course & Branch Records
+SELECT * FROM course;  
+Shows available courses linked to departments.
+
+SELECT * FROM branch;  
+Displays branches linked to courses.
+
+🔹 Subject Records
+SELECT * FROM subject;  
+Retrieves subject details including subject code, name, course, and semester.
+
+🔹 Attendance Records
+SELECT * FROM attendance;  
+Displays individual attendance entries for students.
+
+SELECT * FROM attendance_aggregate;  
+Shows summarized attendance data (lectures attended vs. total lectures).
+
+🔹 Exam & Marks Records
+SELECT * FROM mst_exam;  
+Lists MST exam details (exam type, date, subject, faculty).
+
+SELECT * FROM mst_exam_marks;  
+Displays marks awarded in MST exams.
+
+🔹 Assignment Records
+SELECT * FROM assignment;  
+Shows assignment metadata (title, description, due date, subject).
+
+SELECT * FROM assignment_marks;  
+Displays marks awarded for assignments.
+
+🔹 Administrative Records
+SELECT * FROM hod;  
+Lists Heads of Departments linked to faculty and departments.
+
+SELECT * FROM role;  
+Displays system roles (Admin, Faculty, Student).
+
+SELECT * FROM user;  
+Shows login credentials and role associations.
+
+SELECT * FROM correction;  
+Displays correction records made by faculty for student data.           '''
+            
 use [campus];
 -- basic dumps
 SELECT * FROM Roles;
