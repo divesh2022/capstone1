@@ -1,3 +1,47 @@
+'''
+Overview
+This module defines API endpoints for managing Heads of Departments (HODs) in the college management system. It provides CRUD operations to add, update, delete, and list HODs, ensuring proper linkage between departments and faculty members.
+
+Key Components
+🔹 Data Models
+HODCreate (Pydantic Model)  
+Represents the structure for creating a new HOD record.
+Attributes:
+
+faculty_pk: Primary key of the faculty member
+
+dept_pk: Primary key of the department
+
+HODUpdate (Pydantic Model)  
+Used for updating existing HOD records.
+Attributes:
+
+hod_id: Identifier of the HOD record
+
+faculty_pk: Updated faculty assignment
+
+dept_pk: Updated department assignment
+
+🔹 Endpoints
+GET /hods/ → list_hods  
+Retrieves all HOD records.
+
+POST /hods/ → create_hod  
+Adds a new HOD record.
+
+PUT /hods/{id} → update_hod  
+Updates an existing HOD record by ID.
+
+DELETE /hods/{id} → delete_hod  
+Removes a HOD record.
+
+🔹 Utility Functions
+Database Connection  
+Uses get_connection() from the connect module to establish and close database connections.
+
+Error Handling  
+Wraps queries in try/except blocks to ensure exceptions are caught and returned as HTTP errors.
+'''
 import csv
 
 from fastapi import APIRouter, FastAPI, File, HTTPException, Header , UploadFile
