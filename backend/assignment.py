@@ -1,3 +1,48 @@
+'''
+Overview
+This module defines the backend API endpoints for managing assignments within the college management system. It provides CRUD operations (Create, Read, Update, Delete) and supports bulk uploads, ensuring assignments can be efficiently handled by faculty and administrators.
+
+Key Components
+🔹 Assignment Management
+list_assignments  
+Retrieves all assignments stored in the system. Useful for faculty or students to view available assignments.
+
+create_assignment  
+Adds a new assignment record. Typically requires details such as title, description, course/subject linkage, and due date.
+
+update_assignment  
+Modifies an existing assignment’s details (e.g., updating deadlines or instructions).
+
+delete_assignment  
+Removes an assignment from the system.
+
+bulk_upload_assignments  
+Allows uploading multiple assignments at once, often via CSV/Excel files.
+
+Data Models
+Assignment  
+Represents an assignment entity with attributes like:
+
+assignment_id (primary key)
+
+title
+
+description
+
+course_id / subject_id
+
+due_date
+
+AssignmentUpdate  
+Used for partial updates to assignment details.
+
+Utility Functions
+health_check  
+Confirms the assignment service is running properly.
+
+run_query / fetch_query  
+Internal helpers for executing and retrieving database queries.
+'''
 from fastapi import FastAPI, HTTPException,APIRouter
 from pydantic import BaseModel
 import uvicorn
