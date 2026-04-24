@@ -1,4 +1,4 @@
-'''
+/*
  Overview
 This SQL script defines table structures for the Campus ERP database. It creates the foundational entities required to manage students, faculty, departments, courses, subjects, exams, assignments, attendance, and administrative roles. Unlike schema.sql, which may include constraints, this file focuses on the creation of tables with their columns and basic definitions.
 
@@ -84,7 +84,7 @@ Columns: username, password, role_pk
 correction  
 Records corrections made to student data or academic records.
 
-Columns: student_pk, faculty_pk, description, date   '''
+Columns: student_pk, faculty_pk, description, date   */
 use campus;
 
 
