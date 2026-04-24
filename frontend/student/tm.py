@@ -1,3 +1,55 @@
+'''Overview
+This module defines the student dashboard for timetable management in the Campus ERP system. Built with Streamlit, it provides students with a simple interface to view their class schedules, subject allocations, and faculty assignments. It acts as the frontend layer that communicates with backend APIs for timetable workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, tables, forms).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular timetable data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Timetable → Displays the student’s timetable for all subjects.
+
+Daily Schedule → Shows timetable filtered by day.
+
+Faculty Allocation → Displays which faculty is assigned to each subject slot.
+
+Forms  
+Students can input their roll number or course ID to fetch timetable data.
+
+Tables  
+Timetable records are displayed in tabular format using Pandas DataFrames for easy review.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/timetable/ → Fetch timetable records
+
+/courses/ → Link timetable to courses
+
+/subjects/ → Link timetable to subjects
+
+/faculty/ → Link timetable slots to faculty
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves timetable data from backend APIs.
+
+filter_by_day(day)  
+Filters timetable records for a specific day.
+
+download_report()'''
 import streamlit as st
 import requests
 import pandas as pd
