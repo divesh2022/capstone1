@@ -1,0 +1,778 @@
+Source Code Documentation
+==================================================
+
+File: E:\project\capstone\frontend\dotcoverter.py
+  Function: dot_to_mermaid
+  Documentation Extracted:
+    # Start Mermaid graph
+    # Regex to capture edges like: A -> B
+    # Regex to capture nodes like: A [label="Entity"]
+    # Map DOT node names to labels
+    # Convert edges
+    # Mermaid ER syntax: ENTITY ||--o{ ENTITY : "relationship"
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\login.py
+  Function: __init__
+  Function: fetch_roles
+    Docstring: Fetch available roles from backend.
+  Function: login
+    Docstring: Send login request to backend.
+  Function: __init__
+  Function: run
+  Documentation Extracted:
+    # -------------------------------
+    # API Client Class
+    # -------------------------------
+    # -------------------------------
+    # UI Class
+    # -------------------------------
+    # Fetch roles for dropdown
+    # --- Login Form ---
+    # Redirect to dashboards based on role
+    # --- Debug Info ---
+    # -------------------------------
+    # Main Entry Point
+    # -------------------------------
+    Fetch available roles from backend.
+    Send login request to backend.
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\mem.py
+  Function: fetch_exams
+  Function: fetch_students
+  Function: fetch_marks
+  Function: fetch_faculty
+  Function: semester_to_batch
+  Documentation Extracted:
+    # API Base matches your MST Exam Marks API
+    # Base for Faculty (Ensure this matches your faculty endpoint path)
+    # Assuming faculty data is fetched from the same API for simplicity
+    # ---------------------------
+    # Fetch helpers
+    # ---------------------------
+    # Note: Using the endpoint we verified earlier: /faculty/
+    # ---------------------------
+    # Helper: map semester → batch
+    # ---------------------------
+    # Changed return type to string to match NVARCHAR(10) in SQL
+    # ---------------------------
+    # Main Logic
+    # ---------------------------
+    # 1. Selection Header
+    # Display Exam Info
+    # Initialize marks column
+    # Explicitly include the 4th parameter: faculty_pk
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\test.py
+  Function: None
+  Documentation Extracted:
+    # Tabs for roles
+    # ---------------------------
+    # Student Tab
+    # ---------------------------
+    # Faculty Tab
+    # ---------------------------
+    # HoD Tab
+    # ---------------------------
+    # Admin Tab
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\view.py
+  Function: __init__
+  Function: safe_get
+  Function: get_batches
+  Function: get_departments
+  Function: get_students
+  Function: get_internal_marks
+  Function: render
+  Function: __init__
+  Function: run
+  Documentation Extracted:
+    # -------------
+    # ------------------
+    # ---------------------------
+    # API Client Class
+    # ---------------------------
+    # ---------------------------
+    # Report Card Renderer
+    # ---------------------------
+    # Header
+    # Metrics
+    # Progress bars
+    # Expandable details
+    # Status badge
+    # ---------------------------
+    # UI Class
+    # ---------------------------
+    # ---------------------------
+    # Main Entry Point
+    # ---------------------------
+    <div style="border:3px solid #4CAF50; border-radius:12px; padding:20px; background:linear-gradient(135deg,#fdfdfd,#f0f9ff); 
+                            max-width:750px; margin:auto; box-shadow:0 6px 12px rgba(0,0,0,0.15);">
+                    <h2 style="text-align:center; color:#2c3e50; margin-bottom:10px;">🎓 Student Report Card</h2>
+                    <p style="text-align:center; font-size:16px; color:#555;">
+                        Roll No: <b>{record['roll_no']}</b> | Subject: <b>{record['subject_code']}</b> | Semester: <b>{record['semester']}</b>
+                    </p>
+                </div>
+    <table style="width:100%; border-collapse:collapse;">
+                        <tr><th style="background:#2c3e50; color:#fff; padding:8px;">Department ID</th><td style="padding:8px;">{record['dept_id']}</td></tr>
+                        <tr><th style="background:#2c3e50; color:#fff; padding:8px;">MST1 Marks</th><td style="padding:8px;">{record['mst1_marks']}</td></tr>
+                        <tr><th style="background:#2c3e50; color:#fff; padding:8px;">MST2 Marks</th><td style="padding:8px;">{record['mst2_marks']}</td></tr>
+                    </table>
+    <div style="text-align:center; font-size:20px; font-weight:bold; color:{status_color}; margin-top:10px;">
+                    ✅ Status: {record['status']}
+                </div>
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\__init__.py
+  Function: None
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\admin\branch.py
+  Function: None
+  Documentation Extracted:
+    # View Branches
+    # Create Branch
+    # Fetch departments for dropdown
+    # Update Branch
+    # Fetch branches for dropdown
+    # Fetch departments for dropdown
+    # Delete Branch
+    # Fetch branches for dropdown
+    Documentation: Branch Management Streamlit App
+Purpose
+This Streamlit application provides a simple frontend for managing branches in a college or organizational database. It interacts with a FastAPI backend (http://127.0.0.1:8000) to perform CRUD operations (Create, Read, Update, Delete).
+
+Features
+View Branches
+
+Fetches all branches from GET /br/branches/.
+
+Displays them in a table using st.table().
+
+Handles empty results and error responses gracefully.
+
+Create Branch
+
+Inputs: Branch ID, Branch Name.
+
+Fetches department list from GET /dp/departments/.
+
+Provides a dropdown (st.selectbox) for selecting a department.
+
+Sends a POST /br/branches/ request with branch details.
+
+Displays success or error messages.
+
+Update Branch
+
+Fetches existing branches (GET /br/branches/) for selection.
+
+Inputs: New Branch ID, New Branch Name.
+
+Fetches departments (GET /dp/departments/) for new assignment.
+
+Sends a PUT /br/branches/{branch_name} request with updated details.
+
+Displays success or error messages.
+
+Delete Branch
+
+Fetches existing branches (GET /br/branches/) for selection.
+
+Sends a DELETE /br/branches/{branch_name} request.
+
+Displays success or error messages.
+
+API Endpoints Used
+GET /br/branches/ → Retrieve all branches.
+
+POST /br/branches/ → Create a new branch.
+
+PUT /br/branches/{branch_name} → Update an existing branch.
+
+DELETE /br/branches/{branch_name} → Delete a branch.
+
+GET /dp/departments/ → Retrieve department list for dropdowns.
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\admin\college.py
+  Function: None
+  Documentation Extracted:
+    # View Colleges
+    # Create College
+    # Update College
+    # Fetch colleges for dropdown
+    # Use college_name for selection, but keep PK for backend
+    # Delete College
+    # Fetch colleges for dropdown
+    📘 Documentation: College Management Streamlit App
+Purpose
+This Streamlit application provides a simple user interface for managing colleges in a database. It interacts with a FastAPI backend (http://127.0.0.1:8000/cg) to perform CRUD operations (Create, Read, Update, Delete).
+
+Features
+View Colleges
+
+Fetches all colleges from GET /cg/colleges/.
+
+Displays them in a table using st.table().
+
+Handles empty results and error responses gracefully.
+
+Create College
+
+Inputs: College ID, College Name.
+
+Sends a POST /cg/colleges/ request with the new college details.
+
+Displays success or error messages depending on the response.
+
+Update College
+
+Fetches existing colleges (GET /cg/colleges/) for selection.
+
+Uses college_name for dropdown display but keeps track of college_pk for backend updates.
+
+Inputs: New College ID, New College Name.
+
+Sends a PUT /cg/colleges/{college_pk} request with updated details.
+
+Displays success or error messages.
+
+Delete College
+
+Fetches existing colleges (GET /cg/colleges/) for selection.
+
+Uses college_name for dropdown display but keeps track of college_pk for backend deletion.
+
+Sends a DELETE /cg/colleges/{college_pk} request.
+
+Displays success or error messages.
+
+API Endpoints Used
+GET /cg/colleges/ → Retrieve all colleges.
+
+POST /cg/colleges/ → Create a new college.
+
+PUT /cg/colleges/{college_pk} → Update an existing college.
+
+DELETE /cg/colleges/{college_pk} → Delete a college.
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\admin\course.py
+  Function: None
+  Documentation Extracted:
+    # View Courses
+    # Create Course
+    # Fetch branches for dropdown
+    # Update Course
+    # Fetch courses for dropdown
+    # Fetch branches for dropdown
+    # Delete Course
+    # Fetch courses for dropdown
+    Documentation: Course Management Streamlit App
+Purpose
+This Streamlit application provides a user interface for managing courses in a college or organizational system. It interacts with a FastAPI backend (http://127.0.0.1:8000/Cr) to perform CRUD operations (Create, Read, Update, Delete).
+
+Features
+View Courses
+
+Fetches all courses from GET /Cr/courses/.
+
+Displays them in a table using st.table().
+
+Handles empty results and error responses gracefully.
+
+Create Course
+
+Inputs: Course Code, Course Name.
+
+Fetches branch list from GET /br/branches/.
+
+Provides a dropdown (st.selectbox) for selecting a branch.
+
+Sends a POST /Cr/courses/ request with course details.
+
+Displays success or error messages.
+
+Update Course
+
+Fetches existing courses (GET /Cr/courses/) for selection.
+
+Uses course_code for dropdown display and backend updates.
+
+Inputs: New Course Name, New Branch Name.
+
+Fetches branch list (GET /br/branches/) for reassignment.
+
+Sends a PUT /Cr/courses/{course_code} request with updated details.
+
+Displays success or error messages.
+
+Delete Course
+
+Fetches existing courses (GET /Cr/courses/) for selection.
+
+Uses course_code for dropdown display and backend deletion.
+
+Sends a DELETE /Cr/courses/{course_code} request.
+
+Displays success or error messages.
+
+API Endpoints Used
+GET /Cr/courses/ → Retrieve all courses.
+
+POST /Cr/courses/ → Create a new course.
+
+PUT /Cr/courses/{course_code} → Update an existing course.
+
+DELETE /Cr/courses/{course_code} → Delete a course.
+
+GET /br/branches/ → Retrieve branch list for dropdowns.
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\admin\department.py
+  Function: None
+  Documentation Extracted:
+    # View Departments
+    # Create Department
+    # Fetch colleges for dropdown
+    # Update Department
+    # Fetch departments for dropdown
+    # Fetch colleges for dropdown
+    # Delete Department
+    # Fetch departments for dropdown
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\admin\faculty.py
+  Function: None
+  Documentation Extracted:
+    # View Faculty
+    # Create Faculty
+    # Fetch departments for dropdown
+    # Update Faculty
+    # Fetch faculty for dropdown
+    # Fetch departments for dropdown
+    # Delete Faculty
+    # Fetch faculty for dropdown
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\admin\hod.py
+  Function: None
+  Documentation Extracted:
+    # View HODs
+    # Assign HOD
+    # Fetch departments for dropdown
+    # Fetch faculty for dropdown
+    # Update HOD
+    # Fetch departments for dropdown
+    # Fetch faculty for dropdown
+    # Delete HOD
+    # Fetch departments for dropdown
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\admin\query.py
+  Function: None
+  Documentation Extracted:
+    # Text area for SQL input
+    # Run query button
+    # Handle multiple queries
+    # Single query fallback
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\admin\role.py
+  Function: None
+  Documentation Extracted:
+    # Tabs for each service
+    # Insert Role
+    # Update Role
+    # Delete Role
+    # Tab 4: View Roles
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\admin\student.py
+  Function: None
+  Documentation Extracted:
+    # View Students
+    # Create Student
+    # Fetch departments for dropdown
+    # Update Student
+    # Fetch students for dropdown
+    # Fetch departments for dropdown
+    # Delete Student
+    # Fetch students for dropdown
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\admin\subject.py
+  Function: None
+  Documentation Extracted:
+    # View Subjects
+    # Create Subject
+    # Fetch courses for dropdown
+    # Update Subject
+    # Fetch subjects for dropdown
+    # Fetch courses for dropdown
+    # Delete Subject
+    # Fetch subjects for dropdown
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\admin\user.py
+  Function: None
+  Documentation Extracted:
+    # Tabs for each service
+    # List Users
+    # Create User
+    # Update User
+    # Delete User
+    # Bulk Upload
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\admin\user_roles.py
+  Function: None
+  Documentation Extracted:
+    # Tabs for each service
+    # View UserRoles
+    # Fetch users and roles
+    # Map user_pk → email
+    # Map role_pk → role_name
+    # Update UserRole (Tab 3)
+    # Delete UserRole (Tab 4)
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\faculty\assignment.py
+  Function: __init__
+  Function: fetch_data
+    Docstring: Generic fetch method with caching.
+  Function: submit_assignment
+    Docstring: Submit a new assignment record.
+  Function: __init__
+  Function: run
+  Documentation Extracted:
+    # -------------------------------
+    # API Client Class
+    # -------------------------------
+    # -------------------------------
+    # UI Class
+    # -------------------------------
+    # Fetch data
+    # Map dropdowns
+    # --- Form UI ---
+    # --- Debug Info ---
+    # -------------------------------
+    # Main Entry Point
+    # -------------------------------
+    Generic fetch method with caching.
+    Submit a new assignment record.
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\faculty\assignment_marks.py
+  Function: __init__
+  Function: fetch_assignments
+  Function: fetch_students
+  Function: fetch_faculty
+  Function: save_marks
+  Function: _safe_get
+  Function: __init__
+  Function: run
+  Documentation Extracted:
+    # --- Configuration ---
+    # --- Custom Styling ---
+    # -------------------------------
+    # OOP Design
+    # -------------------------------
+    # Selection Bar
+    # Student Roster
+    # Save Logic
+    # -------------------------------
+    # Main Entry Point
+    # -------------------------------
+    <style>
+    .main { background-color: #f8f9fa; }
+    div.stButton > button:first-child {
+        background-color: #28a745;
+        color: white;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+    </style>
+    Handles the Streamlit UI for marks entry.
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\faculty\attendance_aggregate.py
+  Function: __init__
+  Function: fetch_options
+  Function: fetch_records
+  Function: set_total_lectures
+  Function: update_attendance
+  Function: __init__
+  Function: run
+  Documentation Extracted:
+    # ---------------------------
+    # API Client Class
+    # ---------------------------
+    # ---------------------------
+    # UI Class
+    # ---------------------------
+    # Fetch dropdown data
+    # Tabs
+    # ---------------------------
+    # Tab 1: View & Update Attendance
+    # ---------------------------
+    # Editable table
+    # ---------------------------
+    # Tab 2: Set Total Lectures
+    # ---------------------------
+    # ---------------------------
+    # Main Entry Point
+    # ---------------------------
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\faculty\attendence.py
+  Function: __init__
+  Function: fetch_classes
+  Function: fetch_subjects
+  Function: fetch_faculty
+  Function: __init__
+  Function: run
+  Documentation Extracted:
+    # ---------------------------
+    # API Client
+    # ---------------------------
+    # ---------------------------
+    # UI
+    # ---------------------------
+    # Defensive key handling for classes
+    # Try different possible keys
+    # ---------------------------
+    # Main
+    # ---------------------------
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\faculty\main.py
+  Function: None
+  Documentation Extracted:
+    # API bases
+    # --- Sidebar Navigation ---
+    # --- Unified Header ---
+    # --- Routing to Modules ---
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\faculty\mst_exam.py
+  Function: sidebar_utilities
+  Function: __init__
+  Function: fetch_data
+  Function: create_exam
+  Function: __init__
+  Function: run
+  Documentation Extracted:
+    # ---------------------------
+    # API Client Class
+    # ---------------------------
+    # ---------------------------
+    # UI Class
+    # ---------------------------
+    # ---------------------------
+    # Sidebar Utilities
+    # ---------------------------
+    # ---------------------------
+    # Main Entry Point
+    # ---------------------------
+    **Developer Note:** Ensure the `exam_date` is sent as a string (YYYY-MM-DD) to match the FastAPI validation.
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\faculty\mst_exam_marks.py
+  Function: __init__
+  Function: fetch_exams
+  Function: fetch_students
+  Function: fetch_marks
+  Function: fetch_faculty
+  Function: save_marks
+  Function: __init__
+  Function: semester_to_batch
+  Function: run
+  Documentation Extracted:
+    # ---------------------------
+    # API Client
+    # ---------------------------
+    # ---------------------------
+    # UI Class
+    # ---------------------------
+    # Adjust mapping logic if needed
+    # Selection
+    # ---------------------------
+    # Main Entry Point
+    # ---------------------------
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\faculty\request.py
+  Function: __init__
+  Function: submit_request
+  Function: list_pending
+  Function: review
+  Function: get_service_types
+  Function: get_fields
+  Function: get_rollnos
+  Function: get_subjects
+  Function: get_old_value
+  Function: get_target_pk
+  Function: get_email
+  Function: __init__
+  Function: run
+  Documentation Extracted:
+    # --- Submit Request ---
+    # Step 1: Service Type
+    # Step 2: Field Name (depends on service type)
+    # Step 3: Roll Number
+    # Step 4: Semester
+    # Step 5: Subject (depends on rollno + semester)
+    # Resolve target_pk
+    # Fetch old value
+    # Show old value in disabled text input
+    # New value input adapts to field type
+    # Debug panel
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\hod\CF.py
+  Function: None
+  Documentation Extracted:
+    # View Allocations
+    # Create Allocation
+    # Fetch classes for dropdown
+    # Show "Batch - Department" in dropdown
+    # Split back into batch and dept_name
+    # Fetch faculty for dropdown
+    # Show "Name (Email)" in dropdown
+    # --- Tab 3: Update Allocation ---
+    # Fetch existing allocations for dropdown
+    # Inputs for new values
+    # Fetch faculty for dropdown
+    # Handle case where backend returns both name and email OR only email
+    # Extract email cleanly
+    # Delete Allocation
+    # Fetch allocations for dropdown
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\hod\Ci.py
+  Function: None
+  Documentation Extracted:
+    # Fetch dropdown data
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\hod\CS.py
+  Function: None
+  Documentation Extracted:
+    # backend configuration
+    # create separate tabs for each operation
+    # --- Tab 1: Single Allocation ---
+    # --- Tab 2: Bulk CSV Upload ---
+    # reset pointer to start of file
+    # --- Tab 3: Manage & Delete ---
+    # requests.delete uses params for query strings
+    **Instructions:** Upload a CSV file with the following exact headers:
+    `roll_no`, `batch`, `dept_name`, `semester`
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\hod\CSem.py
+  Function: None
+  Documentation Extracted:
+    # Backend URL
+    # Create separate tabs
+    # --- Tab 1: Set Semester (POST) ---
+    # Matches ClassSemesterBase schema
+    # --- Tab 2: Promote Class (PUT) ---
+    # Section to find the record
+    # Section for new data
+    # Query parameters for identification
+    # JSON body for the change (ClassSemesterUpdate)
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\hod\CSUB.py
+  Function: None
+  Documentation Extracted:
+    # Create tabs
+    # --- Tab 1: Classes ---
+    # --- Tab 2: Subjects ---
+    # --- Tab 3: Allocations ---
+    # Dropdowns for class and subject
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\hod\decision.py
+  Function: __init__
+  Function: list_pending
+  Function: review
+  Function: __init__
+  Function: run
+  Documentation Extracted:
+    # --- HoD Review ---
+    # Debug panel for HoD decision
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\hod\FS.py
+  Function: None
+  Documentation Extracted:
+    # Configuration - Ensure your FastAPI server is running here
+    # Create the Tabs
+    # --- Tab 1: Faculty Directory ---
+    # --- Tab 2: Single Allocation ---
+    # --- Tab 3: Bulk CSV Import ---
+    # --- Tab 4: Manage/Delete Allocations ---
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\hod\Tm.py
+  Function: None
+  Documentation Extracted:
+    # CSV export
+    # Excel export (requires openpyxl)
+    # Filter by subject code
+    # Select columns to display
+    # Multi-column sorting
+    # Export the filtered/sorted subset
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\student\aa.py
+  Function: None
+  Documentation Extracted:
+    # Input field for roll number
+    # Convert to DataFrame for nice table display
+    # Optional: show average attendance
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\student\am.py
+  Function: None
+  Documentation Extracted:
+    # Input field for roll number
+    # Convert to DataFrame for nice table display
+    # Optional: show average assignment performance
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\student\ci.py
+  Function: None
+  Documentation Extracted:
+    # Input field for roll number
+    # Convert to DataFrame for nice table display
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\student\mm.py
+  Function: None
+  Documentation Extracted:
+    # Input field for roll number
+    # Convert to DataFrame for nice table display
+    # Optional: show average MST performance
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\student\profile.py
+  Function: None
+--------------------------------------------------
+
+File: E:\project\capstone\frontend\student\tm.py
+  Function: None
+  Documentation Extracted:
+    # Input field for roll number
+    # Convert to DataFrame
+    # Add percentage columns if needed
+    # Beautify table
+    # Optional: overall average
+--------------------------------------------------
+
