@@ -1,4 +1,4 @@
-'''
+/*
 Overview
 This SQL script defines views for the Campus ERP database. Views are virtual tables created from queries that simplify access to complex data relationships. They allow administrators, faculty, and developers to query consolidated information without repeatedly writing joins across multiple tables.
 
@@ -62,7 +62,7 @@ Includes: student_name, roll_no, subject_name, date, status.
 vw_attendance_aggregate  
 Summarizes attendance data for reporting.
 
-Includes: student_name, roll_no, subject_name, lectures_attended, total_lectures.    '''
+Includes: student_name, roll_no, subject_name, lectures_attended, total_lectures.    */
 use [campus];
 CREATE OR ALTER VIEW dbo.vw_total_internal_marks AS
 WITH assignment_avg AS (
