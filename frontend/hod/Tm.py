@@ -1,3 +1,63 @@
+'''Overview
+This module defines the Head of Department (HOD) dashboard for timetable management in the Campus ERP system. Built with Streamlit, it provides HODs with tools to create, update, and manage timetables for courses, branches, and subjects. It acts as the frontend layer that communicates with backend APIs for scheduling workflows.
+
+Key Components
+🔹 Imports
+streamlit as st → Provides UI components (tabs, forms, tables).
+
+requests → Handles API calls to backend endpoints.
+
+pandas → Displays tabular timetable data.
+
+json → Parses API responses.
+
+🔹 UI Structure
+Tabs  
+The dashboard is organized into multiple tabs for modular functionality:
+
+View Timetable → Displays timetable records for courses and branches.
+
+Add Timetable Entry → Allows HODs to create new timetable entries (day, time, subject, faculty).
+
+Update Timetable Entry → Provides interface to modify existing timetable records.
+
+Delete Timetable Entry → Enables removal of timetable records.
+
+Forms  
+Each tab contains forms for data entry (course ID, branch ID, subject ID, faculty ID, day, time slot).
+
+Tables  
+Timetable records are displayed in tabular format using Pandas DataFrames for easy review.
+
+🔹 API Integration
+Backend Endpoints  
+The frontend interacts with backend modules via REST APIs:
+
+/timetable/ → Manage timetable records
+
+/courses/ → Link timetables to courses
+
+/branches/ → Link timetables to branches
+
+/subjects/ → Link timetables to subjects
+
+/faculty/ → Assign faculty to timetable slots
+
+Error Handling  
+API calls are wrapped in try/except blocks to handle connection errors gracefully.
+
+🔹 Utility Functions
+fetch_data(endpoint)  
+Retrieves timetable data from backend APIs.
+
+post_data(endpoint, payload)  
+Submits new timetable records to backend.
+
+update_data(endpoint, payload)  
+Updates existing timetable records.
+
+delete_data(endpoint, id)  
+Removes timetable records when required'''
 import streamlit as st
 import requests
 import pandas as pd
