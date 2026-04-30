@@ -90,7 +90,7 @@ SELECT * FROM FacultySubject;
             
 
 -- a few examples with joins to show relationships
-SELECT u.user_pk, u.username, r.role_name
+SELECT u.user_pk, u.username, r.role_name, u.PASSWORD
 FROM Users u
 JOIN UserRoles ur ON u.user_pk = ur.user_pk
 JOIN Roles r ON ur.role_pk = r.role_pk;
@@ -402,3 +402,26 @@ SELECT subject_pk, subject_code, subject_name FROM Subject;
     ORDER BY c.batch, d.dept_name, ci.semester;
 
         SELECT subject_pk, subject_code, subject_name FROM Subject;
+
+
+select u.user_pk from Users u join Student s on u.phone_number = s.phone_number; 
+
+-- insert students into student table with user_pk from users
+INSERT INTO Student (roll_no, batch, dept_pk, user_pk)
+SELECT s.roll_no, s.batch, s.dept_pk, u.user_pk
+FROM Student s
+JOIN Users u ON s.phone_number = u.phone_number;
+
+SELECT 
+    s.roll_no, 
+    s.phone_number, 
+    agg.semester, 
+    (CAST(agg.lectures_attended AS FLOAT) / NULLIF(agg.total_lectures, 0)) * 100 AS attendance_percentage,
+    agg.lectures_attended, 
+    agg.total_lectures
+FROM Student s
+JOIN AttendanceAggregate agg 
+    ON s.student_pk = agg.student_pk
+WHERE agg.subject_pk = 1  -- specific subject
+  AND (CAST(agg.lectures_attended AS FLOAT) / NULLIF(agg.total_lectures, 0)) < 0.75
+ORDER BY s.roll_no;

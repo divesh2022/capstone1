@@ -135,7 +135,7 @@ services = {
     },
     "FACULTY": {
         "Academics": ["Assignments", "Assignment Marks", "Attendance", "MST Exam Creator", "MST Exam Marks"],
-        "Requests": ["Correction Requests"]
+        "Requests": ["Correction Requests", "detain"]
     }
 }
 
@@ -184,12 +184,56 @@ def run_selected_module(main_portal: str, service_name: str):
         except Exception as e:
             st.error(f"⚠️ Error executing {service_name}: {e}")
 
+# 3. Function to run selected module
+def run_module(choice: str):
+    """Import and run the selected module UI."""
+    if choice == "Assignments":
+        import frontend.faculty.ass as ass
+        api = ass.AssignmentAPI("http://localhost:8000/faculty/assignment")
+        ui = ass.AssignmentUI(api)  # <-- call the module’s entry point
+        ui.run()
+    elif choice == "Assignment Marks":
+        import frontend.faculty.am as am
+        api = am.APIClient("http://127.0.0.1:8000/faculty/assignment_marks")
+        ui = am.MarksEntryUI(api)
+        ui.run()
+
+    elif choice == "Attendance":
+        import frontend.faculty.aa as aa
+        api = aa.AttendanceAPI("http://localhost:8000/faculty/attendance_aggregate")
+        ui = aa.AttendanceUI(api)
+        ui.run()
+
+    elif choice == "MST Exam Creator":
+        import frontend.faculty.me as me
+        api = me.MSTExamAPI("http://127.0.0.1:8000/faculty/mst_exam")
+        ui = me.MSTExamUI(api)
+        ui.run()
+
+    elif choice == "MST Exam Marks":
+        import frontend.faculty.mem as mem
+        api = mem.MSTExamMarksAPI("http://127.0.0.1:8000/faculty/mst_exam_marks")
+        ui = mem.MSTExamMarksUI(api)
+        ui.run()
+
+    elif choice == "Correction Requests":
+        import frontend.faculty.r as r
+        api = r.CorrectionAPI("http://localhost:8000/faculty/correction")
+        ui = r.CorrectionUI(api)
+        ui.run()
+    elif choice == "detain":
+        import frontend.faculty.det as det
+        det.show_attendance_ui()
+
 
 # 6. Main Content Area Execution
 if sub_choice:
     st.title(f"{sub_choice}")
     st.caption(f"Portal: {main_choice} | Category: {category_choice}")
     st.divider()
+    if(main_choice == "FACULTY"):
+        run_module(sub_choice)
     run_selected_module(main_choice, sub_choice)
+    
 else:
     st.write("Please select a service from the sidebar to begin.")

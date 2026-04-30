@@ -180,3 +180,92 @@ ALTER TABLE UserRoles
 ADD password_hash NVARCHAR(256) NOT NULL DEFAULT '1234';
 use campus;
 insert into ClassStudent VALUES (1,1,1),(1,1,2);
+
+INSERT INTO Student (roll_no, batch, dept_pk, phone_number)
+VALUES
+('2026001', '2026', 1, '9000000001'),
+('2026002', '2026', 1, '9000000002'),
+('2026003', '2026', 1, '9000000003'),
+('2026004', '2026', 1, '9000000004'),
+('2026005', '2026', 1, '9000000005'),
+('2026006', '2026', 1, '9000000006'),
+('2026007', '2026', 1, '9000000007'),
+('2026008', '2026', 1, '9000000008'),
+('2026009', '2026', 1, '9000000009'),
+('2026010', '2026', 1, '9000000010'),
+('2026011', '2026', 1, '9000000011'),
+('2026012', '2026', 1, '9000000012'),
+('2026013', '2026', 1, '9000000013'),
+('2026014', '2026', 1, '9000000014'),
+('2026015', '2026', 1, '9000000015'),
+('2026016', '2026', 1, '9000000016'),
+('2026017', '2026', 1, '9000000017'),
+('2026018', '2026', 1, '9000000018'),
+('2026019', '2026', 1, '9000000019'),
+('2026020', '2026', 1, '9000000020');
+
+INSERT INTO Class (batch, dept_pk, semester)
+VALUES
+('2026', 1, 1),  -- Class 1
+('2026', 1, 2),  -- Class 2
+('2026', 1, 3),  -- Class 3
+('2026', 1, 4);  -- Class 4
+
+-- Class 1 (students 1–5)
+INSERT INTO Attendance (class_pk, subject_pk, faculty_pk, student_pk, date, status)
+VALUES
+(2, 1, 1, 6, GETDATE(), 1),
+(2, 1, 1, 7, GETDATE(), 1),
+(2, 1, 1, 8, GETDATE(), 1),
+(2, 1, 1, 9, GETDATE(), 1),
+(2, 1, 1, 10, GETDATE(), 1);
+
+-- Class 2 (students 6–10)
+INSERT INTO Attendance (class_pk, subject_pk, faculty_pk, student_pk, date, status)
+VALUES
+(3, 1, 1, 11, GETDATE(), 1),
+(3, 1, 1, 12, GETDATE(), 1),
+(3, 1, 1, 13, GETDATE(), 1),
+(3, 1, 1, 14, GETDATE(), 1),
+(3, 1, 1, 15, GETDATE(), 1);
+
+-- Class 3 (students 11–15)
+INSERT INTO Attendance (class_pk, subject_pk, faculty_pk, student_pk, date, status)
+VALUES
+(4, 1, 1, 16, GETDATE(), 1),
+(4, 1, 1, 17, GETDATE(), 1),
+(4, 1, 1, 18, GETDATE(), 1),
+(4, 1, 1, 19, GETDATE(), 1),
+(4, 1, 1, 20, GETDATE(), 1);
+
+-- Class 4 (students 16–20)
+INSERT INTO Attendance (class_pk, subject_pk, faculty_pk, student_pk, date, status)
+VALUES
+(5, 1, 1, 21, GETDATE(), 1),
+(5, 1, 1, 22, GETDATE(), 1),
+(5, 1, 1, 23, GETDATE(), 1),
+(5, 1, 1, 24, GETDATE(), 1),
+(5, 1, 1, 25, GETDATE(), 1);
+
+INSERT INTO AttendanceAggregate (student_pk, subject_pk, semester, faculty_pk, lectures_attended, total_lectures)
+VALUES
+(6, 1, 1, 1, 10, 15),
+(7, 1, 1, 1, 12, 15),
+(8, 1, 1, 1, 11, 15),
+(9, 1, 1, 1, 14, 15),
+(10, 1, 1, 1, 13, 15),
+(11, 1, 1, 1, 9, 15),
+(12, 1, 1, 1, 8, 15),
+(13, 1, 1, 1, 10, 15),
+(14, 1, 1, 1, 7, 15),
+(15, 1, 1, 1, 6, 15),
+(16, 1, 1, 1, 12, 15),
+(17, 1, 1, 1, 11, 15),
+(18, 1, 1, 1, 13, 15),
+(19, 1, 1, 1, 14, 15),
+(20, 1, 1, 1, 10, 15),
+(21, 1, 1, 1, 9, 15),
+(22, 1, 1, 1, 8, 15),
+(23, 1, 1, 1, 7, 15),
+(24, 1, 1, 1, 6, 15),
+(25, 1, 4, 1, 9, 15);

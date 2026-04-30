@@ -61,6 +61,7 @@ Retrieves data from backend APIs.
 post_data(endpoint, payload)  
 Submits new records to backend.'''
 import streamlit as st
+from torch import det
 
 # 1. Page Config
 st.set_page_config(page_title="Campus Portal", page_icon="🎓", layout="wide")
@@ -77,7 +78,8 @@ with st.sidebar:
             "Attendance",
             "MST Exam Creator",
             "MST Exam Marks",
-            "Correction Requests"
+            "Correction Requests",
+            "detain"
         ]
     )
     st.info("Logged in as: Faculty Admin")
@@ -108,6 +110,9 @@ def run_module(choice: str):
     elif choice == "Correction Requests":
         import frontend.faculty.r as r
         r.main()
+    elif choice == "detain":
+        import frontend.faculty.det as det
+        det.show_attendance_ui()
 
 # 4. Main Content Area
 main_container = st.container()

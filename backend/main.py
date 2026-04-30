@@ -76,6 +76,7 @@ import correction
 import admin
 import hod
 import student
+import faculty
 
 app = FastAPI(title="Campus ERP API", version="1.0.0")
 
@@ -92,6 +93,7 @@ app.include_router(admin.router, prefix="/admin", tags=["Admin"])
 app.include_router(hod.router, prefix="/hod", tags=["HOD"])
 app.include_router(student.router, prefix="/student", tags=["Student"])
 app.include_router(login.router, prefix="/auth", tags=["Authentication"])
+app.include_router(faculty.router, prefix="/faculty/attendance/low", tags=["Faculty"])
 @app.get("/")
 def root():
     return {"message": "Campus ERP API is running"}
